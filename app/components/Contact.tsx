@@ -45,6 +45,8 @@ export default function Contact() {
         serviceId,
         templateId,
         {
+          name: formData.get("name"),
+          email: formData.get("email"),
           from_name: formData.get("name"),
           from_email: formData.get("email"),
           project_type: formData.get("projectType"),
