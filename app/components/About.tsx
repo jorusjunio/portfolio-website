@@ -18,8 +18,8 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      initial={{ y: 32 }}
-      whileInView={{ y: 0 }}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="scroll-mt-20 bg-[#111111] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
@@ -27,8 +27,8 @@ export default function About() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <motion.div
-            initial={{ y: 24 }}
-            whileInView={{ y: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
@@ -41,8 +41,8 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={{ y: 24 }}
-            whileInView={{ y: 0 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
             className="lg:pt-11"

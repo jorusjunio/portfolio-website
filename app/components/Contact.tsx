@@ -1,5 +1,7 @@
 "use client";
 
+import { FormEvent, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
 const contactDetails = [
@@ -11,19 +13,74 @@ const contactDetails = [
 const projectTypes = ["Portfolio Website", "Business Website", "Web System"];
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setSubmitMessage({
+        type: "error",
+        text: "Email service is not configured yet. Please try again later.",
+      });
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.get("name"),
+          from_email: formData.get("email"),
+          project_type: formData.get("projectType"),
+          message: formData.get("message"),
+        },
+        { publicKey },
+      );
+
+      form.reset();
+      setSubmitMessage({
+        type: "success",
+        text: "Message sent successfully. I'll get back to you soon.",
+      });
+    } catch {
+      setSubmitMessage({
+        type: "error",
+        text: "Something went wrong while sending your message. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <motion.section
       id="contact"
-      initial={{ y: 32 }}
-      whileInView={{ y: 0 }}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="scroll-mt-20 bg-[#0A0A0A] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <motion.div
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
@@ -63,8 +120,9 @@ export default function Contact() {
         </motion.div>
 
         <motion.form
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="border border-white/10 bg-[#111111] p-6 sm:p-8"
@@ -78,6 +136,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 placeholder="Your name"
+                required
                 className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
               />
             </label>
@@ -90,6 +149,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 placeholder="you@example.com"
+                required
                 className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
               />
             </label>
@@ -102,6 +162,7 @@ export default function Contact() {
             <select
               name="projectType"
               defaultValue=""
+              required
               className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors focus:border-[#00FF87]"
             >
               <option value="" disabled>
@@ -123,23 +184,32 @@ export default function Contact() {
               name="message"
               rows={6}
               placeholder="Tell me about your project..."
+              required
               className="mt-3 w-full resize-none border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
             />
           </label>
 
           <motion.button
             type="submit"
+            disabled={isSubmitting}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-7 py-4 text-sm font-black text-black shadow-[0_0_34px_rgba(0,255,135,0.25)] transition-shadow duration-300 hover:shadow-[0_0_46px_rgba(0,255,135,0.4)] sm:w-auto"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-7 py-4 text-sm font-black text-black shadow-[0_0_34px_rgba(0,255,135,0.25)] transition-shadow duration-300 hover:shadow-[0_0_46px_rgba(0,255,135,0.4)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>
 
-          <p className="mt-5 text-sm leading-6 text-[#888888]">
-            This form is ready for UI. We can connect it later to EmailJS,
-            Formspree, or a custom API route.
-          </p>
+          {submitMessage ? (
+            <p
+              className={`mt-5 text-sm font-semibold leading-6 ${
+                submitMessage.type === "success"
+                  ? "text-[#00FF87]"
+                  : "text-red-400"
+              }`}
+            >
+              {submitMessage.text}
+            </p>
+          ) : null}
         </motion.form>
       </div>
     </motion.section>

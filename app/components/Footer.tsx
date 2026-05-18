@@ -10,24 +10,24 @@ const footerLinks = [
 ];
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "Facebook", href: "https://facebook.com/" },
-  { label: "Email", href: "mailto:jorus.dev@gmail.com" },
+  { label: "GitHub", href: "https://github.com/jorusjunio" },
+  { label: "Facebook", href: "https://www.facebook.com/jorusdev28" },
+  { label: "Email", href: "mailto:jorusjunio28@gmail.com" },
 ];
 
 export default function Footer() {
   return (
     <motion.footer
-      initial={{ y: 32 }}
-      whileInView={{ y: 0 }}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="overflow-hidden bg-[#050505] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
@@ -82,8 +82,8 @@ export default function Footer() {
 
         <div className="relative pt-12">
           <motion.p
-            initial={{ y: 28 }}
-            whileInView={{ y: 0 }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.45 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
             className="select-none whitespace-nowrap text-[clamp(4.2rem,20vw,19rem)] font-black uppercase leading-[0.75] tracking-normal text-white"

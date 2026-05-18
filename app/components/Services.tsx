@@ -30,16 +30,16 @@ export default function Services() {
   return (
     <motion.section
       id="services"
-      initial={{ y: 32 }}
-      whileInView={{ y: 0 }}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="scroll-mt-20 bg-[#0A0A0A] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ y: 20 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex flex-col justify-between gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end"
@@ -64,8 +64,8 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.article
               key={service.title}
-              initial={{ y: 28 }}
-              whileInView={{ y: 0 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ delay: index * 0.08, duration: 0.45, ease: "easeOut" }}

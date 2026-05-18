@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 const stats = [
   { value: "10+", label: "Practice builds" },
@@ -8,10 +8,33 @@ const stats = [
   { value: "2026", label: "Open for freelance" },
 ];
 
+const heroContainer: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.08,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const heroItem: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function Hero() {
   return (
-    <section
+    <motion.section
       id="home"
+      initial="hidden"
+      animate="show"
+      variants={heroContainer}
       className="relative isolate flex min-h-screen overflow-hidden bg-[#0A0A0A] px-5 pt-28 text-white sm:px-8 lg:px-10"
     >
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.18),transparent_32%),linear-gradient(180deg,#0A0A0A_0%,#111111_100%)]" />
@@ -19,33 +42,24 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl items-end gap-12 pb-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20">
         <motion.div
-          initial={{ y: 24 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col justify-end"
         >
           <motion.p
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.05, duration: 0.45, ease: "easeOut" }}
+            variants={heroItem}
             className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]"
           >
             Hey! I&apos;m
           </motion.p>
 
           <motion.h1
-            initial={{ y: 18 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.1, duration: 0.55, ease: "easeOut" }}
+            variants={heroItem}
             className="max-w-5xl text-[clamp(4.8rem,18vw,15rem)] font-black uppercase leading-[0.75] tracking-normal text-white"
           >
             Jorus
           </motion.h1>
 
           <motion.div
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.16, duration: 0.5, ease: "easeOut" }}
+            variants={heroItem}
             className="mt-8 max-w-2xl"
           >
             <p className="text-xl font-semibold text-white sm:text-2xl">
@@ -59,9 +73,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.22, duration: 0.5, ease: "easeOut" }}
+            variants={heroItem}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
             <motion.a
@@ -83,9 +95,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.28, duration: 0.5, ease: "easeOut" }}
+            variants={heroItem}
             className="mt-12 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/10 pt-6"
           >
             {stats.map((stat) => (
@@ -106,8 +116,13 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 28, scale: 0.96 }}
+          animate={{ opacity: 1, y: [0, -10, 0], scale: 1 }}
+          transition={{
+            opacity: { delay: 0.45, duration: 0.7, ease: "easeOut" },
+            scale: { delay: 0.45, duration: 0.7, ease: "easeOut" },
+            y: { delay: 0.8, duration: 5, repeat: Infinity, ease: "easeInOut" },
+          }}
           className="relative hidden min-h-[620px] items-end justify-center lg:flex"
         >
           <div className="absolute bottom-20 h-[440px] w-[440px] rounded-full bg-[#00FF87] opacity-95 shadow-[0_0_120px_rgba(0,255,135,0.32)]" />
@@ -130,6 +145,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
