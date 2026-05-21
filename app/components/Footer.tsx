@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Logo from "./Logo";
 
 const footerLinks = [
   { label: "About", href: "#about" },
+  { label: "Tools", href: "#tools" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -33,7 +35,10 @@ export default function Footer() {
           className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
         >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+            <a href="#home" aria-label="Jorus portfolio home">
+              <Logo />
+            </a>
+            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
               Ready when you are
             </p>
             <h2 className="mt-5 max-w-2xl text-3xl font-black leading-tight tracking-normal text-white sm:text-5xl">

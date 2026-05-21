@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 const contactDetails = [
   { label: "Email", value: "jorusjunio28@gmail.com", href: "mailto:jorusjunio28@gmail.com" },
+  { label: "GitHub", value: "github.com/jorusjunio", href: "https://github.com/jorusjunio" },
   { label: "Location", value: "Philippines", href: null },
   { label: "Availability", value: "Open for freelance projects", href: null },
 ];

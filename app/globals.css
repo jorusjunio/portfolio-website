@@ -43,6 +43,25 @@ textarea {
   color: #000000;
 }
 
+.intro-shell {
+  animation: intro-shell 2.35s ease-in-out forwards;
+}
+
+@keyframes intro-shell {
+  0%,
+  78% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.03);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

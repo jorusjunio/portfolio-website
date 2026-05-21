@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 
 const stats = [
   { value: "10+", label: "Practice builds" },
   { value: "2", label: "Featured systems" },
-  { value: "2026", label: "Open for freelance" },
+  { value: "24h", label: "Typical reply time" },
 ];
 
 const heroContainer: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: {
@@ -20,7 +21,7 @@ const heroContainer: Variants = {
 };
 
 const heroItem: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,
@@ -40,7 +41,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.18),transparent_32%),linear-gradient(180deg,#0A0A0A_0%,#111111_100%)]" />
       <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00FF87]/40 to-transparent" />
 
-      <div className="mx-auto grid w-full max-w-7xl items-end gap-12 pb-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20">
+      <div className="mx-auto grid w-full max-w-7xl items-end gap-14 pb-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-24 lg:pb-20 xl:gap-32">
         <motion.div
           className="flex flex-col justify-end"
         >
@@ -53,7 +54,13 @@ export default function Hero() {
 
           <motion.h1
             variants={heroItem}
-            className="max-w-5xl text-[clamp(4.8rem,18vw,15rem)] font-black uppercase leading-[0.75] tracking-normal text-white"
+            whileHover={{
+              scale: 1.015,
+              textShadow: "0 0 34px rgba(0,255,135,0.22)",
+            }}
+            whileTap={{ scale: 0.99 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="max-w-5xl cursor-default text-[clamp(4.8rem,16vw,13.2rem)] font-black uppercase leading-[0.75] tracking-normal text-white"
           >
             Jorus
           </motion.h1>
@@ -63,7 +70,7 @@ export default function Hero() {
             className="mt-8 max-w-2xl"
           >
             <p className="text-xl font-semibold text-white sm:text-2xl">
-              Web Developer &amp; IT Student
+              Full-Stack IT Student Building Useful Systems
             </p>
             <p className="mt-4 max-w-xl text-base leading-7 text-[#888888] sm:text-lg">
               I build clean, responsive websites and practical web systems for
@@ -116,33 +123,69 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 28, scale: 0.96 }}
-          animate={{ opacity: 1, y: [0, -10, 0], scale: 1 }}
+          initial={{ opacity: 1, y: 0, scale: 1 }}
+          animate={{ opacity: 1, y: [0, -8, 0], scale: 1 }}
           transition={{
             opacity: { delay: 0.45, duration: 0.7, ease: "easeOut" },
             scale: { delay: 0.45, duration: 0.7, ease: "easeOut" },
-            y: { delay: 0.8, duration: 5, repeat: Infinity, ease: "easeInOut" },
+            y: { delay: 0.9, duration: 8, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="relative hidden min-h-[620px] items-end justify-center lg:flex"
+          className="relative flex min-h-[430px] items-end justify-center sm:min-h-[520px] lg:min-h-[620px] lg:justify-end"
         >
-          <div className="absolute bottom-20 h-[440px] w-[440px] rounded-full bg-[#00FF87] opacity-95 shadow-[0_0_120px_rgba(0,255,135,0.32)]" />
-          <div className="absolute bottom-20 h-[440px] w-[440px] rounded-full bg-[linear-gradient(180deg,rgba(0,255,135,0.95)_0%,rgba(0,255,135,0.42)_52%,rgba(10,10,10,0)_100%)]" />
-          <div className="relative z-10 mb-10 w-[360px] border-b border-[#00FF87]/40 pb-1">
-            <div className="h-[470px] rounded-t-[180px] bg-[linear-gradient(160deg,#222_0%,#111_42%,#000_100%)] shadow-2xl" />
-            <div className="absolute left-1/2 top-16 h-28 w-28 -translate-x-1/2 rounded-full bg-[#191919] ring-4 ring-[#0A0A0A]" />
-            <div className="absolute left-1/2 top-44 h-64 w-64 -translate-x-1/2 rounded-t-[120px] bg-[#050505]" />
-            <div className="absolute left-10 top-64 h-36 w-64 -rotate-6 rounded-[36px] border border-white/10 bg-[#111111]/95 p-5 shadow-2xl backdrop-blur">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#00FF87]">
-                Currently crafting
-              </p>
-              <p className="mt-3 text-2xl font-black leading-none text-white">
-                Modern web systems
-              </p>
-              <div className="mt-5 h-1.5 rounded-full bg-white/10">
-                <div className="h-full w-4/5 rounded-full bg-[#00FF87]" />
+          <motion.div
+            whileHover={{ y: -10, rotate: -0.8, scale: 1.015 }}
+            whileTap={{ scale: 0.985 }}
+            transition={{ duration: 0.24, ease: "easeOut" }}
+            className="group relative z-10 mb-8 h-[390px] w-full max-w-[360px] cursor-pointer sm:h-[500px] sm:max-w-[440px] lg:h-[540px] lg:max-w-[500px]"
+          >
+            <div className="absolute -inset-10 bg-[#00FF87]/10 blur-3xl" />
+            <motion.div
+              className="absolute -inset-7 rounded-full border border-[#00FF87]/18 transition-colors duration-300 group-hover:border-[#00FF87]/38"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute inset-4 rounded-full border border-white/8"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute -right-8 top-16 h-52 w-52 rounded-full bg-[#00FF87]/16 blur-3xl"
+              animate={{ scale: [0.9, 1.15, 0.9], opacity: [0.52, 0.92, 0.52] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <div className="absolute left-6 top-6 h-full w-full border border-[#00FF87]/16" />
+
+            <div className="relative h-full overflow-hidden border border-white/12 bg-[#080808] shadow-[0_36px_100px_rgba(0,0,0,0.58)] transition duration-300 group-hover:border-[#00FF87]/50 group-hover:shadow-[0_38px_120px_rgba(0,255,135,0.14)] [clip-path:polygon(0_0,88%_0,100%_12%,100%_100%,12%_100%,0_88%)]">
+              <Image
+                src="/assets/pictures/Formal-me.jpg"
+                alt="Formal portrait of Jorus"
+                fill
+                priority
+                sizes="(min-width: 1024px) 500px, (min-width: 640px) 440px, 90vw"
+                className="scale-[1.02] object-cover object-[50%_34%] saturate-[1.04] contrast-[1.04]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,255,135,0.08)_0%,transparent_24%,transparent_74%,rgba(0,0,0,0.24)_100%)]" />
+              <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.26)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,135,0.18)_1px,transparent_1px)] [background-size:40px_40px]" />
+              <motion.div
+                className="absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-[#00FF87]/14 via-[#00FF87]/5 to-transparent"
+                animate={{ top: ["-6rem", "105%"] }}
+                transition={{ duration: 4.2, repeat: Infinity, ease: [0.42, 0, 0.2, 1], delay: 0.45, repeatDelay: 0.45 }}
+              />
+              <div className="absolute left-0 top-0 h-16 w-16 border-l-2 border-t-2 border-[#00FF87]" />
+              <div className="absolute right-0 top-0 h-16 w-16 border-r-2 border-t-2 border-white/40" />
+              <div className="absolute bottom-0 left-0 h-16 w-16 border-b-2 border-l-2 border-white/35" />
+              <div className="absolute bottom-0 right-0 h-16 w-16 border-b-2 border-r-2 border-[#00FF87]" />
+              <div className="absolute inset-x-8 bottom-8 h-px bg-gradient-to-r from-transparent via-[#00FF87]/80 to-transparent" />
+              <div className="absolute bottom-7 right-7 flex items-center gap-2 border border-white/10 bg-black/54 px-3 py-2 backdrop-blur">
+                <span className="size-2 bg-[#00FF87] shadow-[0_0_16px_rgba(0,255,135,0.8)]" />
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/74">
+                  Available
+                </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>
