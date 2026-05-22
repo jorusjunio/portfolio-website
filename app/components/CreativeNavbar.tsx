@@ -33,8 +33,30 @@ export default function CreativeNavbar() {
     const isSmallViewport = window.innerWidth < 768;
     const offset = isSmallViewport ? 76 : 60;
     const top = window.scrollY + section.getBoundingClientRect().top - offset;
+    const targetTop = Math.max(0, top);
 
-    window.scrollTo({ top: Math.max(0, top), behavior });
+    if (behavior === "auto") {
+      window.scrollTo({ top: targetTop, behavior: "auto" });
+      return true;
+    }
+
+    const startTop = window.scrollY;
+    const distance = targetTop - startTop;
+    const duration = 900;
+    const startTime = performance.now();
+
+    const animateScroll = (time: number) => {
+      const progress = Math.min(1, (time - startTime) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      window.scrollTo(0, startTop + distance * eased);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
     return true;
   };
 
@@ -80,12 +102,9 @@ export default function CreativeNavbar() {
       return;
     }
 
-    if (!scrollToHash(hash)) {
-      return;
-    }
-
     event.preventDefault();
     window.history.pushState(null, "", `/creative#${hash}`);
+    scrollToHash(hash);
     event.currentTarget.closest("details")?.removeAttribute("open");
   };
 

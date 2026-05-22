@@ -19,10 +19,24 @@ const MotionLink = motion.create(Link);
 export default function Navbar() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isProjectPreviewOpen, setIsProjectPreviewOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
   });
+
+  useEffect(() => {
+    const handlePreviewOpen = () => setIsProjectPreviewOpen(true);
+    const handlePreviewClose = () => setIsProjectPreviewOpen(false);
+
+    window.addEventListener("project-preview-open", handlePreviewOpen);
+    window.addEventListener("project-preview-close", handlePreviewClose);
+
+    return () => {
+      window.removeEventListener("project-preview-open", handlePreviewOpen);
+      window.removeEventListener("project-preview-close", handlePreviewClose);
+    };
+  }, []);
 
   const scrollToHash = (hash: string, behavior: ScrollBehavior = "smooth") => {
     const sectionHash = hash === "contact-email" ? "contact" : hash;
@@ -114,8 +128,12 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="fixed inset-x-0 top-0 z-50 px-3 sm:px-5"
-      animate={{ paddingTop: isScrolled ? 8 : 12 }}
+      className={`fixed inset-x-0 top-0 z-50 px-3 sm:px-5 ${
+        isProjectPreviewOpen ? "hidden" : ""
+      }`}
+      animate={{
+        paddingTop: isScrolled ? 8 : 12,
+      }}
       transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.nav

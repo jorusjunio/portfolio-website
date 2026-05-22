@@ -56,12 +56,24 @@ type Project = (typeof projects)[number];
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const openProjectPreview = (project: Project) => {
+    document.body.classList.add("project-preview-open");
+    window.dispatchEvent(new Event("project-preview-open"));
+    setSelectedProject(project);
+  };
+
+  const closeProjectPreview = () => {
+    document.body.classList.remove("project-preview-open");
+    window.dispatchEvent(new Event("project-preview-close"));
+    setSelectedProject(null);
+  };
+
   useEffect(() => {
     if (!selectedProject) return;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setSelectedProject(null);
+        closeProjectPreview();
       }
     };
 
@@ -69,6 +81,8 @@ export default function Projects() {
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
+      document.body.classList.remove("project-preview-open");
+      window.dispatchEvent(new Event("project-preview-close"));
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
@@ -163,7 +177,7 @@ export default function Projects() {
                 <div className="mt-auto grid gap-2.5 pt-4 sm:grid-cols-2">
                   <button
                     type="button"
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() => openProjectPreview(project)}
                     className="inline-flex min-h-9 items-center justify-center border border-[#00FF87] bg-[#00FF87] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-black transition hover:bg-white"
                   >
                     Preview
@@ -185,11 +199,11 @@ export default function Projects() {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-40 flex items-center justify-center bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
+            onClick={closeProjectPreview}
           >
             <motion.div
               role="dialog"
@@ -204,7 +218,7 @@ export default function Projects() {
             >
               <button
                 type="button"
-                onClick={() => setSelectedProject(null)}
+                onClick={closeProjectPreview}
                 aria-label="Close project preview"
                 className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/70 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
               >

@@ -5,6 +5,7 @@ import CreativeNavbar from "../components/CreativeNavbar";
 import Footer from "../components/Footer";
 import IntroAnimation from "../components/IntroAnimation";
 import Reveal from "../components/Reveal";
+import SmoothScroll from "../components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Creative Work | Jorus",
@@ -85,6 +86,7 @@ const showcaseFormats = [
 export default function CreativePage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-[#080808] text-white">
+      <SmoothScroll />
       <IntroAnimation />
       <CreativeNavbar />
 
