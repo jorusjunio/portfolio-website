@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
@@ -15,10 +15,40 @@ const projectTypes = ["Portfolio Website", "Business Website", "Web System"];
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isEmailHighlighted, setIsEmailHighlighted] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{
     type: "success" | "error";
     text: string;
   } | null>(null);
+
+  useEffect(() => {
+    let previousHash = "";
+    let highlightTimeoutId = 0;
+
+    const checkContactEmailHash = () => {
+      const currentHash = window.location.hash;
+
+      if (currentHash === "#contact-email" && currentHash !== previousHash) {
+        window.clearTimeout(highlightTimeoutId);
+        setIsEmailHighlighted(true);
+        highlightTimeoutId = window.setTimeout(() => {
+          setIsEmailHighlighted(false);
+        }, 2000);
+      }
+
+      previousHash = currentHash;
+    };
+
+    checkContactEmailHash();
+    const intervalId = window.setInterval(checkContactEmailHash, 120);
+    window.addEventListener("hashchange", checkContactEmailHash);
+
+    return () => {
+      window.clearInterval(intervalId);
+      window.clearTimeout(highlightTimeoutId);
+      window.removeEventListener("hashchange", checkContactEmailHash);
+    };
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -74,18 +104,18 @@ export default function Contact() {
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="scroll-mt-20 bg-[#0A0A0A] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      viewport={{ once: false, amount: 0.18 }}
+      transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_84%,#050505_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.35 }}
+          transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
             Contact
@@ -99,36 +129,53 @@ export default function Contact() {
             get back to you as soon as I can.
           </p>
 
-          <div className="mt-10 space-y-5 border-t border-white/10 pt-8">
+          <div className="mt-10 grid gap-3 border-t border-white/10 pt-8 sm:grid-cols-2">
             {contactDetails.map((detail) => (
-              <div key={detail.label}>
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#00FF87]">
-                  {detail.label}
-                </p>
+              <motion.div
+                key={detail.label}
+                id={detail.label === "Email" ? "contact-email" : undefined}
+                data-contact-highlight={
+                  isEmailHighlighted && detail.label === "Email"
+                    ? "true"
+                    : undefined
+                }
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.24, ease: "easeOut" }}
+                className="contact-email-target group relative overflow-hidden rounded-lg border border-white/10 bg-[#111111]/72 p-5 shadow-[0_18px_42px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#00FF87]/35"
+              >
+                <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#00FF87]/80 via-[#00FF87]/15 to-transparent opacity-70" />
+                <div className="mb-4 flex items-center justify-between gap-4">
+                  <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#888888]">
+                    {detail.label}
+                  </p>
+                  <span className="size-2 rounded-full bg-[#00FF87]/45 transition duration-300 group-hover:bg-[#00FF87]" />
+                </div>
                 {detail.href ? (
                   <a
                     href={detail.href}
-                    className="mt-2 inline-block text-lg font-bold text-white transition-colors duration-300 hover:text-[#00FF87]"
+                    className="block break-words text-base font-bold leading-6 text-white transition-colors duration-300 hover:text-[#00FF87] sm:text-lg"
                   >
                     {detail.value}
                   </a>
                 ) : (
-                  <p className="mt-2 text-lg font-bold text-white">
+                  <p className="break-words text-base font-bold leading-6 text-white sm:text-lg">
                     {detail.value}
                   </p>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
         <motion.form
+          id="contact-message-card"
+          data-contact-highlight={isEmailHighlighted ? "true" : undefined}
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-          className="border border-white/10 bg-[#111111] p-6 sm:p-8"
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
+          className="border border-white/10 bg-[#111111] p-6 shadow-none transition duration-500 sm:p-8"
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block">
@@ -162,21 +209,26 @@ export default function Contact() {
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#888888]">
               Project Type
             </span>
-            <select
-              name="projectType"
-              defaultValue=""
-              required
-              className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors focus:border-[#00FF87]"
-            >
-              <option value="" disabled>
-                Select a project type
-              </option>
-              {projectTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
+            <div className="group relative mt-3">
+              <select
+                name="projectType"
+                defaultValue=""
+                required
+                className="w-full appearance-none border border-white/10 bg-[#0A0A0A] px-4 py-4 pr-12 text-sm font-semibold text-white outline-none transition duration-300 hover:border-white/25 focus:border-[#00FF87] focus:shadow-[0_0_28px_rgba(0,255,135,0.14)]"
+              >
+                <option value="" disabled>
+                  Select a project type
                 </option>
-              ))}
-            </select>
+                {projectTypes.map((type) => (
+                  <option key={type} value={type} className="bg-[#0A0A0A]">
+                    {type}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-4 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center border border-white/10 bg-white/[0.04] text-[#00FF87] transition duration-300 group-hover:border-[#00FF87]/40 group-focus-within:border-[#00FF87]/70 group-focus-within:bg-[#00FF87]/10">
+                <span className="size-2 rotate-45 border-b-2 border-r-2 border-current" />
+              </span>
+            </div>
           </label>
 
           <label className="mt-5 block">

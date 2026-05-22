@@ -5,53 +5,47 @@ import { motion } from "framer-motion";
 
 const stacks = [
   {
-    title: "Frontend",
-    label: "Interface layer",
+    title: "Web Frontend",
+    label: "Interface builds",
     tools: [
-      { name: "HTML", logo: "/assets/other-logos/HTML5_Badge.svg" },
-      { name: "CSS", logo: "/assets/other-logos/icons8-css-logo.svg" },
-      {
-        name: "JavaScript",
-        logo: "/assets/other-logos/Unofficial_JavaScript_logo_2.svg.png",
-      },
-      {
-        name: "TypeScript",
-        logo: "/assets/other-logos/typescript-design-assets/ts-logo-256.svg",
-      },
-      { name: "React", logo: "/assets/other-logos/React-icon.svg.png" },
-      { name: "Next.js", logo: "/assets/other-logos/icons8-next.js.svg" },
+      { name: "HTML", logo: "/assets/other-logos/html5.svg" },
+      { name: "CSS", logo: "/assets/other-logos/css_old.svg" },
+      { name: "JavaScript", logo: "/assets/other-logos/javascript.svg" },
+      { name: "TypeScript", logo: "/assets/other-logos/typescript.svg" },
+      { name: "React", logo: "/assets/other-logos/React_dark.svg" },
+      { name: "Next.js", logo: "/assets/other-logos/nextjs_icon_dark.svg" },
     ],
   },
   {
-    title: "Styling",
-    label: "Visual systems",
+    title: "Programming & UI",
+    label: "Logic and design",
     tools: [
-      { name: "Tailwind CSS" },
-      { name: "Responsive UI" },
-      { name: "Framer Motion" },
-      { name: "Clean Layouts" },
+      { name: "Python", logo: "/assets/other-logos/python.svg" },
+      { name: "Java", logo: "/assets/other-logos/java.svg" },
+      { name: "Figma", logo: "/assets/other-logos/figma.svg" },
+      { name: "Tailwind CSS", logo: "/assets/other-logos/tailwindcss.svg" },
+      { name: "Framer Motion", logo: "/assets/other-logos/Framer_dark.svg" },
     ],
   },
   {
-    title: "Database",
-    label: "Data layer",
+    title: "Data & Workflow",
+    label: "Build support",
     tools: [
-      { name: "TiDB" },
-      { name: "IBM Db2" },
-      { name: "MongoDB" },
-      { name: "MySQL" },
-      { name: "Neon" },
+      { name: "IBM Db2", logo: "/assets/other-logos/ibm.svg" },
+      { name: "MongoDB", logo: "/assets/other-logos/MongoDB_dark.svg" },
+      { name: "MySQL", logo: "/assets/other-logos/MySQL_dark.svg" },
+      { name: "Neon", logo: "/assets/other-logos/neon.svg" },
+      { name: "Git", logo: "/assets/other-logos/git.svg" },
+      { name: "GitHub", logo: "/assets/other-logos/GitHub_dark.svg" },
     ],
   },
   {
-    title: "Deploy & Workflow",
-    label: "Ship & maintain",
+    title: "Ship & Maintain",
+    label: "Delivery tools",
     tools: [
-      { name: "Git" },
-      { name: "GitHub" },
-      { name: "VS Code" },
-      { name: "Render" },
-      { name: "Netlify" },
+      { name: "VS Code", logo: "/assets/other-logos/vscode.svg" },
+      { name: "Render", logo: "/assets/other-logos/Render_dark.svg" },
+      { name: "Netlify", logo: "/assets/other-logos/netlify.svg" },
     ],
   },
 ];
@@ -68,37 +62,38 @@ export default function ToolStack() {
   return (
     <motion.section
       id="tools"
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="scroll-mt-20 overflow-hidden bg-[#0A0A0A] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      viewport={{ once: false, amount: 0.18 }}
+      transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_86%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: false, amount: 0.35 }}
+            transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
-              Tool Stack
+              Skills & Tool Stack
             </p>
             <h2 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
-              The tools behind my builds.
+              More than web development.
             </h2>
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 }}
+            viewport={{ once: false, amount: 0.35 }}
+            transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
             className="max-w-2xl text-base leading-7 text-[#888888] lg:justify-self-end"
           >
-            I use a practical stack for fast interfaces, clean layouts, and
-            systems that are easy to maintain after launch.
+            I work across frontend builds, programming fundamentals, UI design,
+            databases, and deployment workflows for systems that are practical
+            to build, ship, and maintain.
           </motion.p>
         </div>
 
@@ -110,17 +105,17 @@ export default function ToolStack() {
             {stacks.map((stack, index) => (
               <motion.article
                 key={stack.title}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8, scale: 1.01 }}
                 whileTap={{ scale: 0.985 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{
                   delay: index * 0.07,
-                  duration: 0.45,
-                  ease: "easeOut",
+                  duration: 0.62,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group relative overflow-hidden border border-white/10 bg-[#0f0f0f]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#00FF87]/50 sm:p-6"
+                className="group relative flex h-full flex-col overflow-hidden border border-white/10 bg-[#0f0f0f]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#00FF87]/50 sm:p-6"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,255,135,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#00FF87]/0 to-transparent transition-colors duration-500 group-hover:via-[#00FF87]/70" />
@@ -139,7 +134,7 @@ export default function ToolStack() {
                   </span>
                 </div>
 
-                <div className="mt-7 grid grid-cols-3 gap-2.5">
+                <div className="mb-6 mt-7 grid grid-cols-3 gap-2.5">
                   {stack.tools.map((tool) => (
                     <motion.span
                       key={tool.name}
@@ -169,7 +164,7 @@ export default function ToolStack() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/38">
+                <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/38">
                   <span>{stack.tools.length} tools</span>
                   <span className="text-[#00FF87]/60">Ready</span>
                 </div>

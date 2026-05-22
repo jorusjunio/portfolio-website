@@ -4,9 +4,9 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 
 const stats = [
-  { value: "10+", label: "Practice builds" },
-  { value: "2", label: "Featured systems" },
-  { value: "24h", label: "Typical reply time" },
+  { value: "10+", label: "Digital pieces" },
+  { value: "2+", label: "Core systems" },
+  { value: "3", label: "Main lanes" },
 ];
 
 const heroContainer: Variants = {
@@ -38,7 +38,7 @@ export default function Hero() {
       variants={heroContainer}
       className="relative isolate flex min-h-screen overflow-hidden bg-[#0A0A0A] px-5 pt-28 text-white sm:px-8 lg:px-10"
     >
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.18),transparent_32%),linear-gradient(180deg,#0A0A0A_0%,#111111_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.18),transparent_32%),linear-gradient(180deg,#0A0A0A_0%,#111111_92%,#111111_100%)]" />
       <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00FF87]/40 to-transparent" />
 
       <div className="mx-auto grid w-full max-w-7xl items-end gap-14 pb-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-24 lg:pb-20 xl:gap-32">
@@ -70,12 +70,12 @@ export default function Hero() {
             className="mt-8 max-w-2xl"
           >
             <p className="text-xl font-semibold text-white sm:text-2xl">
-              Full-Stack IT Student Building Useful Systems
+              IT Student Creating Websites, Systems, and Visual Stories
             </p>
             <p className="mt-4 max-w-xl text-base leading-7 text-[#888888] sm:text-lg">
-              I build clean, responsive websites and practical web systems for
-              students, small businesses, and growing local brands in the
-              Philippines.
+              I build clean digital work across web development, practical
+              systems, UI-focused experiences, and cinematic content for
+              students, creators, small businesses, and growing local brands.
             </p>
           </motion.div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center justify-center rounded-full bg-[#00FF87] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(0,255,135,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(0,255,135,0.42)]"
             >
-              View Projects
+              View Work
             </motion.a>
             <motion.a
               href="#contact"

@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 const services = [
   {
     number: "01",
-    title: "Web Development",
+    title: "Websites & Interfaces",
     description:
-      "Modern, responsive portfolio sites, landing pages, and business websites built with clean UI and fast performance in mind.",
-    items: ["Portfolio websites", "Business landing pages", "Responsive UI builds"],
+      "Modern, responsive portfolio sites, landing pages, and visual interfaces built with clean layout and fast performance in mind.",
+    items: ["Portfolio websites", "Business landing pages", "Responsive UI"],
   },
   {
     number: "02",
@@ -19,10 +19,10 @@ const services = [
   },
   {
     number: "03",
-    title: "Maintenance Packages",
+    title: "Creative Visuals",
     description:
-      "Ongoing updates for websites that need content changes, minor fixes, UI improvements, and basic performance cleanup.",
-    items: ["Bug fixes", "Content updates", "UI polish"],
+      "Cinematic editing, filming, and short-form visual direction for creators, school projects, brands, and personal content.",
+    items: ["Cinematic edits", "Filming", "Short-form reels"],
   },
 ];
 
@@ -30,18 +30,18 @@ export default function Services() {
   return (
     <motion.section
       id="services"
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.18 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="scroll-mt-20 bg-[#0A0A0A] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      viewport={{ once: false, amount: 0.18 }}
+      transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_84%,#111111_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.35 }}
+          transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col justify-between gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end"
         >
           <div>
@@ -54,9 +54,9 @@ export default function Services() {
           </div>
 
           <p className="max-w-md text-base leading-7 text-[#888888]">
-            I focus on clean, practical web work for students, creators, and
-            small local businesses that need a strong online presence or a
-            simple system that actually helps day-to-day work.
+            I focus on practical digital work for students, creators, and small
+            local businesses that need a stronger online presence, a useful
+            system, or sharper visual content.
           </p>
         </motion.div>
 
@@ -64,11 +64,11 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.article
               key={service.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ delay: index * 0.08, duration: 0.45, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.35 }}
+              transition={{ delay: index * 0.08, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
               className="group border border-white/10 bg-[#111111] p-6 transition-colors duration-300 hover:border-[#00FF87]/70 sm:p-8"
             >
               <div className="flex items-center justify-between gap-6">

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jorus | Full-Stack IT Student",
+  title: "Jorus | Digital Portfolio",
   description:
-    "Personal portfolio of Jorus, a Filipino full-stack IT student building clean websites and practical web systems.",
+    "Personal portfolio of Jorus, a Filipino IT student creating websites, practical systems, UI work, and cinematic visuals.",
 };
 
 export default function RootLayout({
