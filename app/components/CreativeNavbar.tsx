@@ -2,7 +2,7 @@
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
-import { type MouseEvent, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 import Logo from "./Logo";
 
 const creativeLinks = [
@@ -13,6 +13,7 @@ const creativeLinks = [
 ];
 
 const MotionLink = motion.create(Link);
+const MotionAnchor = motion.a;
 
 export default function CreativeNavbar() {
   const { scrollY } = useScroll();
@@ -21,6 +22,53 @@ export default function CreativeNavbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
   });
+
+  const scrollToHash = (hash: string, behavior: ScrollBehavior = "smooth") => {
+    const section = document.getElementById(hash);
+
+    if (!section) {
+      return false;
+    }
+
+    const isSmallViewport = window.innerWidth < 768;
+    const offset = isSmallViewport ? 76 : 60;
+    const top = window.scrollY + section.getBoundingClientRect().top - offset;
+
+    window.scrollTo({ top: Math.max(0, top), behavior });
+    return true;
+  };
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+
+    if (!hash) {
+      return;
+    }
+
+    let attempts = 0;
+    let frameId = 0;
+    let timeoutId = 0;
+
+    const alignHash = () => {
+      attempts += 1;
+      const didAlign = scrollToHash(hash, "auto");
+
+      if ((didAlign && attempts >= 8) || attempts >= 12) {
+        return;
+      }
+
+      timeoutId = window.setTimeout(() => {
+        frameId = requestAnimationFrame(alignHash);
+      }, 160);
+    };
+
+    frameId = requestAnimationFrame(alignHash);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   const handleSectionLink = (
     href: string,
@@ -32,20 +80,12 @@ export default function CreativeNavbar() {
       return;
     }
 
-    const section = document.getElementById(hash);
-
-    if (!section) {
+    if (!scrollToHash(hash)) {
       return;
     }
 
     event.preventDefault();
-
-    const isSmallViewport = window.innerWidth < 768;
-    const offset = isSmallViewport ? 76 : 60;
-    const top = window.scrollY + section.getBoundingClientRect().top - offset;
-
     window.history.pushState(null, "", `/creative#${hash}`);
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     event.currentTarget.closest("details")?.removeAttribute("open");
   };
 
@@ -98,7 +138,7 @@ export default function CreativeNavbar() {
         >
           {creativeLinks.map((link) => (
             <li key={link.href}>
-              <MotionLink
+              <MotionAnchor
                 href={link.href}
                 onClick={(event) => handleSectionLink(link.href, event)}
                 whileHover={{ y: -1 }}
@@ -116,7 +156,7 @@ export default function CreativeNavbar() {
                 <span className="absolute inset-0 rounded-full bg-white/0 transition duration-300 ease-out group-hover:bg-white/[0.075]" />
                 <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#00FF87]/90 to-transparent transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 <span className="relative">{link.label}</span>
-              </MotionLink>
+              </MotionAnchor>
             </li>
           ))}
         </motion.ul>
