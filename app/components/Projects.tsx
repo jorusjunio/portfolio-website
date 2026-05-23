@@ -45,7 +45,7 @@ const projects: Project[] = [
     summary:
       "A group project showcase covering the dashboard, customer records, authentication screens, and customer management flow.",
     previewLabel: "Customer management workflow",
-    liveUrl: "https://customer-management-system-neu.netlify.app/login",
+    liveUrl: "https://customer-management-system-gamma.vercel.app/login",
     githubUrl: "https://github.com/jorusjunio/Customer-Management-System",
     highlights: [
       "Supabase-powered authentication and protected routes",
