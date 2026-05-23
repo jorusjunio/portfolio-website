@@ -27,6 +27,12 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+html.project-preview-open,
+body.project-preview-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 a {
   text-decoration: none;
 }

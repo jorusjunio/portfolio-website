@@ -19,6 +19,8 @@ export default function SmoothScroll() {
       touchMultiplier: 1.2,
     });
 
+    const stopSmoothScroll = () => lenis.stop();
+    const startSmoothScroll = () => lenis.start();
     let frameId = 0;
 
     const raf = (time: number) => {
@@ -27,8 +29,12 @@ export default function SmoothScroll() {
     };
 
     frameId = requestAnimationFrame(raf);
+    window.addEventListener("project-preview-open", stopSmoothScroll);
+    window.addEventListener("project-preview-close", startSmoothScroll);
 
     return () => {
+      window.removeEventListener("project-preview-open", stopSmoothScroll);
+      window.removeEventListener("project-preview-close", startSmoothScroll);
       cancelAnimationFrame(frameId);
       lenis.destroy();
     };
