@@ -163,16 +163,34 @@ export default function Projects() {
     if (!selectedProject) return;
 
     const scrollY = window.scrollY;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyLeft = document.body.style.left;
+    const previousBodyRight = document.body.style.right;
+    const previousBodyWidth = document.body.style.width;
+
     document.documentElement.classList.add("project-preview-open");
     document.body.classList.add("project-preview-open");
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
     window.dispatchEvent(new Event("project-preview-open"));
 
     return () => {
       document.documentElement.classList.remove("project-preview-open");
       document.body.classList.remove("project-preview-open");
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
+      document.body.style.left = previousBodyLeft;
+      document.body.style.right = previousBodyRight;
+      document.body.style.width = previousBodyWidth;
       window.scrollTo({ top: scrollY, behavior: "auto" });
       requestAnimationFrame(() => {
-        window.dispatchEvent(new Event("project-preview-close"));
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new Event("project-preview-close"));
+        });
       });
     };
   }, [selectedProject]);
@@ -363,7 +381,7 @@ export default function Projects() {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
+            className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
             data-lenis-prevent
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -374,7 +392,7 @@ export default function Projects() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="project-preview-title"
-              className="relative max-h-[92vh] w-full max-w-6xl overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
+              className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
               initial={{ opacity: 0, y: 28, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
