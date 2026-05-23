@@ -424,7 +424,7 @@ export default function Projects() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="project-preview-title"
-              className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
+              className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-x-hidden overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
               initial={{ opacity: 0, y: 28, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -440,8 +440,8 @@ export default function Projects() {
                 x
               </button>
 
-              <div className="grid h-full gap-0 lg:grid-cols-[1.48fr_0.82fr]">
-                <div className="border-b border-white/10 bg-[#111111] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
+              <div className="grid h-full min-w-0 gap-0 overflow-x-hidden lg:grid-cols-[1.48fr_0.82fr]">
+                <div className="min-w-0 border-b border-white/10 bg-[#111111] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
                   <div className="relative min-h-0 flex-1 overflow-hidden border border-[#00FF87]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#101010_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
                     <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/45 px-3 py-2">
                       <div className="flex items-center gap-1.5">
