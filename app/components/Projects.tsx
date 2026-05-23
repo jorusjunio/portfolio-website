@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type Project = {
   number: string;
@@ -82,6 +82,16 @@ type PreviewItem = {
   label: string;
 };
 
+type ScrollLockState = {
+  scrollY: number;
+  previousBodyPosition: string;
+  previousBodyTop: string;
+  previousBodyLeft: string;
+  previousBodyRight: string;
+  previousBodyWidth: string;
+  previousHtmlScrollBehavior: string;
+};
+
 const techLogos: Record<string, { src?: string; alt: string; initials: string }> =
   {
     "Next.js": {
@@ -127,16 +137,68 @@ export default function Projects() {
   const [expandedPreviewIndex, setExpandedPreviewIndex] = useState<
     number | null
   >(null);
+  const scrollLockState = useRef<ScrollLockState | null>(null);
+
+  const restoreProjectPreviewScroll = useCallback(() => {
+    const lockState = scrollLockState.current;
+
+    if (!lockState) return;
+
+    scrollLockState.current = null;
+    document.documentElement.classList.remove("project-preview-open");
+    document.body.classList.remove("project-preview-open");
+    document.body.style.position = lockState.previousBodyPosition;
+    document.body.style.top = lockState.previousBodyTop;
+    document.body.style.left = lockState.previousBodyLeft;
+    document.body.style.right = lockState.previousBodyRight;
+    document.body.style.width = lockState.previousBodyWidth;
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo(0, lockState.scrollY);
+
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior =
+        lockState.previousHtmlScrollBehavior;
+      requestAnimationFrame(() => {
+        window.dispatchEvent(new Event("project-preview-close"));
+      });
+    });
+  }, []);
+
+  const lockProjectPreviewScroll = useCallback(() => {
+    if (scrollLockState.current) return;
+
+    const scrollY = window.scrollY;
+    scrollLockState.current = {
+      scrollY,
+      previousBodyPosition: document.body.style.position,
+      previousBodyTop: document.body.style.top,
+      previousBodyLeft: document.body.style.left,
+      previousBodyRight: document.body.style.right,
+      previousBodyWidth: document.body.style.width,
+      previousHtmlScrollBehavior: document.documentElement.style.scrollBehavior,
+    };
+
+    document.documentElement.classList.add("project-preview-open");
+    document.body.classList.add("project-preview-open");
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    window.dispatchEvent(new Event("project-preview-open"));
+  }, []);
 
   const openProjectPreview = (project: Project) => {
     setExpandedPreviewIndex(null);
+    lockProjectPreviewScroll();
     setSelectedProject(project);
   };
 
   const closeProjectPreview = useCallback(() => {
     setExpandedPreviewIndex(null);
+    restoreProjectPreviewScroll();
     setSelectedProject(null);
-  }, []);
+  }, [restoreProjectPreviewScroll]);
 
   useEffect(() => {
     if (!selectedProject) return;
@@ -162,38 +224,8 @@ export default function Projects() {
   useEffect(() => {
     if (!selectedProject) return;
 
-    const scrollY = window.scrollY;
-    const previousBodyPosition = document.body.style.position;
-    const previousBodyTop = document.body.style.top;
-    const previousBodyLeft = document.body.style.left;
-    const previousBodyRight = document.body.style.right;
-    const previousBodyWidth = document.body.style.width;
-
-    document.documentElement.classList.add("project-preview-open");
-    document.body.classList.add("project-preview-open");
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    window.dispatchEvent(new Event("project-preview-open"));
-
-    return () => {
-      document.documentElement.classList.remove("project-preview-open");
-      document.body.classList.remove("project-preview-open");
-      document.body.style.position = previousBodyPosition;
-      document.body.style.top = previousBodyTop;
-      document.body.style.left = previousBodyLeft;
-      document.body.style.right = previousBodyRight;
-      document.body.style.width = previousBodyWidth;
-      window.scrollTo({ top: scrollY, behavior: "auto" });
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          window.dispatchEvent(new Event("project-preview-close"));
-        });
-      });
-    };
-  }, [selectedProject]);
+    return restoreProjectPreviewScroll;
+  }, [restoreProjectPreviewScroll, selectedProject]);
 
   const previewItems = useMemo(() => {
     if (!selectedProject) return [];
