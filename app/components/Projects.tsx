@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Project = {
   number: string;
@@ -410,8 +411,10 @@ export default function Projects() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {selectedProject && (
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {selectedProject && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
             data-lenis-prevent
@@ -719,8 +722,10 @@ export default function Projects() {
               )}
             </motion.div>
           </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
         )}
-      </AnimatePresence>
     </motion.section>
   );
 }
