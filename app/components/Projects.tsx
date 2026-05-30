@@ -33,7 +33,7 @@ const projects: Project[] = [
       "A React and Supabase web system for managing customer records, access rights, authentication, and customer workflows.",
     tags: ["React", "Supabase", "Customer Records"],
     image: "/assets/projects/cms-images-ss/dashboard-page.png",
-    video: "/assets/projects/mp4/dashboard.mp4",
+    video: "/assets/projects/mp4-cms/dashboard.mp4",
     gallery: [
       "/assets/projects/cms-images-ss/dashboard-page.png",
       "/assets/projects/cms-images-ss/customer-page.png",
@@ -58,24 +58,33 @@ const projects: Project[] = [
   },
   {
     number: "02",
-    title: "Library Management System",
-    type: "School System",
+    title: "NEU Library System",
+    type: "Full-Stack System",
     description:
-      "A library workflow project for tracking books, borrowers, returns, and basic inventory details with a clean admin-focused interface.",
-    tags: ["Inventory", "Borrowers", "Admin UI"],
-    role: "School system concept",
-    summary:
-      "A preview of the admin flow for managing books, borrowers, and return activity in one focused interface.",
-    previewLabel: "Library admin workflow",
-    liveUrl: "#",
-    githubUrl: "#",
-    highlights: [
-      "Book inventory for titles, status, and availability",
-      "Borrower records for active lending activity",
-      "Return tracking for simple library operations",
+      "A Next.js library kiosk and admin dashboard for visitor check-ins, visit logs, analytics, CSV/PDF exports, and visitor access control.",
+    tags: ["Next.js", "Prisma", "Neon"],
+    image: "/assets/projects/neu-library-images-ss/dashboard.png",
+    video: "/assets/projects/mp4-library/testing-entrance.mp4",
+    gallery: [
+      "/assets/projects/neu-library-images-ss/dashboard.png",
+      "/assets/projects/neu-library-images-ss/visitors.png",
+      "/assets/projects/neu-library-images-ss/settings.png",
+      "/assets/projects/neu-library-images-ss/entrance.png",
+      "/assets/projects/neu-library-images-ss/login.png",
     ],
-    tech: ["Next.js", "React", "Tailwind CSS"],
-    demoSteps: ["Book inventory", "Borrower record", "Return update"],
+    role: "Full-stack Developer",
+    summary:
+      "A practice full-stack library system for NEU-style visitor logging, with a public entrance screen, credentials-based admin access, dashboard analytics, and export workflows.",
+    previewLabel: "Library visitor workflow",
+    liveUrl: "https://neu-library-system-tau.vercel.app/entrance",
+    githubUrl: "https://github.com/jorusjunio/Neu-Library-System",
+    highlights: [
+      "Public entrance lookup and check-in flow with blocked visitor handling",
+      "Admin dashboard with visit trends, hourly activity, top colleges, and visitor rankings",
+      "CSV and PDF export cards for visitor logs, top visitors, and visitor records",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Prisma", "Neon"],
+    demoSteps: ["Entrance kiosk", "Dashboard analytics", "Export settings"],
   },
 ];
 type PreviewItem = {
@@ -114,6 +123,20 @@ const techLogos: Record<string, { src?: string; alt: string; initials: string }>
       src: "/assets/other-logos/supabase.svg",
       alt: "Supabase logo",
       initials: "SB",
+    },
+    TypeScript: {
+      src: "/assets/other-logos/typescript.svg",
+      alt: "TypeScript logo",
+      initials: "TS",
+    },
+    Prisma: {
+      initials: "PR",
+      alt: "Prisma logo",
+    },
+    Neon: {
+      src: "/assets/other-logos/neon.svg",
+      alt: "Neon logo",
+      initials: "NE",
     },
     Vite: {
       src: "/assets/other-logos/vite.svg",
