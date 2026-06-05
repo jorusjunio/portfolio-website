@@ -86,6 +86,27 @@ const projects: Project[] = [
     tech: ["Next.js", "React", "TypeScript", "Prisma", "Neon"],
     demoSteps: ["Entrance kiosk", "Dashboard analytics", "Export settings"],
   },
+  {
+    number: "03",
+    title: "Kanto Burger Go",
+    type: "Ongoing Project",
+    description:
+      "An ongoing burger-ordering web app for fast checkout, order tracking, and rider coordination in a mobile-first experience.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    role: "Full-stack Developer",
+    summary:
+      "A live burger delivery and order management platform designed for quick menu browsing, simple order flow, and real-time rider updates.",
+    previewLabel: "Ongoing order and delivery flow",
+    liveUrl: "#",
+    githubUrl: "#",
+    highlights: [
+      "Fast burger ordering with menu customization and add-ons",
+      "Real-time order status display for customers and riders",
+      "Mobile-friendly checkout flow built for quick conversions",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    demoSteps: ["Menu browsing", "Checkout flow", "Order tracking"],
+  },
 ];
 type PreviewItem = {
   src: string;
@@ -438,313 +459,313 @@ export default function Projects() {
         createPortal(
           <AnimatePresence>
             {selectedProject && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
-            data-lenis-prevent
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeProjectPreview}
-          >
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="project-preview-title"
-              className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-x-hidden overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
-              initial={{ opacity: 0, y: 28, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.98 }}
-              transition={{ duration: 0.24, ease: "easeOut" }}
-              onClick={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
+              <motion.div
+                className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-black/82 px-4 py-6 backdrop-blur-sm sm:px-6"
+                data-lenis-prevent
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 onClick={closeProjectPreview}
-                aria-label="Close project preview"
-                className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/70 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
               >
-                x
-              </button>
-
-              <div className="grid h-full min-w-0 gap-0 overflow-x-hidden lg:grid-cols-[1.48fr_0.82fr]">
-                <div className="min-w-0 border-b border-white/10 bg-[#111111] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
-                  <div className="relative min-h-0 flex-1 overflow-hidden border border-[#00FF87]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#101010_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
-                    <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/45 px-3 py-2">
-                      <div className="flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                        <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                        <span className="h-2 w-2 rounded-full bg-[#28c840]" />
-                      </div>
-                      <span className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-white/46">
-                        Screenshot Preview
-                      </span>
-                    </div>
-
-                    <div className="relative aspect-[16/9] overflow-hidden border border-white/10 bg-black lg:h-[calc(100%-2.25rem)] lg:min-h-0 lg:aspect-auto">
-                      {selectedProject.video ? (
-                        <video
-                          src={selectedProject.video}
-                          className="h-full w-full object-cover"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="metadata"
-                        />
-                      ) : mainPreview ? (
-                        <Image
-                          src={mainPreview.src}
-                          alt={mainPreview.label}
-                          fill
-                          sizes="(min-width: 1024px) 60vw, 100vw"
-                          className="object-cover"
-                          priority
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#101010_0%,#181818_55%,#0A0A0A_100%)] px-10 text-center">
-                          <span className="max-w-sm text-2xl font-black uppercase tracking-[0.16em] text-white/72">
-                            {selectedProject.title}
-                          </span>
-                        </div>
-                      )}
-                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.62)_100%)]" />
-                    </div>
-
-                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                      <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00FF87]">
-                        {selectedProject.previewLabel}
-                      </p>
-                      <div className="mt-3 grid gap-2 sm:grid-cols-3">
-                        {selectedProject.demoSteps.map((step, index) => (
-                          <motion.div
-                            key={step}
-                            className="border border-white/12 bg-black/72 p-3"
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              delay: 0.12 + index * 0.08,
-                              duration: 0.35,
-                              ease: "easeOut",
-                            }}
-                          >
-                            <span className="text-[11px] font-black text-white/50">
-                              0{index + 1}
-                            </span>
-                            <p className="mt-1.5 text-sm font-black text-white">
-                              {step}
-                            </p>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {previewItems.length > 0 && (
-                    <div className="mt-2 border border-white/10 bg-black/35 p-2">
-                      <div className="mb-2 flex items-center justify-between gap-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00FF87]">
-                          Screenshots
-                        </p>
-                        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
-                          Click to view
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
-                        {previewItems.map((item, index) => (
-                          <button
-                            type="button"
-                            key={item.src}
-                            onClick={() => setExpandedPreviewIndex(index)}
-                            aria-label={`Open ${item.label}`}
-                            className="group relative aspect-video overflow-hidden border border-white/10 bg-black transition hover:border-[#00FF87]"
-                          >
-                            <Image
-                              src={item.src}
-                              alt={item.label}
-                              fill
-                              sizes="(min-width: 1024px) 8vw, 28vw"
-                              className="object-cover opacity-85 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
-                            />
-                            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-black/70 px-1.5 py-1 text-left text-[8px] font-black uppercase tracking-[0.08em] text-white/76 opacity-0 transition group-hover:opacity-100">
-                              {item.label}
-                            </span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex min-h-full flex-col overflow-hidden p-5 sm:p-6 lg:p-6">
-                  <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00FF87]">
-                    {selectedProject.role}
-                  </p>
-                  <h3
-                    id="project-preview-title"
-                    className="mt-2.5 text-3xl font-black leading-tight text-white lg:text-[2rem]"
-                  >
-                    {selectedProject.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-5 text-[#A0A0A0]">
-                    {selectedProject.summary}
-                  </p>
-
-                  <div className="mt-5">
-                    <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
-                      Highlights
-                    </h4>
-                    <div className="mt-2.5 grid gap-2">
-                      {selectedProject.highlights.map((highlight) => (
-                        <div
-                          key={highlight}
-                          className="border border-white/10 bg-white/[0.03] p-2.5 text-[13px] leading-5 text-white/82"
-                        >
-                          {highlight}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-5">
-                    <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
-                      Tech Stack
-                    </h4>
-                    <div className="mt-2.5 flex flex-wrap gap-1.5">
-                      {selectedProject.tech.map((item) => (
-                        <span
-                          key={item}
-                          tabIndex={0}
-                          className="group relative overflow-hidden border border-white/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white/75 outline-none transition hover:border-[#00FF87]/70 hover:text-white focus-visible:border-[#00FF87]/70 focus-visible:text-white"
-                        >
-                          <span className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 transition duration-200 group-hover:opacity-20 group-focus-visible:opacity-20">
-                            {techLogos[item]?.src ? (
-                              <Image
-                                src={techLogos[item].src}
-                                alt=""
-                                width={30}
-                                height={30}
-                                aria-hidden="true"
-                                className="max-h-8 max-w-8 object-contain"
-                              />
-                            ) : (
-                              <span className="text-sm font-black tracking-normal text-[#00FF87]">
-                                {techLogos[item]?.initials ?? item.slice(0, 2)}
-                              </span>
-                            )}
-                          </span>
-                          <span className="relative z-10">{item}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-auto flex flex-wrap justify-end gap-2.5 pt-6">
-                    <a
-                      href={selectedProject.liveUrl}
-                      aria-disabled={selectedProject.liveUrl === "#"}
-                      className="border border-[#00FF87] bg-[#00FF87] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-white"
-                    >
-                      Live Demo
-                    </a>
-                    <a
-                      href={selectedProject.githubUrl}
-                      aria-disabled={selectedProject.githubUrl === "#"}
-                      className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {expandedPreview && (
-                <div
-                  className="absolute inset-0 z-20 grid place-items-center bg-black/92 p-4 backdrop-blur-sm sm:p-6"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setExpandedPreviewIndex(null);
-                  }}
+                <motion.div
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="project-preview-title"
+                  className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-x-hidden overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
+                  initial={{ opacity: 0, y: 28, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 20, scale: 0.98 }}
+                  transition={{ duration: 0.24, ease: "easeOut" }}
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <button
                     type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setExpandedPreviewIndex(null);
-                    }}
-                    aria-label="Close enlarged preview"
-                    className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/80 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                    onClick={closeProjectPreview}
+                    aria-label="Close project preview"
+                    className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/70 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
                   >
                     x
                   </button>
 
-                  <div
-                    className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#00FF87]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_32%),linear-gradient(135deg,#050505_0%,#101010_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
-                    onClick={(event) => event.stopPropagation()}
-                  >
-                    <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/60 px-3 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                        <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                        <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                  <div className="grid h-full min-w-0 gap-0 overflow-x-hidden lg:grid-cols-[1.48fr_0.82fr]">
+                    <div className="min-w-0 border-b border-white/10 bg-[#111111] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
+                      <div className="relative min-h-0 flex-1 overflow-hidden border border-[#00FF87]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#101010_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
+                        <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/45 px-3 py-2">
+                          <div className="flex items-center gap-1.5">
+                            <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                            <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                            <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                          </div>
+                          <span className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-white/46">
+                            Screenshot Preview
+                          </span>
+                        </div>
+
+                        <div className="relative aspect-[16/9] overflow-hidden border border-white/10 bg-black lg:h-[calc(100%-2.25rem)] lg:min-h-0 lg:aspect-auto">
+                          {selectedProject.video ? (
+                            <video
+                              src={selectedProject.video}
+                              className="h-full w-full object-cover"
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              preload="metadata"
+                            />
+                          ) : mainPreview ? (
+                            <Image
+                              src={mainPreview.src}
+                              alt={mainPreview.label}
+                              fill
+                              sizes="(min-width: 1024px) 60vw, 100vw"
+                              className="object-cover"
+                              priority
+                            />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#101010_0%,#181818_55%,#0A0A0A_100%)] px-10 text-center">
+                              <span className="max-w-sm text-2xl font-black uppercase tracking-[0.16em] text-white/72">
+                                {selectedProject.title}
+                              </span>
+                            </div>
+                          )}
+                          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.62)_100%)]" />
+                        </div>
+
+                        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00FF87]">
+                            {selectedProject.previewLabel}
+                          </p>
+                          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+                            {selectedProject.demoSteps.map((step, index) => (
+                              <motion.div
+                                key={step}
+                                className="border border-white/12 bg-black/72 p-3"
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                  delay: 0.12 + index * 0.08,
+                                  duration: 0.35,
+                                  ease: "easeOut",
+                                }}
+                              >
+                                <span className="text-[11px] font-black text-white/50">
+                                  0{index + 1}
+                                </span>
+                                <p className="mt-1.5 text-sm font-black text-white">
+                                  {step}
+                                </p>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <div className="min-w-0 text-right">
-                        <p className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-[#00FF87]">
-                          {expandedPreview.label}
-                        </p>
-                        <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
-                          {expandedPreviewNumber} / {previewItems.length}
-                        </p>
-                      </div>
+
+                      {previewItems.length > 0 && (
+                        <div className="mt-2 border border-white/10 bg-black/35 p-2">
+                          <div className="mb-2 flex items-center justify-between gap-3">
+                            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00FF87]">
+                              Screenshots
+                            </p>
+                            <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
+                              Click to view
+                            </p>
+                          </div>
+                          <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
+                            {previewItems.map((item, index) => (
+                              <button
+                                type="button"
+                                key={item.src}
+                                onClick={() => setExpandedPreviewIndex(index)}
+                                aria-label={`Open ${item.label}`}
+                                className="group relative aspect-video overflow-hidden border border-white/10 bg-black transition hover:border-[#00FF87]"
+                              >
+                                <Image
+                                  src={item.src}
+                                  alt={item.label}
+                                  fill
+                                  sizes="(min-width: 1024px) 8vw, 28vw"
+                                  className="object-cover opacity-85 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
+                                />
+                                <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-black/70 px-1.5 py-1 text-left text-[8px] font-black uppercase tracking-[0.08em] text-white/76 opacity-0 transition group-hover:opacity-100">
+                                  {item.label}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    <div className="relative h-[calc(100%-2.55rem)] overflow-hidden border border-white/10 bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025)]">
-                      <Image
-                        src={expandedPreview.src}
-                        alt={expandedPreview.label}
-                        fill
-                        sizes="90vw"
-                        className="object-contain"
-                        priority
-                      />
+                    <div className="flex min-h-full flex-col overflow-hidden p-5 sm:p-6 lg:p-6">
+                      <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00FF87]">
+                        {selectedProject.role}
+                      </p>
+                      <h3
+                        id="project-preview-title"
+                        className="mt-2.5 text-3xl font-black leading-tight text-white lg:text-[2rem]"
+                      >
+                        {selectedProject.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-5 text-[#A0A0A0]">
+                        {selectedProject.summary}
+                      </p>
 
-                      {previewItems.length > 1 && (
-                        <>
-                          <button
-                            type="button"
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              showPreviousPreview();
-                            }}
-                            aria-label="Show previous screenshot"
-                            className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
-                          >
-                            &lt;
-                          </button>
-                          <button
-                            type="button"
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              showNextPreview();
-                            }}
-                            aria-label="Show next screenshot"
-                            className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
-                          >
-                            &gt;
-                          </button>
-                        </>
-                      )}
+                      <div className="mt-5">
+                        <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
+                          Highlights
+                        </h4>
+                        <div className="mt-2.5 grid gap-2">
+                          {selectedProject.highlights.map((highlight) => (
+                            <div
+                              key={highlight}
+                              className="border border-white/10 bg-white/[0.03] p-2.5 text-[13px] leading-5 text-white/82"
+                            >
+                              {highlight}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.78))] px-4 pb-4 pt-12">
-                        <p className="max-w-2xl text-xs font-black uppercase tracking-[0.16em] text-white/82">
-                          {expandedPreview.label}
-                        </p>
+                      <div className="mt-5">
+                        <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
+                          Tech Stack
+                        </h4>
+                        <div className="mt-2.5 flex flex-wrap gap-1.5">
+                          {selectedProject.tech.map((item) => (
+                            <span
+                              key={item}
+                              tabIndex={0}
+                              className="group relative overflow-hidden border border-white/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white/75 outline-none transition hover:border-[#00FF87]/70 hover:text-white focus-visible:border-[#00FF87]/70 focus-visible:text-white"
+                            >
+                              <span className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 transition duration-200 group-hover:opacity-20 group-focus-visible:opacity-20">
+                                {techLogos[item]?.src ? (
+                                  <Image
+                                    src={techLogos[item].src}
+                                    alt=""
+                                    width={30}
+                                    height={30}
+                                    aria-hidden="true"
+                                    className="max-h-8 max-w-8 object-contain"
+                                  />
+                                ) : (
+                                  <span className="text-sm font-black tracking-normal text-[#00FF87]">
+                                    {techLogos[item]?.initials ?? item.slice(0, 2)}
+                                  </span>
+                                )}
+                              </span>
+                              <span className="relative z-10">{item}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mt-auto flex flex-wrap justify-end gap-2.5 pt-6">
+                        <a
+                          href={selectedProject.liveUrl}
+                          aria-disabled={selectedProject.liveUrl === "#"}
+                          className="border border-[#00FF87] bg-[#00FF87] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-white"
+                        >
+                          Live Demo
+                        </a>
+                        <a
+                          href={selectedProject.githubUrl}
+                          aria-disabled={selectedProject.githubUrl === "#"}
+                          className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                        >
+                          GitHub
+                        </a>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
+
+                  {expandedPreview && (
+                    <div
+                      className="absolute inset-0 z-20 grid place-items-center bg-black/92 p-4 backdrop-blur-sm sm:p-6"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setExpandedPreviewIndex(null);
+                      }}
+                    >
+                      <button
+                        type="button"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setExpandedPreviewIndex(null);
+                        }}
+                        aria-label="Close enlarged preview"
+                        className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/80 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                      >
+                        x
+                      </button>
+
+                      <div
+                        className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#00FF87]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_32%),linear-gradient(135deg,#050505_0%,#101010_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/60 px-3 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                          <div className="flex items-center gap-1.5">
+                            <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                            <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                            <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                          </div>
+                          <div className="min-w-0 text-right">
+                            <p className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-[#00FF87]">
+                              {expandedPreview.label}
+                            </p>
+                            <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
+                              {expandedPreviewNumber} / {previewItems.length}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="relative h-[calc(100%-2.55rem)] overflow-hidden border border-white/10 bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025)]">
+                          <Image
+                            src={expandedPreview.src}
+                            alt={expandedPreview.label}
+                            fill
+                            sizes="90vw"
+                            className="object-contain"
+                            priority
+                          />
+
+                          {previewItems.length > 1 && (
+                            <>
+                              <button
+                                type="button"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  showPreviousPreview();
+                                }}
+                                aria-label="Show previous screenshot"
+                                className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
+                              >
+                                &lt;
+                              </button>
+                              <button
+                                type="button"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  showNextPreview();
+                                }}
+                                aria-label="Show next screenshot"
+                                className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
+                              >
+                                &gt;
+                              </button>
+                            </>
+                          )}
+
+                          <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.78))] px-4 pb-4 pt-12">
+                            <p className="max-w-2xl text-xs font-black uppercase tracking-[0.16em] text-white/82">
+                              {expandedPreview.label}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              </motion.div>
             )}
           </AnimatePresence>,
           document.body,

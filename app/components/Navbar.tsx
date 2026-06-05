@@ -11,7 +11,6 @@ const navLinks = [
   { label: "Services", href: "/#services" },
   { label: "Projects", href: "/#projects" },
   { label: "Creative", href: "/#creative" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 const MotionLink = motion.create(Link);
