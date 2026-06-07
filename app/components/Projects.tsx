@@ -32,8 +32,7 @@ const projects: Project[] = [
     description:
       "A React and Supabase web system for managing customer records, access rights, authentication, and customer workflows.",
     tags: ["React", "Supabase", "Customer Records"],
-    image: "/assets/projects/cms-images-ss/dashboard-page.png",
-    video: "/assets/projects/mp4-cms/dashboard.mp4",
+    image: "/assets/projects/thumbnails/cms-thumbnail.png",
     gallery: [
       "/assets/projects/cms-images-ss/dashboard-page.png",
       "/assets/projects/cms-images-ss/customer-page.png",
@@ -63,8 +62,7 @@ const projects: Project[] = [
     description:
       "A Next.js library kiosk and admin dashboard for visitor check-ins, visit logs, analytics, CSV/PDF exports, and visitor access control.",
     tags: ["Next.js", "Prisma", "Neon"],
-    image: "/assets/projects/neu-library-images-ss/dashboard.png",
-    video: "/assets/projects/mp4-library/testing-entrance.mp4",
+    image: "/assets/projects/thumbnails/neu-library-thumbnail.png",
     gallery: [
       "/assets/projects/neu-library-images-ss/dashboard.png",
       "/assets/projects/neu-library-images-ss/visitors.png",
@@ -298,6 +296,21 @@ export default function Projects() {
 
     return items;
   }, [selectedProject]);
+
+  const previewScrollRef = useRef<HTMLDivElement | null>(null);
+
+  const onPreviewScrollWheel = useCallback(
+    (event: React.WheelEvent<HTMLDivElement>) => {
+      if (!previewScrollRef.current) return;
+
+      event.preventDefault();
+      previewScrollRef.current.scrollBy({
+        left: event.deltaY || event.deltaX,
+        behavior: "smooth",
+      });
+    },
+    [],
+  );
 
   const mainPreview = previewItems[0];
   const expandedPreview =
@@ -570,22 +583,29 @@ export default function Projects() {
                               Click to view
                             </p>
                           </div>
-                          <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
+                          <div
+                            ref={previewScrollRef}
+                            onWheel={onPreviewScrollWheel}
+                            className="flex gap-1.5 overflow-x-auto pb-1"
+                            style={{ scrollbarWidth: "thin", scrollbarColor: "#2a2a2a #050505" }}
+                          >
                             {previewItems.map((item, index) => (
                               <button
                                 type="button"
                                 key={item.src}
                                 onClick={() => setExpandedPreviewIndex(index)}
                                 aria-label={`Open ${item.label}`}
-                                className="group relative aspect-video overflow-hidden border border-white/10 bg-black transition hover:border-[#00FF87]"
+                                className="group relative w-[160px] flex-shrink-0 overflow-hidden border border-white/10 bg-black transition hover:border-[#00FF87]"
                               >
-                                <Image
-                                  src={item.src}
-                                  alt={item.label}
-                                  fill
-                                  sizes="(min-width: 1024px) 8vw, 28vw"
-                                  className="object-cover opacity-85 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
-                                />
+                                <div className="aspect-video relative w-full">
+                                  <Image
+                                    src={item.src}
+                                    alt={item.label}
+                                    fill
+                                    sizes="(min-width: 1024px) 8vw, 28vw"
+                                    className="object-cover opacity-85 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
+                                  />
+                                </div>
                                 <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-black/70 px-1.5 py-1 text-left text-[8px] font-black uppercase tracking-[0.08em] text-white/76 opacity-0 transition group-hover:opacity-100">
                                   {item.label}
                                 </span>

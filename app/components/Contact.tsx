@@ -11,7 +11,12 @@ const contactDetails = [
   { label: "Availability", value: "Open for freelance projects", href: null },
 ];
 
-const projectTypes = ["Portfolio Website", "Business Website", "Web System"];
+const projectTypes = [
+  "Portfolio Website",
+  "Business Website",
+  "Web System",
+  "Other (Filming, Cinematic Editing, Custom Work, etc.)",
+];
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -108,9 +113,9 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_84%,#050505_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#090a09_0%,#090a09_84%,#040504_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,16 +125,16 @@ export default function Contact() {
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
             Contact
           </p>
-          <h2 className="mt-5 max-w-xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 max-w-xl text-3xl font-black leading-tight tracking-normal text-white sm:text-4xl lg:text-5xl">
             Let&apos;s build something useful together.
           </h2>
-          <p className="mt-6 max-w-lg text-base leading-7 text-[#888888]">
-            Have a website idea, school system, or small business workflow you
-            want to turn into a clean web experience? Send the details and I&apos;ll
-            get back to you as soon as I can.
+          <p className="mt-5 max-w-xl text-sm leading-6 text-[#b0b0b0]">
+            Have an idea for a website, system, creative project, or filming/editing
+            request? Share the details below and I&apos;ll get back to you as soon
+            as I can.
           </p>
 
-          <div className="mt-10 grid gap-3 border-t border-white/10 pt-8 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
             {contactDetails.map((detail) => (
               <motion.div
                 key={detail.label}
@@ -141,24 +146,24 @@ export default function Contact() {
                 }
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.24, ease: "easeOut" }}
-                className="contact-email-target group relative overflow-hidden rounded-lg border border-white/10 bg-[#111111]/72 p-5 shadow-[0_18px_42px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#00FF87]/35"
+                className="contact-email-target group relative overflow-hidden border border-white/10 bg-[#0f1310]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#00FF87]/35"
               >
                 <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#00FF87]/80 via-[#00FF87]/15 to-transparent opacity-70" />
                 <div className="mb-4 flex items-center justify-between gap-4">
-                  <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#888888]">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-[#a0f7c0]">
                     {detail.label}
                   </p>
-                  <span className="size-2 rounded-full bg-[#00FF87]/45 transition duration-300 group-hover:bg-[#00FF87]" />
+                  <span className="h-3 w-3 rounded-full bg-[#00FF87]/70 transition duration-300 group-hover:bg-[#00FF87]" />
                 </div>
                 {detail.href ? (
                   <a
                     href={detail.href}
-                    className="block break-words text-base font-bold leading-6 text-white transition-colors duration-300 hover:text-[#00FF87] sm:text-lg"
+                    className="block break-words text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:text-[#00FF87] sm:text-base"
                   >
                     {detail.value}
                   </a>
                 ) : (
-                  <p className="break-words text-base font-bold leading-6 text-white sm:text-lg">
+                  <p className="break-words text-sm font-semibold leading-6 text-white sm:text-base">
                     {detail.value}
                   </p>
                 )}
@@ -175,7 +180,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
-          className="border border-white/10 bg-[#111111] p-6 shadow-none transition duration-500 sm:p-8"
+          className="border border-white/10 bg-[#0f1310] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-500 sm:p-6"
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block">
@@ -187,7 +192,7 @@ export default function Contact() {
                 name="name"
                 placeholder="Your name"
                 required
-                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
+                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
               />
             </label>
 
@@ -200,14 +205,14 @@ export default function Contact() {
                 name="email"
                 placeholder="you@example.com"
                 required
-                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
+                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
               />
             </label>
           </div>
 
           <label className="mt-5 block">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#888888]">
-              Project Type
+              Project / Service Type
             </span>
             <div className="group relative mt-3">
               <select
@@ -237,10 +242,10 @@ export default function Contact() {
             </span>
             <textarea
               name="message"
-              rows={6}
+              rows={5}
               placeholder="Tell me about your project..."
               required
-              className="mt-3 w-full resize-none border border-white/10 bg-[#0A0A0A] px-4 py-4 text-sm text-white outline-none transition-colors placeholder:text-[#555555] focus:border-[#00FF87]"
+              className="mt-3 w-full resize-none border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
             />
           </label>
 
@@ -249,7 +254,7 @@ export default function Contact() {
             disabled={isSubmitting}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-7 py-4 text-sm font-black text-black shadow-[0_0_34px_rgba(0,255,135,0.25)] transition-shadow duration-300 hover:shadow-[0_0_46px_rgba(0,255,135,0.4)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-6 py-3 text-sm font-black text-black transition duration-300 hover:bg-[#00e36d] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>
