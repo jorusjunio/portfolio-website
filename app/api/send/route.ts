@@ -31,6 +31,11 @@ export async function POST(request: Request) {
               </td>
             </tr>
           </table>
+
+          <div style="margin-top: 40px; font-size:0; line-height:0; width:100%;">
+            <div style="height:4px; background-color:#00ff87; width:100%;"></div>
+            <div style="height:12px; background: linear-gradient(180deg, rgba(0, 255, 135, 0.35) 0%, rgba(0, 255, 135, 0) 100%); width:100%;"></div>
+          </div>
         </div>
       `,
     });
