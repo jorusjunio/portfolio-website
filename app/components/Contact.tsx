@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
 const contactDetails = [
@@ -58,18 +57,6 @@ export default function Contact() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setSubmitMessage({
-        type: "error",
-        text: "Email service is not configured yet. Please try again later.",
-      });
-      return;
-    }
-
     const form = event.currentTarget;
     const formData = new FormData(form);
 
@@ -77,19 +64,20 @@ export default function Contact() {
     setSubmitMessage(null);
 
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           name: formData.get("name"),
           email: formData.get("email"),
-          from_name: formData.get("name"),
-          from_email: formData.get("email"),
           project_type: formData.get("projectType"),
           message: formData.get("message"),
-        },
-        { publicKey },
-      );
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to send");
 
       form.reset();
       setSubmitMessage({
