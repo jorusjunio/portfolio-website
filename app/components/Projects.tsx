@@ -86,11 +86,12 @@ const projects: Project[] = [
   },
   {
     number: "03",
-    title: "Kanto Burger Go",
+    title: "Kanto Burger Co",
     type: "Ongoing Project",
     description:
       "An ongoing burger-ordering web app for fast checkout, order tracking, and rider coordination in a mobile-first experience.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/assets/projects/thumbnails/kanto-burger-thumbnail.png",
     role: "Full-stack Developer",
     summary:
       "A live burger delivery and order management platform designed for quick menu browsing, simple order flow, and real-time rider updates.",
