@@ -48,6 +48,15 @@ const stacks = [
       { name: "Netlify", logo: "/assets/other-logos/netlify.svg" },
     ],
   },
+  {
+    title: "AI & Assistants",
+    label: "Development aid",
+    tools: [
+      { name: "Claude", logo: "/assets/other-logos/claude.svg" },
+      { name: "GitHub Copilot", logo: "/assets/other-logos/github-copilot.svg" },
+      { name: "OpenAI", logo: "/assets/other-logos/Codex_dark.svg" },
+    ],
+  },
 ];
 
 const getInitials = (tool: string) =>
@@ -101,7 +110,7 @@ export default function ToolStack() {
           <div className="absolute -inset-x-6 top-16 h-px bg-gradient-to-r from-transparent via-[#00FF87]/35 to-transparent" />
           <div className="absolute -inset-x-6 bottom-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-          <div className="relative grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="relative grid gap-3 md:grid-cols-2 xl:grid-cols-5">
             {stacks.map((stack, index) => (
               <motion.article
                 key={stack.title}
@@ -115,52 +124,54 @@ export default function ToolStack() {
                   duration: 0.62,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group relative flex h-full flex-col overflow-hidden border border-white/10 bg-[#0f0f0f]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#00FF87]/50 sm:p-6"
+                
+                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0f0f0f]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#00FF87]/50"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,255,135,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#00FF87]/0 to-transparent transition-colors duration-500 group-hover:via-[#00FF87]/70" />
 
-                <div className="flex items-center justify-between gap-5">
+                <div className="flex min-h-[76px] items-start justify-between gap-3">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#00FF87]/70">
                       {stack.label}
                     </p>
-                    <h3 className="mt-2 text-xl font-black text-white">
+                    <h3 className="mt-2 text-xl font-black text-white leading-snug">
                       {stack.title}
                     </h3>
                   </div>
-                  <span className="grid size-10 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#00FF87] transition-colors duration-300 group-hover:border-[#00FF87]/45 group-hover:bg-[#00FF87]/10">
+                  <span className="grid size-10 shrink-0 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#00FF87] transition-colors duration-300 group-hover:border-[#00FF87]/45 group-hover:bg-[#00FF87]/10">
                     0{index + 1}
                   </span>
                 </div>
 
-                <div className="mb-6 mt-7 grid grid-cols-3 gap-2.5">
+                {/* LOGO GRID CONTAINER - Sentro at malinis */}
+                <div className="mb-7 mt-3 grid grid-cols-3 gap-x-2 gap-y-2.5 justify-items-center">
                   {stack.tools.map((tool) => (
-                    <motion.span
+                    <motion.div
                       key={tool.name}
-                      whileHover={{ y: -4, scale: 1.035 }}
+                      whileHover={{ y: -3, scale: 1.025 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group/tool relative min-h-24 overflow-hidden border border-white/10 bg-black/24 p-3 transition-colors duration-300 hover:border-[#00FF87]/50 hover:bg-[#00FF87]/[0.055]"
+                      className="group/tool relative flex h-[76px] w-[65px] flex-col justify-between items-center overflow-hidden border border-white/10 bg-black/24 p-1.5 transition-colors duration-300 hover:border-[#00FF87]/50 hover:bg-[#00FF87]/[0.055]"
                     >
                       <span className="absolute inset-x-3 top-0 h-px scale-x-0 bg-[#00FF87]/75 transition-transform duration-300 group-hover/tool:scale-x-100" />
-                      <span className="grid size-11 place-items-center border border-white/10 bg-white/[0.03] text-xs font-black text-white/80 transition-colors duration-300 group-hover/tool:border-[#00FF87]/35 group-hover/tool:text-[#00FF87]">
+                      <span className="grid size-9 place-items-center border border-white/10 bg-white/[0.03] text-xs font-black text-white/80 transition-colors duration-300 group-hover/tool:border-[#00FF87]/35 group-hover/tool:text-[#00FF87]">
                         {tool.logo ? (
                           <Image
                             src={tool.logo}
                             alt={`${tool.name} logo`}
                             width={34}
                             height={34}
-                            className="max-h-8 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,0,0,0.35)] transition duration-300 group-hover/tool:scale-110"
+                            className="max-h-7 w-auto object-contain drop-shadow-[0_0_12px_rgba(0,0,0,0.35)] transition duration-300 group-hover/tool:scale-110"
                             unoptimized
                           />
                         ) : (
                           getInitials(tool.name)
                         )}
                       </span>
-                      <span className="mt-4 block text-[11px] font-bold leading-snug text-white/64 transition-colors duration-300 group-hover/tool:text-white">
+                      <span className="mt-2 block text-[9.5px] font-bold leading-tight tracking-tighter text-white/64 transition-colors duration-300 group-hover/tool:text-white truncate max-w-full text-center px-0.5" title={tool.name}>
                         {tool.name}
                       </span>
-                    </motion.span>
+                    </motion.div>
                   ))}
                 </div>
 
