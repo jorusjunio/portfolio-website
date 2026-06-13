@@ -92,12 +92,15 @@ const projects: Project[] = [
       "An ongoing burger-ordering web app for fast checkout, order tracking, and rider coordination in a mobile-first experience.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "/assets/projects/thumbnails/kanto-burger-thumbnail.png",
+    gallery: [
+      "/assets/projects/kanto-burger-co-ss/home-page-loader.png",
+    ],
     role: "Full-stack Developer",
     summary:
       "A live burger delivery and order management platform designed for quick menu browsing, simple order flow, and real-time rider updates.",
     previewLabel: "Ongoing order and delivery flow",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://kanto-burger-co.vercel.app/",
+    githubUrl: "https://github.com/jorusjunio/Kanto-Burger-Co",
     highlights: [
       "Fast burger ordering with menu customization and add-ons",
       "Real-time order status display for customers and riders",
