@@ -14,18 +14,19 @@ const heroContainer: Variants = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.08,
-      staggerChildren: 0.08,
+      // Wait for the intro overlay to lift before revealing the hero.
+      delayChildren: 2.4,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const heroItem: Variants = {
-  hidden: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 

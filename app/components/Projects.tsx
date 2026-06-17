@@ -627,7 +627,7 @@ export default function Projects() {
                       )}
                     </div>
 
-                    <div className="flex min-h-full flex-col overflow-hidden p-5 sm:p-6 lg:p-6">
+                    <div className="flex min-h-full flex-col overflow-y-auto p-5 sm:p-6 lg:p-6">
                       <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00FF87]">
                         {selectedProject.role}
                       </p>
@@ -641,15 +641,15 @@ export default function Projects() {
                         {selectedProject.summary}
                       </p>
 
-                      <div className="mt-5">
+                      <div className="mt-4">
                         <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
                           Highlights
                         </h4>
-                        <div className="mt-2.5 grid gap-2">
+                        <div className="mt-2 grid gap-1.5">
                           {selectedProject.highlights.map((highlight) => (
                             <div
                               key={highlight}
-                              className="border border-white/10 bg-white/[0.03] p-2.5 text-[13px] leading-5 text-white/82"
+                              className="border border-white/10 bg-white/[0.03] p-2 text-[13px] leading-5 text-white/82"
                             >
                               {highlight}
                             </div>
@@ -657,11 +657,11 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      <div className="mt-5">
+                      <div className="mt-4">
                         <h4 className="text-xs font-black uppercase tracking-[0.18em] text-white">
                           Tech Stack
                         </h4>
-                        <div className="mt-2.5 flex flex-wrap gap-1.5">
+                        <div className="mt-2 flex flex-wrap gap-1.5">
                           {selectedProject.tech.map((item) => (
                             <span
                               key={item}
@@ -690,7 +690,7 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      <div className="mt-auto flex flex-wrap justify-end gap-2.5 pt-6">
+                      <div className="mt-auto flex flex-wrap justify-end gap-2.5 pt-5">
                         <a
                           href={selectedProject.liveUrl}
                           aria-disabled={selectedProject.liveUrl === "#"}
