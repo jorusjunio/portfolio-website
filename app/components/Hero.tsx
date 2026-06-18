@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import Magnetic from "./Magnetic";
+import Parallax from "./Parallax";
 
 const stats = [
   { value: "10+", label: "Digital pieces" },
@@ -31,6 +33,8 @@ const heroItem: Variants = {
 };
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.section
       id="home"
@@ -84,22 +88,26 @@ export default function Hero() {
             variants={heroItem}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-            <motion.a
-              href="#projects"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center rounded-full bg-[#00FF87] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(0,255,135,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(0,255,135,0.42)]"
-            >
-              View Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition-colors hover:border-[#00FF87] hover:text-[#00FF87]"
-            >
-              Let&apos;s Work
-            </motion.a>
+            <Magnetic>
+              <motion.a
+                href="#projects"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center rounded-full bg-[#00FF87] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(0,255,135,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(0,255,135,0.42)]"
+              >
+                View Work
+              </motion.a>
+            </Magnetic>
+            <Magnetic>
+              <motion.a
+                href="#contact"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition-colors hover:border-[#00FF87] hover:text-[#00FF87]"
+              >
+                Let&apos;s Work
+              </motion.a>
+            </Magnetic>
           </motion.div>
 
           <motion.div
@@ -123,6 +131,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
+        <Parallax offset={34}>
         <motion.div
           initial={{ opacity: 1, y: 0, scale: 1 }}
           animate={{ opacity: 1, y: [0, -8, 0], scale: 1 }}
@@ -171,8 +180,12 @@ export default function Hero() {
               <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.26)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,135,0.18)_1px,transparent_1px)] [background-size:40px_40px]" />
               <motion.div
                 className="absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-[#00FF87]/14 via-[#00FF87]/5 to-transparent"
-                animate={{ top: ["-6rem", "105%"] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: [0.42, 0, 0.2, 1], delay: 0.45, repeatDelay: 0.45 }}
+                animate={reduceMotion ? { top: "-6rem" } : { top: ["-6rem", "105%"] }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { duration: 4.2, repeat: Infinity, ease: [0.42, 0, 0.2, 1], delay: 0.45, repeatDelay: 0.45 }
+                }
               />
               <div className="absolute left-0 top-0 h-16 w-16 border-l-2 border-t-2 border-[#00FF87]" />
               <div className="absolute right-0 top-0 h-16 w-16 border-r-2 border-t-2 border-white/40" />
@@ -188,6 +201,7 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
+        </Parallax>
       </div>
     </motion.section>
   );

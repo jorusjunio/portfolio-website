@@ -4,6 +4,9 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import RevealHeading from "./RevealHeading";
+import Parallax from "./Parallax";
+import ScrollDecor from "./ScrollDecor";
 
 type Project = {
   number: string;
@@ -374,6 +377,8 @@ export default function Projects() {
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#111111_0%,#111111_84%,#080808_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
     >
+      <ScrollDecor variant="grid" />
+      <ScrollDecor variant="sphere" />
       <div
         data-section-scroll-target="projects"
         className="relative z-10 mx-auto max-w-7xl"
@@ -389,16 +394,20 @@ export default function Projects() {
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
               Best Projects
             </p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
+            <RevealHeading className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
               Portfolio pieces that show what I can build.
-            </h2>
+            </RevealHeading>
           </div>
         </motion.div>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
-            <motion.article
+            <Parallax
               key={project.title}
+              offset={index % 2 === 0 ? 20 : 34}
+              className="h-full"
+            >
+            <motion.article
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8 }}
@@ -475,6 +484,7 @@ export default function Projects() {
                 </div>
               </div>
             </motion.article>
+            </Parallax>
           ))}
         </div>
       </div>

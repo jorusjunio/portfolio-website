@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import RevealHeading from "./RevealHeading";
+import ScrollDecor from "./ScrollDecor";
 
 const services = [
   {
@@ -36,6 +38,8 @@ export default function Services() {
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_84%,#111111_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
+      <ScrollDecor variant="rings" />
+      <ScrollDecor variant="bars" position="left-[3%] bottom-[8%]" />
       <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -48,9 +52,9 @@ export default function Services() {
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
               Services
             </p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
+            <RevealHeading className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
               What I can build for you.
-            </h2>
+            </RevealHeading>
           </div>
 
           <p className="max-w-md text-base leading-7 text-[#888888]">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import ScrollDecor from "./ScrollDecor";
 
 const stacks = [
   {
@@ -77,6 +78,8 @@ export default function ToolStack() {
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_86%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
+      <ScrollDecor variant="cross" />
+      <ScrollDecor variant="sphere" position="right-[-4rem] top-[10%]" zoom="out" />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
           <motion.div

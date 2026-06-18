@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import RevealHeading from "./RevealHeading";
+import ScrollDecor from "./ScrollDecor";
 
 const MotionLink = motion.create(Link);
 
@@ -40,14 +42,16 @@ export default function CreativeWork() {
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#080808_0%,#080808_84%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
+      <ScrollDecor variant="orbs" />
+      <ScrollDecor variant="arc" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
             Creative Work
           </p>
-          <h2 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
+          <RevealHeading className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
             Cinematic editing and filming.
-          </h2>
+          </RevealHeading>
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#888888] sm:text-lg">
             A preview of my visual side: filming, cinematic edits, color mood,
             and pacing for content that needs to feel sharper and more

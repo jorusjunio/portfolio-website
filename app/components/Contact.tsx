@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import RevealHeading from "./RevealHeading";
+import ScrollDecor from "./ScrollDecor";
 
 const contactDetails = [
   { label: "Email", value: "jorusjunio28@gmail.com", href: "mailto:jorusjunio28@gmail.com" },
@@ -103,6 +105,8 @@ export default function Contact() {
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#090a09_0%,#090a09_84%,#040504_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
+      <ScrollDecor variant="triangle" />
+      <ScrollDecor variant="dots" position="left-[-3rem] top-[10%]" zoom="out" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -113,9 +117,9 @@ export default function Contact() {
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
             Contact
           </p>
-          <h2 className="mt-5 max-w-xl text-3xl font-black leading-tight tracking-normal text-white sm:text-4xl lg:text-5xl">
+          <RevealHeading className="mt-5 max-w-xl text-3xl font-black leading-tight tracking-normal text-white sm:text-4xl lg:text-5xl">
             Let&apos;s build something useful together.
-          </h2>
+          </RevealHeading>
           <p className="mt-5 max-w-xl text-sm leading-6 text-[#b0b0b0]">
             Have an idea for a website, system, creative project, or filming/editing
             request? Share the details below and I&apos;ll get back to you as soon

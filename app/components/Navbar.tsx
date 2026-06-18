@@ -4,6 +4,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { type MouseEvent, useEffect, useState } from "react";
 import Logo from "./Logo";
+import Magnetic from "./Magnetic";
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -199,6 +200,7 @@ export default function Navbar() {
         </motion.ul>
 
         <div className="hidden items-center gap-3 md:flex">
+          <Magnetic strength={0.5}>
           <MotionLink
             href="/#contact"
             onClick={(event) => handleSectionLink("/#contact", event)}
@@ -219,6 +221,7 @@ export default function Navbar() {
               {isScrolled ? "Contact" : "Hire Me"}
             </motion.span>
           </MotionLink>
+          </Magnetic>
         </div>
 
         <details className="group relative md:hidden">
