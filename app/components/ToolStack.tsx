@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ScrollDecor from "./ScrollDecor";
+import AuraGlow from "./AuraGlow";
+import Starfield from "./Starfield";
 
 const stacks = [
   {
@@ -76,10 +77,11 @@ export default function ToolStack() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#0A0A0A_0%,#0A0A0A_86%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#04080f_0%,#04080f_86%,#04080f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <ScrollDecor variant="cross" />
-      <ScrollDecor variant="sphere" position="right-[-4rem] top-[10%]" zoom="out" />
+      <Starfield />
+      <AuraGlow variant="teal" className="right-[-14rem] top-[10%] h-[30rem] w-[30rem]" />
+      <AuraGlow variant="teal" className="left-[-12rem] bottom-[8%] h-[26rem] w-[26rem]" delay={2.5} duration={18} />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
           <motion.div

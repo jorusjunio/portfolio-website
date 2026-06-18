@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Magnetic from "./Magnetic";
 import Parallax from "./Parallax";
+import Starfield from "./Starfield";
 
 const stats = [
   { value: "10+", label: "Digital pieces" },
@@ -41,9 +42,10 @@ export default function Hero() {
       initial="hidden"
       animate="show"
       variants={heroContainer}
-      className="relative isolate flex min-h-screen overflow-hidden bg-[#0A0A0A] px-5 pt-28 text-white sm:px-8 lg:px-10"
+      className="relative isolate flex min-h-screen overflow-hidden bg-[#04080f] px-5 pt-28 text-white sm:px-8 lg:px-10"
     >
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.18),transparent_32%),linear-gradient(180deg,#0A0A0A_0%,#111111_92%,#111111_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.16),transparent_34%),radial-gradient(circle_at_20%_10%,rgba(0,190,255,0.12),transparent_30%),linear-gradient(180deg,#04080f_0%,#070c17_92%,#070c17_100%)]" />
+      <Starfield className="-z-10" />
       <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00FF87]/40 to-transparent" />
 
       <div className="mx-auto grid w-full max-w-7xl items-end gap-14 pb-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-24 lg:pb-20 xl:gap-32">

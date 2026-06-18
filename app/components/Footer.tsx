@@ -76,7 +76,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="overflow-hidden bg-[#050505] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
+      className="overflow-hidden bg-[#020308] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div

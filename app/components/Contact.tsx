@@ -3,7 +3,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import RevealHeading from "./RevealHeading";
-import ScrollDecor from "./ScrollDecor";
+import AuraGlow from "./AuraGlow";
+import Starfield from "./Starfield";
 
 const contactDetails = [
   { label: "Email", value: "jorusjunio28@gmail.com", href: "mailto:jorusjunio28@gmail.com" },
@@ -103,10 +104,11 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#090a09_0%,#090a09_84%,#040504_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#04080f_0%,#04080f_84%,#020308_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
-      <ScrollDecor variant="triangle" />
-      <ScrollDecor variant="dots" position="left-[-3rem] top-[10%]" zoom="out" />
+      <Starfield />
+      <AuraGlow variant="aqua" className="right-[-12rem] top-[12%] h-[28rem] w-[28rem]" />
+      <AuraGlow variant="aqua" className="left-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2} duration={19} />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

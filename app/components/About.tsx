@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import RevealHeading from "./RevealHeading";
-import ScrollDecor from "./ScrollDecor";
+import AuraGlow from "./AuraGlow";
+import Starfield from "./Starfield";
 
 const stats = [
   { value: "2+", label: "Core systems built" },
@@ -24,10 +25,11 @@ export default function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#111111_0%,#111111_82%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#070c17_0%,#070c17_82%,#04080f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <ScrollDecor variant="dots" />
-      <ScrollDecor variant="diamond" zoom="out" />
+      <Starfield />
+      <AuraGlow variant="emerald" className="left-[-12rem] top-[8%] h-[28rem] w-[28rem]" />
+      <AuraGlow variant="emerald" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={3} duration={18} />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <motion.div

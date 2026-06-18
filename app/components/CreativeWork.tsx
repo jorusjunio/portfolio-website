@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import RevealHeading from "./RevealHeading";
-import ScrollDecor from "./ScrollDecor";
+import AuraGlow from "./AuraGlow";
+import Starfield from "./Starfield";
 
 const MotionLink = motion.create(Link);
 
@@ -40,10 +41,11 @@ export default function CreativeWork() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#080808_0%,#080808_84%,#0A0A0A_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#03060c_0%,#03060c_84%,#04080f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
-      <ScrollDecor variant="orbs" />
-      <ScrollDecor variant="arc" />
+      <Starfield />
+      <AuraGlow variant="violet" className="left-[-12rem] top-[10%] h-[28rem] w-[28rem]" />
+      <AuraGlow variant="violet" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={2.5} duration={18} />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">

@@ -6,7 +6,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import RevealHeading from "./RevealHeading";
 import Parallax from "./Parallax";
-import ScrollDecor from "./ScrollDecor";
+import AuraGlow from "./AuraGlow";
+import Starfield from "./Starfield";
 
 type Project = {
   number: string;
@@ -375,10 +376,11 @@ export default function Projects() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#111111_0%,#111111_84%,#080808_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#070c17_0%,#070c17_84%,#03060c_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
     >
-      <ScrollDecor variant="grid" />
-      <ScrollDecor variant="sphere" />
+      <Starfield />
+      <AuraGlow variant="cyan" className="left-[-14rem] top-[14%] h-[30rem] w-[30rem]" delay={0.5} />
+      <AuraGlow variant="cyan" className="right-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2} duration={19} />
       <div
         data-section-scroll-target="projects"
         className="relative z-10 mx-auto max-w-7xl"
