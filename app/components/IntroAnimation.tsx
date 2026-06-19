@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useIsClient } from "./useIsClient";
 
 const logoSrc = "/assets/logo/J logo without bg.png";
 
@@ -10,8 +10,7 @@ export default function IntroAnimation() {
   const shouldReduceMotion = useReducedMotion();
   // Avoid a hydration mismatch: render the full markup on the server and the
   // first client paint, then switch to the reduced variant after mount.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useIsClient();
 
   if (mounted && shouldReduceMotion) {
     return (

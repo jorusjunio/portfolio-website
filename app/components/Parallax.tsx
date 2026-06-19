@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import {
   motion,
   useScroll,
@@ -8,6 +8,7 @@ import {
   useSpring,
   useReducedMotion,
 } from "framer-motion";
+import { useIsClient } from "./useIsClient";
 
 type ParallaxProps = {
   children: ReactNode;
@@ -30,8 +31,7 @@ export default function Parallax({
   const reduce = useReducedMotion();
   // Keep SSR and the first client render identical to avoid a hydration
   // mismatch; only drop the transform after mount when motion is reduced.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useIsClient();
 
   const { scrollYProgress } = useScroll({
     target: ref,

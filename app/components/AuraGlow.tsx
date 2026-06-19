@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import {
   motion,
   useReducedMotion,
@@ -8,6 +8,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import { useIsClient } from "./useIsClient";
 
 type Variant = "emerald" | "teal" | "mint" | "cyan" | "violet" | "aqua";
 type Side = "left" | "right" | "top" | "bottom";
@@ -65,8 +66,7 @@ export default function AuraGlow({
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useIsClient();
 
   const { scrollYProgress } = useScroll({
     target: ref,

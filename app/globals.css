@@ -159,7 +159,7 @@ textarea {
 }
 
 .spotlight-name[data-hovering="true"] .spotlight-name__focus {
-  --focus-r: 175px;
+  --focus-r: 150px;
 }
 
 @media (prefers-reduced-motion: reduce) {

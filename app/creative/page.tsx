@@ -101,7 +101,7 @@ export default function CreativePage() {
         <AuraGlow variant="violet" className="left-[-12rem] top-[14%] h-[28rem] w-[28rem]" />
         <AuraGlow variant="violet" side="right" className="right-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2.5} duration={18} />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <Reveal>
+          <Reveal delay={2.4}>
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Creative Work
             </p>
@@ -110,7 +110,7 @@ export default function CreativePage() {
             </h1>
           </Reveal>
 
-          <Reveal className="max-w-2xl lg:justify-self-end" delay={0.08}>
+          <Reveal className="max-w-2xl lg:justify-self-end" delay={2.55}>
             <p className="text-lg leading-8 text-[#D7D7D7]">
               A focused space for the visual side of my portfolio: cinematic
               edits, filming, short-form content, and visual storytelling for
