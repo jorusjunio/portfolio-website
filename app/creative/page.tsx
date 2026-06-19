@@ -3,8 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import AuraGlow from "../components/AuraGlow";
 import CreativeNavbar from "../components/CreativeNavbar";
+import CreativeServiceCard from "../components/CreativeServiceCard";
 import Footer from "../components/Footer";
 import IntroAnimation from "../components/IntroAnimation";
+import Magnetic from "../components/Magnetic";
+import MotionSection from "../components/MotionSection";
 import Reveal from "../components/Reveal";
 import SmoothScroll from "../components/SmoothScroll";
 import Starfield from "../components/Starfield";
@@ -92,7 +95,7 @@ export default function CreativePage() {
       <IntroAnimation />
       <CreativeNavbar />
 
-      <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#080d14_0%,#0a1017_76%,#060a10_100%)] px-5 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-28 lg:pt-40">
+      <MotionSection className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#080d14_0%,#0a1017_76%,#060a10_100%)] px-5 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-28 lg:pt-40">
         <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_24%,rgba(95,185,150,0.16),transparent_30%),radial-gradient(circle_at_12%_70%,rgba(255,255,255,0.055),transparent_24%)]" />
         <Starfield className="-z-10" />
         <AuraGlow variant="violet" className="left-[-12rem] top-[14%] h-[28rem] w-[28rem]" />
@@ -114,24 +117,28 @@ export default function CreativePage() {
               creators, students, small brands, and personal projects.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-black text-black shadow-[0_0_34px_rgba(95,185,150,0.24)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_52px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
-              >
-                Start a Creative Project
-              </Link>
-              <Link
-                href="/#creative"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-black text-white transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0]/10 hover:text-[#2ee6a0] hover:shadow-[0_0_28px_rgba(46,230,160,0.28)] active:bg-[#2ee6a0]/20"
-              >
-                Back to Portfolio
-              </Link>
+              <Magnetic>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-black text-black shadow-[0_0_34px_rgba(95,185,150,0.24)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_52px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
+                >
+                  Start a Creative Project
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <Link
+                  href="/#creative"
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-black text-white transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0]/10 hover:text-[#2ee6a0] hover:shadow-[0_0_28px_rgba(46,230,160,0.28)] active:bg-[#2ee6a0]/20"
+                >
+                  Back to Portfolio
+                </Link>
+              </Magnetic>
             </div>
           </Reveal>
         </div>
-      </section>
+      </MotionSection>
 
-      <section
+      <MotionSection
         id="creative-services"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#060a10_0%,#0b1118_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
@@ -140,37 +147,20 @@ export default function CreativePage() {
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid gap-4 lg:grid-cols-3">
             {creativeServices.map((item, index) => (
-              <Reveal
+              <CreativeServiceCard
                 key={item.title}
-                delay={index * 0.08}
-                className="group border border-white/10 bg-[#0D0D0D] p-6 transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
-              >
-                <p className="text-sm font-black text-[#5fb996]">
-                  0{index + 1}
-                </p>
-                <h2 className="mt-8 text-3xl font-black leading-tight text-white">
-                  {item.title}
-                </h2>
-                <p className="mt-5 min-h-28 text-base leading-7 text-[#888888] transition-colors duration-300 group-hover:text-[#D7D7D7]">
-                  {item.text}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {item.points.map((point) => (
-                    <span
-                      key={point}
-                      className="rounded-full border border-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white/70"
-                    >
-                      {point}
-                    </span>
-                  ))}
-                </div>
-              </Reveal>
+                number={`0${index + 1}`}
+                title={item.title}
+                text={item.text}
+                points={item.points}
+                index={index}
+              />
             ))}
           </div>
         </div>
-      </section>
+      </MotionSection>
 
-      <section
+      <MotionSection
         id="creative-workflow"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[#0b1118] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
@@ -201,9 +191,9 @@ export default function CreativePage() {
             ))}
           </div>
         </div>
-      </section>
+      </MotionSection>
 
-      <section
+      <MotionSection
         id="creative-tools"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#0B0B0B_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
@@ -260,9 +250,9 @@ export default function CreativePage() {
             ))}
           </div>
         </div>
-      </section>
+      </MotionSection>
 
-      <section
+      <MotionSection
         id="creative-formats"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
@@ -321,7 +311,7 @@ export default function CreativePage() {
             </div>
           </div>
         </div>
-      </section>
+      </MotionSection>
 
       <Footer />
     </main>

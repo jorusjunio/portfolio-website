@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RevealHeading from "./RevealHeading";
 import AuraGlow from "./AuraGlow";
+import Magnetic from "./Magnetic";
 import Starfield from "./Starfield";
 
 const MotionLink = motion.create(Link);
@@ -60,14 +61,16 @@ export default function CreativeWork() {
             intentional.
           </p>
 
-          <MotionLink
-            href="/creative"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-8 inline-flex items-center justify-center rounded-full border border-[#5fb996] bg-[#5fb996] px-6 py-3 text-sm font-black text-black shadow-[0_0_28px_rgba(95,185,150,0.24)] transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:shadow-[0_0_44px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
-          >
-            Explore Creative Work
-          </MotionLink>
+          <Magnetic className="mt-8">
+            <MotionLink
+              href="/creative"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center rounded-full border border-[#5fb996] bg-[#5fb996] px-6 py-3 text-sm font-black text-black shadow-[0_0_28px_rgba(95,185,150,0.24)] transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:shadow-[0_0_44px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
+            >
+              Explore Creative Work
+            </MotionLink>
+          </Magnetic>
 
           <div className="mt-8 flex flex-wrap gap-2.5">
             {creativeSkills.map((skill) => (
