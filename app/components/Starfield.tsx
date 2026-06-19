@@ -44,6 +44,31 @@ const INTENSITY = 0.2;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 const wrap = (v: number, max: number) => ((v % max) + max) % max;
 
+// Shared pointer parallax across every Starfield instance, so the page installs
+// a single `pointermove` listener instead of one per section.
+const pointer = { x: 0, y: 0 };
+let pointerSubscribers = 0;
+let pointerHandler: ((e: PointerEvent) => void) | null = null;
+
+function subscribePointer() {
+  pointerSubscribers += 1;
+  if (pointerSubscribers === 1) {
+    pointerHandler = (e: PointerEvent) => {
+      pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+      pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
+    };
+    window.addEventListener("pointermove", pointerHandler, { passive: true });
+  }
+}
+
+function unsubscribePointer() {
+  pointerSubscribers = Math.max(0, pointerSubscribers - 1);
+  if (pointerSubscribers === 0 && pointerHandler) {
+    window.removeEventListener("pointermove", pointerHandler);
+    pointerHandler = null;
+  }
+}
+
 function vibeAt(progress: number): [number, number, number] {
   const seg = progress * (VIBE.length - 1);
   const i = Math.min(VIBE.length - 2, Math.max(0, Math.floor(seg)));
@@ -83,9 +108,7 @@ export default function Starfield({ className = "" }: { className?: string }) {
     let onScreen = true;
     let last = performance.now();
 
-    // Smoothed pointer parallax, normalised to [-1, 1] from viewport centre.
-    let pxTarget = 0;
-    let pyTarget = 0;
+    // Locally smoothed copy of the shared pointer parallax for a weighty feel.
     let px = 0;
     let py = 0;
 
@@ -161,8 +184,8 @@ export default function Starfield({ className = "" }: { className?: string }) {
       const dt = Math.min(64, now - last) / 1000;
       last = now;
       // Ease the pointer parallax toward its target for a smooth, weighty feel.
-      px += (pxTarget - px) * Math.min(1, dt * 3);
-      py += (pyTarget - py) * Math.min(1, dt * 3);
+      px += (pointer.x - px) * Math.min(1, dt * 3);
+      py += (pointer.y - py) * Math.min(1, dt * 3);
       for (const p of particles) {
         p.x += p.vx * dt;
         p.y += p.vy * dt;
@@ -199,11 +222,6 @@ export default function Starfield({ className = "" }: { className?: string }) {
       draw(performance.now());
     };
 
-    const onPointerMove = (e: PointerEvent) => {
-      pxTarget = (e.clientX / window.innerWidth) * 2 - 1;
-      pyTarget = (e.clientY / window.innerHeight) * 2 - 1;
-    };
-
     resize();
 
     const ro = new ResizeObserver(resize);
@@ -226,7 +244,7 @@ export default function Starfield({ className = "" }: { className?: string }) {
     document.addEventListener("visibilitychange", onVisibility);
 
     if (!reduce) {
-      window.addEventListener("pointermove", onPointerMove, { passive: true });
+      subscribePointer();
       if (onScreen) start();
     }
 
@@ -235,7 +253,7 @@ export default function Starfield({ className = "" }: { className?: string }) {
       ro.disconnect();
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
-      window.removeEventListener("pointermove", onPointerMove);
+      if (!reduce) unsubscribePointer();
     };
   }, [reduce]);
 
