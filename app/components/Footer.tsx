@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { type MouseEvent } from "react";
 import Logo from "./Logo";
+import SpotlightName from "./SpotlightName";
 
 const footerLinks = [
   { label: "About", href: "/#about" },
@@ -76,15 +77,22 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="overflow-hidden bg-[#010205] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
+      className="relative isolate overflow-hidden bg-[#010205] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
     >
+      {/* Spotlight glow rising from the very bottom, lighting up the name. */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[78%] bg-[radial-gradient(58%_100%_at_50%_100%,rgba(46,230,160,0.26),rgba(46,230,160,0.08)_40%,transparent_72%)]"
+        animate={{ opacity: [0.68, 1, 0.68] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      />
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
-          className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
+          className="grid gap-10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
         >
           <div>
             <Link href="/#home" aria-label="Jorus portfolio home">
@@ -169,22 +177,7 @@ export default function Footer() {
         </motion.div>
 
         <div className="relative pt-12">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.45 }}
-            transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
-            className="select-none whitespace-nowrap text-[clamp(4.2rem,20vw,19rem)] font-black uppercase leading-[0.75] tracking-normal text-white"
-          >
-            Jorus
-            <motion.span
-              animate={{ scale: [1, 1.12, 1] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-block text-[#5fb996]"
-            >
-              .
-            </motion.span>
-          </motion.p>
+          <SpotlightName />
 
           <div className="mt-8 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-[#888888] sm:flex-row sm:items-center">
             <p>2026 Jorus. All rights reserved.</p>

@@ -122,6 +122,52 @@ textarea {
   }
 }
 
+/* Cinematic rack-focus on the footer name: the white name stays softly blurred,
+   while a sharp white copy is masked to a circle that follows the cursor on
+   hover — so only the area around the pointer comes into focus. The circle
+   blooms from nothing via @property for a smooth reveal. */
+@property --focus-r {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+.spotlight-name {
+  --mx: 50%;
+  --my: 80%;
+}
+
+.spotlight-name__blur {
+  filter: blur(6.5px);
+}
+
+.spotlight-name__focus {
+  --focus-r: 0px;
+  transition: --focus-r 0.4s ease;
+  -webkit-mask-image: radial-gradient(
+    circle var(--focus-r) at var(--mx) var(--my),
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--focus-r) at var(--mx) var(--my),
+    #000 0%,
+    #000 40%,
+    transparent 100%
+  );
+}
+
+.spotlight-name[data-hovering="true"] .spotlight-name__focus {
+  --focus-r: 175px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-name__blur {
+    filter: none !important;
+  }
+}
+
 .intro-shell {
   animation: intro-shell 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
