@@ -94,8 +94,8 @@ export default function Hero() {
               <motion.a
                 href="#projects"
                 whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(95,185,150,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(95,185,150,0.42)]"
+                whileTap={{ scale: 0.96 }}
+                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(95,185,150,0.28)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_52px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
               >
                 View Work
               </motion.a>
@@ -104,8 +104,8 @@ export default function Hero() {
               <motion.a
                 href="#contact"
                 whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition-colors hover:border-[#5fb996] hover:text-[#5fb996]"
+                whileTap={{ scale: 0.96 }}
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0]/10 hover:text-[#2ee6a0] hover:shadow-[0_0_28px_rgba(46,230,160,0.28)] active:bg-[#2ee6a0]/20"
               >
                 Let&apos;s Work
               </motion.a>

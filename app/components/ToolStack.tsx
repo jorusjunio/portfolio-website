@@ -80,7 +80,7 @@ export default function ToolStack() {
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_86%,#03060b_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
       <Starfield />
-      <AuraGlow variant="teal" className="right-[-14rem] top-[10%] h-[30rem] w-[30rem]" />
+      <AuraGlow variant="teal" side="right" className="right-[-14rem] top-[10%] h-[30rem] w-[30rem]" />
       <AuraGlow variant="teal" className="left-[-12rem] bottom-[8%] h-[26rem] w-[26rem]" delay={2.5} duration={18} />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
@@ -130,7 +130,7 @@ export default function ToolStack() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 
-                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0a1017]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#5fb996]/50"
+                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0a1017]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:border-[#2ee6a0]/60 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(95,185,150,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5fb996]/0 to-transparent transition-colors duration-500 group-hover:via-[#5fb996]/70" />
@@ -144,7 +144,7 @@ export default function ToolStack() {
                       {stack.title}
                     </h3>
                   </div>
-                  <span className="grid size-10 shrink-0 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#5fb996] transition-colors duration-300 group-hover:border-[#5fb996]/45 group-hover:bg-[#5fb996]/10">
+                  <span className="grid size-10 shrink-0 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#5fb996] transition-colors duration-300 group-hover:border-[#2ee6a0]/60 group-hover:bg-[#2ee6a0]/15 group-hover:text-[#2ee6a0]">
                     0{index + 1}
                   </span>
                 </div>
@@ -156,7 +156,7 @@ export default function ToolStack() {
                       key={tool.name}
                       whileHover={{ y: -3, scale: 1.025 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group/tool relative flex h-[76px] w-[65px] flex-col justify-between items-center overflow-hidden border border-white/10 bg-black/24 p-1.5 transition-colors duration-300 hover:border-[#5fb996]/50 hover:bg-[#5fb996]/[0.055]"
+                      className="group/tool relative flex h-[76px] w-[65px] flex-col justify-between items-center overflow-hidden border border-white/10 bg-black/24 p-1.5 transition duration-300 hover:border-[#2ee6a0]/60 hover:bg-[#2ee6a0]/[0.09] hover:shadow-[0_0_20px_rgba(46,230,160,0.18)]"
                     >
                       <span className="absolute inset-x-3 top-0 h-px scale-x-0 bg-[#5fb996]/75 transition-transform duration-300 group-hover/tool:scale-x-100" />
                       <span className="grid size-9 place-items-center border border-white/10 bg-white/[0.03] text-xs font-black text-white/80 transition-colors duration-300 group-hover/tool:border-[#5fb996]/35 group-hover/tool:text-[#5fb996]">

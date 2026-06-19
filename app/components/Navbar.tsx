@@ -192,7 +192,7 @@ export default function Navbar() {
                 className="group relative inline-flex items-center overflow-hidden rounded-full font-semibold text-white/56 transition-colors duration-300 ease-out hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
               >
                 <span className="absolute inset-0 rounded-full bg-white/0 transition duration-300 ease-out group-hover:bg-white/[0.075]" />
-                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#5fb996]/90 to-transparent transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#2ee6a0] to-transparent shadow-[0_0_10px_rgba(46,230,160,0.7)] transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 <span className="relative">{link.label}</span>
               </MotionLink>
             </li>
@@ -214,7 +214,7 @@ export default function Navbar() {
               fontSize: isScrolled ? 12 : 14,
             }}
             transition={{ duration: 0.26, ease: "easeOut" }}
-            className="group relative overflow-hidden rounded-full border border-[#5fb996]/60 bg-[#5fb996]/92 px-5 py-2.5 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24),inset_0_1px_0_rgba(255,255,255,0.34)] transition duration-300 ease-out hover:bg-[#5fb996] hover:shadow-[0_0_34px_rgba(95,185,150,0.36)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
+            className="group relative overflow-hidden rounded-full border border-[#5fb996]/60 bg-[#5fb996]/92 px-5 py-2.5 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24),inset_0_1px_0_rgba(255,255,255,0.34)] transition duration-300 ease-out hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:shadow-[0_0_40px_rgba(46,230,160,0.5)] active:bg-[#13d98f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
           >
             <span className="absolute inset-y-0 -left-8 w-8 rotate-12 bg-white/45 blur-sm transition-transform duration-500 ease-out group-hover:translate-x-32" />
             <motion.span className="relative" animate={{ opacity: 1 }}>
@@ -249,7 +249,7 @@ export default function Navbar() {
               <Link
                 href="/#contact"
                 onClick={(event) => handleSectionLink("/#contact", event)}
-                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-5 py-3 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24)] transition duration-300 ease-out hover:shadow-[0_0_34px_rgba(95,185,150,0.34)]"
+                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-5 py-3 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24)] transition duration-300 ease-out hover:bg-[#2ee6a0] hover:shadow-[0_0_38px_rgba(46,230,160,0.45)] active:bg-[#13d98f]"
               >
                 Hire Me
               </Link>

@@ -29,7 +29,7 @@ export default function About() {
     >
       <Starfield />
       <AuraGlow variant="emerald" className="left-[-12rem] top-[8%] h-[28rem] w-[28rem]" />
-      <AuraGlow variant="emerald" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={3} duration={18} />
+      <AuraGlow variant="emerald" side="right" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={3} duration={18} />
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <motion.div

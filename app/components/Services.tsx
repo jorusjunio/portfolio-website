@@ -41,7 +41,7 @@ export default function Services() {
     >
       <Starfield />
       <AuraGlow variant="mint" className="left-[-14rem] top-[20%] h-[30rem] w-[30rem]" delay={1} />
-      <AuraGlow variant="mint" className="right-[-12rem] bottom-[10%] h-[26rem] w-[26rem]" delay={3} duration={19} />
+      <AuraGlow variant="mint" side="right" className="right-[-12rem] bottom-[10%] h-[26rem] w-[26rem]" delay={3} duration={19} />
       <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -75,13 +75,13 @@ export default function Services() {
               whileHover={{ y: -8 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ delay: index * 0.08, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
-              className="group border border-white/10 bg-[#0b1118] p-6 transition-colors duration-300 hover:border-[#5fb996]/70 sm:p-8"
+              className="group border border-white/10 bg-[#0b1118] p-6 transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
             >
               <div className="flex items-center justify-between gap-6">
                 <span className="text-sm font-black text-[#5fb996]">
                   {service.number}
                 </span>
-                <span className="h-px flex-1 bg-white/10 transition-colors duration-300 group-hover:bg-[#5fb996]/50" />
+                <span className="h-px flex-1 bg-white/10 transition-colors duration-300 group-hover:bg-[#2ee6a0]/70" />
               </div>
 
               <h3 className="mt-10 text-3xl font-black leading-tight text-white">

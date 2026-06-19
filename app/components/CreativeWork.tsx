@@ -45,7 +45,7 @@ export default function CreativeWork() {
     >
       <Starfield />
       <AuraGlow variant="violet" className="left-[-12rem] top-[10%] h-[28rem] w-[28rem]" />
-      <AuraGlow variant="violet" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={2.5} duration={18} />
+      <AuraGlow variant="violet" side="right" className="right-[-14rem] bottom-[6%] h-[32rem] w-[32rem]" delay={2.5} duration={18} />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
@@ -74,7 +74,7 @@ export default function CreativeWork() {
               <motion.span
                 key={skill}
                 whileHover={{ y: -2 }}
-                className="rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white/72 transition-colors duration-300 hover:border-[#5fb996]/45 hover:text-white"
+                className="rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white/72 transition duration-300 hover:border-[#2ee6a0]/60 hover:bg-[#2ee6a0]/10 hover:text-white hover:shadow-[0_0_20px_rgba(46,230,160,0.22)]"
               >
                 {skill}
               </motion.span>
@@ -123,7 +123,7 @@ export default function CreativeWork() {
                 <motion.div
                   key={item.title}
                   whileHover={{ y: -4 }}
-                  className="border border-white/10 bg-black/26 p-4 transition-colors duration-300 hover:border-[#5fb996]/45"
+                  className="border border-white/10 bg-black/26 p-4 transition duration-300 hover:border-[#2ee6a0]/60 hover:shadow-[0_18px_50px_rgba(46,230,160,0.12)]"
                 >
                   <p className="text-xs font-black text-[#5fb996]">
                     0{index + 1}

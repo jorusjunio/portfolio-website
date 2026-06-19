@@ -14,26 +14,22 @@ type Side = "left" | "right" | "top" | "bottom";
 
 // [primary, secondary] muted greenish aurora colours per section.
 const variants: Record<Variant, [string, string]> = {
-  emerald: ["rgba(80,200,150,0.20)", "rgba(60,180,160,0.12)"],
-  teal: ["rgba(60,195,170,0.18)", "rgba(95,200,150,0.12)"],
-  mint: ["rgba(125,205,145,0.16)", "rgba(70,195,160,0.12)"],
-  cyan: ["rgba(70,195,175,0.18)", "rgba(100,200,155,0.12)"],
-  violet: ["rgba(75,200,160,0.16)", "rgba(110,205,150,0.12)"],
-  aqua: ["rgba(60,205,175,0.18)", "rgba(95,200,150,0.12)"],
+  emerald: ["rgba(80,200,150,0.16)", "rgba(60,180,160,0.09)"],
+  teal: ["rgba(60,195,170,0.15)", "rgba(95,200,150,0.09)"],
+  mint: ["rgba(125,205,145,0.13)", "rgba(70,195,160,0.09)"],
+  cyan: ["rgba(70,195,175,0.15)", "rgba(100,200,155,0.09)"],
+  violet: ["rgba(75,200,160,0.13)", "rgba(110,205,150,0.09)"],
+  aqua: ["rgba(60,205,175,0.15)", "rgba(95,200,150,0.09)"],
 };
 
-const dirMap: Record<Side, string> = {
-  left: "to right",
-  right: "to left",
-  top: "to bottom",
-  bottom: "to top",
+// Bias the soft glow toward the edge it sits against so it bleeds in from
+// the rim rather than floating as a centred blob.
+const originMap: Record<Side, string> = {
+  left: "20% 50%",
+  right: "80% 50%",
+  top: "50% 20%",
+  bottom: "50% 80%",
 };
-
-// Fade the band along its length so it never hard-clips at a section edge.
-const verticalMask =
-  "linear-gradient(to bottom, transparent 0%, #000 25%, #000 75%, transparent 100%)";
-const horizontalMask =
-  "linear-gradient(to right, transparent 0%, #000 25%, #000 75%, transparent 100%)";
 
 type AuraGlowProps = {
   /** Position + size utility classes, e.g. "left-[-8rem] top-[8%] h-[84%] w-[34rem]". */
@@ -65,7 +61,7 @@ export default function AuraGlow({
   delay = 0,
   duration = 18,
   parallax = 50,
-  blur = "blur-[80px]",
+  blur = "blur-[120px]",
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -81,22 +77,19 @@ export default function AuraGlow({
 
   const [a, b] = variants[variant];
   const isVertical = side === "left" || side === "right";
-  const dir = dirMap[side];
+  const origin = originMap[side];
   const disabled = mounted && reduce;
 
   const baseStyle = {
     mixBlendMode: "screen" as const,
-    WebkitMaskImage: isVertical ? verticalMask : horizontalMask,
-    maskImage: isVertical ? verticalMask : horizontalMask,
   };
 
-  // Drift along the edge (vertical sides drift up/down; horizontal drift left/right).
-  const driftA = isVertical
-    ? { y: ["-8%", "8%", "-8%"], opacity: [0.5, 0.9, 0.5] }
-    : { x: ["-8%", "8%", "-8%"], opacity: [0.5, 0.9, 0.5] };
-  const driftB = isVertical
-    ? { y: ["7%", "-7%", "7%"], opacity: [0.4, 0.8, 0.4] }
-    : { x: ["7%", "-7%", "7%"], opacity: [0.4, 0.8, 0.4] };
+  // Very gentle breathe only — no positional drift — so the glow reads as a
+  // soft, faded gradient bleeding off the edge rather than a moving band.
+  const breatheA = { opacity: [0.34, 0.52, 0.34], scale: [1, 1.06, 1] };
+  const breatheB = isVertical
+    ? { y: ["-4%", "4%", "-4%"], opacity: [0.22, 0.36, 0.22] }
+    : { x: ["-4%", "4%", "-4%"], opacity: [0.22, 0.36, 0.22] };
 
   return (
     <motion.div
@@ -105,29 +98,29 @@ export default function AuraGlow({
       className={`pointer-events-none absolute z-0 ${className}`}
       style={
         disabled
-          ? { ...baseStyle, opacity: 0.5 }
-          : { ...baseStyle, y, opacity: 0.9 }
+          ? { ...baseStyle, opacity: 0.45 }
+          : { ...baseStyle, y, opacity: 1 }
       }
     >
-      {/* Primary directional band */}
+      {/* Primary soft radial glow — wide, feathered falloff to transparent. */}
       <motion.div
         className={`absolute inset-0 ${blur}`}
         style={{
-          background: `linear-gradient(${dir}, ${a} 0%, ${b} 30%, transparent 68%)`,
+          background: `radial-gradient(70% 70% at ${origin}, ${a} 0%, ${b} 38%, transparent 74%)`,
         }}
-        animate={reduce ? undefined : driftA}
+        animate={reduce ? undefined : breatheA}
         transition={
           reduce ? undefined : { duration, repeat: Infinity, ease: "easeInOut", delay }
         }
       />
-      {/* Secondary softer band, opposite drift, for organic depth */}
+      {/* Secondary wash for organic depth, drifting opposite and slower. */}
       <motion.div
         className={`absolute inset-0 ${blur}`}
         style={{
-          background: `linear-gradient(${dir}, ${b} 0%, transparent 52%)`,
-          opacity: 0.6,
+          background: `radial-gradient(80% 80% at ${origin}, ${b} 0%, transparent 64%)`,
+          opacity: 0.5,
         }}
-        animate={reduce ? undefined : driftB}
+        animate={reduce ? undefined : breatheB}
         transition={
           reduce
             ? undefined

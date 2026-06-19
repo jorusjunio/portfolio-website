@@ -100,7 +100,7 @@ export default function Contact() {
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_84%,#010205_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
       <Starfield />
-      <AuraGlow variant="aqua" className="right-[-12rem] top-[12%] h-[28rem] w-[28rem]" />
+      <AuraGlow variant="aqua" side="right" className="right-[-12rem] top-[12%] h-[28rem] w-[28rem]" />
       <AuraGlow variant="aqua" className="left-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2} duration={19} />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div
@@ -133,19 +133,19 @@ export default function Contact() {
                 }
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.24, ease: "easeOut" }}
-                className="contact-email-target group relative overflow-hidden border border-white/10 bg-[#0a1118]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#5fb996]/35"
+                className="contact-email-target group relative overflow-hidden border border-white/10 bg-[#0a1118]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition duration-300 hover:border-[#2ee6a0]/55 hover:shadow-[0_16px_44px_rgba(46,230,160,0.16)]"
               >
                 <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#5fb996]/80 via-[#5fb996]/15 to-transparent opacity-70" />
                 <div className="mb-4 flex items-center justify-between gap-4">
                   <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-[#a0f7c0]">
                     {detail.label}
                   </p>
-                  <span className="h-3 w-3 rounded-full bg-[#5fb996]/70 transition duration-300 group-hover:bg-[#5fb996]" />
+                  <span className="h-3 w-3 rounded-full bg-[#5fb996]/70 transition duration-300 group-hover:bg-[#2ee6a0] group-hover:shadow-[0_0_14px_rgba(46,230,160,0.8)]" />
                 </div>
                 {detail.href ? (
                   <a
                     href={detail.href}
-                    className="block break-words text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:text-[#5fb996] sm:text-base"
+                    className="block break-words text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:text-[#2ee6a0] sm:text-base"
                   >
                     {detail.value}
                   </a>
@@ -240,8 +240,8 @@ export default function Contact() {
             type="submit"
             disabled={isSubmitting}
             whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-6 py-3 text-sm font-black text-black transition duration-300 hover:bg-[#00e36d] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+            whileTap={{ scale: 0.96 }}
+            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-6 py-3 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.22)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_44px_rgba(46,230,160,0.55)] active:bg-[#13d98f] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none sm:w-auto"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>

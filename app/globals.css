@@ -5,6 +5,10 @@
   --background: #03060b;
   --foreground: #ffffff;
   --accent: #5fb996;
+  /* Punchy emerald used for active hover / click states so interactive
+     elements feel vibrant instead of washed out. */
+  --accent-bright: #2ee6a0;
+  --accent-glow: rgba(46, 230, 160, 0.45);
   --muted: #888888;
 }
 

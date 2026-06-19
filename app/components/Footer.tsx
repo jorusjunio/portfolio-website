@@ -108,7 +108,7 @@ export default function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
+                    className="text-sm font-semibold text-white transition-colors duration-300 hover:text-[#2ee6a0]"
                   >
                     {link.label}
                   </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
                         key={social.label}
                         href={social.href}
                         onClick={handleEmailClick}
-                        className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
+                        className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#2ee6a0]"
                       >
                         {content}
                       </Link>
@@ -157,7 +157,7 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
+                      className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#2ee6a0]"
                     >
                       {content}
                     </a>

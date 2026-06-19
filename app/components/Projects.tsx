@@ -380,7 +380,7 @@ export default function Projects() {
     >
       <Starfield />
       <AuraGlow variant="cyan" className="left-[-14rem] top-[14%] h-[30rem] w-[30rem]" delay={0.5} />
-      <AuraGlow variant="cyan" className="right-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2} duration={19} />
+      <AuraGlow variant="cyan" side="right" className="right-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2} duration={19} />
       <div
         data-section-scroll-target="projects"
         className="relative z-10 mx-auto max-w-7xl"
@@ -419,7 +419,7 @@ export default function Projects() {
                 duration: 0.62,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group flex h-full flex-col overflow-hidden border border-white/10 bg-[#080d14] transition-colors duration-300 hover:border-[#5fb996]/70"
+              className="group flex h-full flex-col overflow-hidden border border-white/10 bg-[#080d14] transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)]"
             >
               <div className="relative overflow-hidden bg-[#070c12] p-3">
                 <div className="mb-2.5 flex items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">
@@ -472,14 +472,14 @@ export default function Projects() {
                   <button
                     type="button"
                     onClick={() => openProjectPreview(project)}
-                    className="inline-flex min-h-9 items-center justify-center border border-[#5fb996] bg-[#5fb996] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-black transition hover:bg-white"
+                    className="inline-flex min-h-9 items-center justify-center border border-[#5fb996] bg-[#5fb996] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-black transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:shadow-[0_0_28px_rgba(46,230,160,0.5)] active:bg-[#13d98f]"
                   >
                     Preview
                   </button>
                   <a
                     href={project.liveUrl}
                     aria-disabled={project.liveUrl === "#"}
-                    className="inline-flex min-h-9 items-center justify-center border border-white/15 px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
+                    className="inline-flex min-h-9 items-center justify-center border border-white/15 px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-white transition duration-300 hover:border-[#2ee6a0] hover:text-[#2ee6a0] hover:shadow-[0_0_22px_rgba(46,230,160,0.25)]"
                   >
                     Live Demo
                   </a>
@@ -706,14 +706,14 @@ export default function Projects() {
                         <a
                           href={selectedProject.liveUrl}
                           aria-disabled={selectedProject.liveUrl === "#"}
-                          className="border border-[#5fb996] bg-[#5fb996] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-white"
+                          className="border border-[#5fb996] bg-[#5fb996] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:shadow-[0_0_30px_rgba(46,230,160,0.5)] active:bg-[#13d98f]"
                         >
                           Live Demo
                         </a>
                         <a
                           href={selectedProject.githubUrl}
                           aria-disabled={selectedProject.githubUrl === "#"}
-                          className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
+                          className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition duration-300 hover:border-[#2ee6a0] hover:text-[#2ee6a0] hover:shadow-[0_0_22px_rgba(46,230,160,0.25)]"
                         >
                           GitHub
                         </a>
@@ -780,7 +780,7 @@ export default function Projects() {
                                   showPreviousPreview();
                                 }}
                                 aria-label="Show previous screenshot"
-                                className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#5fb996] hover:bg-[#5fb996] hover:text-black"
+                                className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:text-black hover:shadow-[0_0_26px_rgba(46,230,160,0.45)]"
                               >
                                 &lt;
                               </button>
@@ -791,7 +791,7 @@ export default function Projects() {
                                   showNextPreview();
                                 }}
                                 aria-label="Show next screenshot"
-                                className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#5fb996] hover:bg-[#5fb996] hover:text-black"
+                                className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#2ee6a0] hover:bg-[#2ee6a0] hover:text-black hover:shadow-[0_0_26px_rgba(46,230,160,0.45)]"
                               >
                                 &gt;
                               </button>
