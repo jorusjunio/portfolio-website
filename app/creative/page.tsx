@@ -138,10 +138,9 @@ export default function CreativePage() {
         </div>
       </MotionSection>
 
-      {/* Full-width glowing accent divider with a light sweeping across it. */}
+      {/* Full-width accent divider whose own glow flows along it, faded at the ends. */}
       <div aria-hidden className="relative z-20 -my-px h-px w-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2ee6a0]/60 via-[#2ee6a0]/85 to-[#2ee6a0]/60 shadow-[0_0_22px_2px_rgba(46,230,160,0.5)]" />
-        <div className="glow-line-sweep absolute top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_18px_4px_rgba(255,255,255,0.55)]" />
+        <div className="glow-line-flow h-px w-full" />
       </div>
 
       <MotionSection
