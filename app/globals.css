@@ -74,6 +74,33 @@ textarea {
   }
 }
 
+/* A bright highlight that sweeps left-to-right along a full-width accent line. */
+.glow-line-sweep {
+  left: -30%;
+  animation: glow-line-sweep 4s linear infinite;
+}
+
+@keyframes glow-line-sweep {
+  0% {
+    left: -30%;
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-line-sweep {
+    display: none;
+  }
+}
+
 .intro-shell {
   animation: intro-shell 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
