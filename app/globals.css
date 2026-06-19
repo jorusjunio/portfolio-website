@@ -74,55 +74,51 @@ textarea {
   }
 }
 
-/* An accent line that glows brightest on the left and fades out to the right.
-   A brighter pulse travels rightward and dissolves, so the line stays alive
-   without ever fully disappearing. */
-.glow-line-left {
-  background-image:
-    /* travelling pulse */
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(200, 255, 230, 0.95) 6%,
-      transparent 16%
-    ),
-    /* base: bright left, fading right */
-    linear-gradient(
-      90deg,
-      rgba(46, 230, 160, 0.9) 0%,
-      rgba(46, 230, 160, 0.45) 30%,
-      rgba(46, 230, 160, 0.12) 55%,
-      transparent 78%
-    );
-  background-size:
-    220% 100%,
-    100% 100%;
-  background-repeat: no-repeat;
-  background-position:
-    0% 0,
-    0 0;
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 88%);
-  mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 88%);
+/* Accent divider: base glow brightest on the left, fading out to the right. */
+.glow-line-base {
+  background-image: linear-gradient(
+    90deg,
+    rgba(46, 230, 160, 0.9) 0%,
+    rgba(46, 230, 160, 0.45) 30%,
+    rgba(46, 230, 160, 0.12) 55%,
+    transparent 80%
+  );
   filter: drop-shadow(0 0 6px rgba(46, 230, 160, 0.4));
-  animation: glow-line-left 5.5s ease-in-out infinite;
 }
 
-@keyframes glow-line-left {
+/* A brighter pulse that emerges at the left edge, travels right, and fades out. */
+.glow-line-pulse {
+  left: -10%;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 255, 230, 0.95) 50%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 0 8px rgba(120, 255, 200, 0.55));
+  animation: glow-line-pulse 5.5s ease-in-out infinite;
+}
+
+@keyframes glow-line-pulse {
   0% {
-    background-position:
-      -40% 0,
-      0 0;
+    left: -12%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.55;
   }
   100% {
-    background-position:
-      140% 0,
-      0 0;
+    left: 52%;
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .glow-line-left {
-    animation: none;
+  .glow-line-pulse {
+    display: none;
   }
 }
 

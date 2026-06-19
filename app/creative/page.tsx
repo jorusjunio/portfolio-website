@@ -139,9 +139,10 @@ export default function CreativePage() {
       </MotionSection>
 
       {/* Accent divider: glowing on the left, fading out to the right, with a
-          travelling pulse for subtle life. */}
+          pulse that emerges at the left edge and travels right. */}
       <div aria-hidden className="relative z-20 -my-px h-px w-full">
-        <div className="glow-line-left h-px w-full" />
+        <div className="glow-line-base absolute inset-0" />
+        <div className="glow-line-pulse absolute top-0 h-px w-[30%]" />
       </div>
 
       <MotionSection
