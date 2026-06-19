@@ -143,7 +143,7 @@ export default function Navbar() {
           height: isScrolled ? 58 : 72,
           paddingLeft: isScrolled ? 14 : 20,
           paddingRight: isScrolled ? 14 : 24,
-          borderColor: isScrolled ? "rgba(0,255,135,0.24)" : "rgba(255,255,255,0.1)",
+          borderColor: isScrolled ? "rgba(95,185,150,0.24)" : "rgba(255,255,255,0.1)",
           backgroundColor: isScrolled ? "rgba(7,7,7,0.78)" : "rgba(9,9,9,0.58)",
           boxShadow: isScrolled
             ? "0 16px 46px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.08)"
@@ -152,7 +152,7 @@ export default function Navbar() {
         transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/28 to-transparent" />
-        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00FF87]/24 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-[#5fb996]/24 to-transparent" />
 
         <MotionLink
           href="/#home"
@@ -161,7 +161,7 @@ export default function Navbar() {
           whileHover={{ y: -1, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className="inline-flex rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87]/70"
+          className="inline-flex rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
         >
           <Logo compact={isScrolled} />
         </MotionLink>
@@ -189,10 +189,10 @@ export default function Navbar() {
                   fontSize: isScrolled ? 13 : 14,
                 }}
                 transition={{ duration: 0.26, ease: "easeOut" }}
-                className="group relative inline-flex items-center overflow-hidden rounded-full font-semibold text-white/56 transition-colors duration-300 ease-out hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87]/70"
+                className="group relative inline-flex items-center overflow-hidden rounded-full font-semibold text-white/56 transition-colors duration-300 ease-out hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
               >
                 <span className="absolute inset-0 rounded-full bg-white/0 transition duration-300 ease-out group-hover:bg-white/[0.075]" />
-                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#00FF87]/90 to-transparent transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#5fb996]/90 to-transparent transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 <span className="relative">{link.label}</span>
               </MotionLink>
             </li>
@@ -214,7 +214,7 @@ export default function Navbar() {
               fontSize: isScrolled ? 12 : 14,
             }}
             transition={{ duration: 0.26, ease: "easeOut" }}
-            className="group relative overflow-hidden rounded-full border border-[#00FF87]/60 bg-[#00FF87]/92 px-5 py-2.5 text-sm font-black text-black shadow-[0_0_24px_rgba(0,255,135,0.24),inset_0_1px_0_rgba(255,255,255,0.34)] transition duration-300 ease-out hover:bg-[#00FF87] hover:shadow-[0_0_34px_rgba(0,255,135,0.36)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87]/70"
+            className="group relative overflow-hidden rounded-full border border-[#5fb996]/60 bg-[#5fb996]/92 px-5 py-2.5 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24),inset_0_1px_0_rgba(255,255,255,0.34)] transition duration-300 ease-out hover:bg-[#5fb996] hover:shadow-[0_0_34px_rgba(95,185,150,0.36)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
           >
             <span className="absolute inset-y-0 -left-8 w-8 rotate-12 bg-white/45 blur-sm transition-transform duration-500 ease-out group-hover:translate-x-32" />
             <motion.span className="relative" animate={{ opacity: 1 }}>
@@ -225,13 +225,13 @@ export default function Navbar() {
         </div>
 
         <details className="group relative md:hidden">
-          <summary className="flex size-11 cursor-pointer list-none flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.06] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-300 ease-out hover:border-[#00FF87]/50 hover:bg-white/[0.1] [&::-webkit-details-marker]:hidden">
-            <span className="h-0.5 w-5 rounded-full bg-current transition duration-300 group-open:translate-y-2 group-open:rotate-45 group-open:text-[#00FF87]" />
+          <summary className="flex size-11 cursor-pointer list-none flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.06] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition duration-300 ease-out hover:border-[#5fb996]/50 hover:bg-white/[0.1] [&::-webkit-details-marker]:hidden">
+            <span className="h-0.5 w-5 rounded-full bg-current transition duration-300 group-open:translate-y-2 group-open:rotate-45 group-open:text-[#5fb996]" />
             <span className="h-0.5 w-5 rounded-full bg-current transition duration-300 group-open:opacity-0" />
-            <span className="h-0.5 w-5 rounded-full bg-current transition duration-300 group-open:-translate-y-2 group-open:-rotate-45 group-open:text-[#00FF87]" />
+            <span className="h-0.5 w-5 rounded-full bg-current transition duration-300 group-open:-translate-y-2 group-open:-rotate-45 group-open:text-[#5fb996]" />
           </summary>
 
-          <div className="absolute right-0 top-14 w-[calc(100vw-2rem)] overflow-hidden rounded-[1.6rem] border border-white/12 bg-[#090909]/86 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl">
+          <div className="absolute right-0 top-14 w-[calc(100vw-2rem)] overflow-hidden rounded-[1.6rem] border border-white/12 bg-[#070c12]/86 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/24 to-transparent" />
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -242,14 +242,14 @@ export default function Navbar() {
                   className="group flex items-center justify-between rounded-2xl px-3 py-3 text-base font-semibold text-white/62 transition duration-300 ease-out hover:bg-white/[0.07] hover:text-white"
                 >
                   <span>{link.label}</span>
-                  <span className="size-1.5 rounded-full bg-[#00FF87]/0 transition-colors duration-300 group-hover:bg-[#00FF87]/90" />
+                  <span className="size-1.5 rounded-full bg-[#5fb996]/0 transition-colors duration-300 group-hover:bg-[#5fb996]/90" />
                 </Link>
               ))}
 
               <Link
                 href="/#contact"
                 onClick={(event) => handleSectionLink("/#contact", event)}
-                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-5 py-3 text-sm font-black text-black shadow-[0_0_24px_rgba(0,255,135,0.24)] transition duration-300 ease-out hover:shadow-[0_0_34px_rgba(0,255,135,0.34)]"
+                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-5 py-3 text-sm font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24)] transition duration-300 ease-out hover:shadow-[0_0_34px_rgba(95,185,150,0.34)]"
               >
                 Hire Me
               </Link>

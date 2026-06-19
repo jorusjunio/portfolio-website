@@ -104,7 +104,7 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#04080f_0%,#04080f_84%,#020308_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_84%,#010205_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
       <Starfield />
       <AuraGlow variant="aqua" className="right-[-12rem] top-[12%] h-[28rem] w-[28rem]" />
@@ -116,7 +116,7 @@ export default function Contact() {
           viewport={{ once: false, amount: 0.35 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+          <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
             Contact
           </p>
           <RevealHeading className="mt-5 max-w-xl text-3xl font-black leading-tight tracking-normal text-white sm:text-4xl lg:text-5xl">
@@ -140,19 +140,19 @@ export default function Contact() {
                 }
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.24, ease: "easeOut" }}
-                className="contact-email-target group relative overflow-hidden border border-white/10 bg-[#0f1310]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#00FF87]/35"
+                className="contact-email-target group relative overflow-hidden border border-white/10 bg-[#0a1118]/85 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition duration-500 hover:border-[#5fb996]/35"
               >
-                <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#00FF87]/80 via-[#00FF87]/15 to-transparent opacity-70" />
+                <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-[#5fb996]/80 via-[#5fb996]/15 to-transparent opacity-70" />
                 <div className="mb-4 flex items-center justify-between gap-4">
                   <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-[#a0f7c0]">
                     {detail.label}
                   </p>
-                  <span className="h-3 w-3 rounded-full bg-[#00FF87]/70 transition duration-300 group-hover:bg-[#00FF87]" />
+                  <span className="h-3 w-3 rounded-full bg-[#5fb996]/70 transition duration-300 group-hover:bg-[#5fb996]" />
                 </div>
                 {detail.href ? (
                   <a
                     href={detail.href}
-                    className="block break-words text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:text-[#00FF87] sm:text-base"
+                    className="block break-words text-sm font-semibold leading-6 text-white transition-colors duration-300 hover:text-[#5fb996] sm:text-base"
                   >
                     {detail.value}
                   </a>
@@ -174,7 +174,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
-          className="border border-white/10 bg-[#0f1310] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-500 sm:p-6"
+          className="border border-white/10 bg-[#0a1118] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-500 sm:p-6"
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block">
@@ -186,7 +186,7 @@ export default function Contact() {
                 name="name"
                 placeholder="Your name"
                 required
-                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
+                className="mt-3 w-full border border-white/10 bg-[#080d14] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#5fb996]"
               />
             </label>
 
@@ -199,7 +199,7 @@ export default function Contact() {
                 name="email"
                 placeholder="you@example.com"
                 required
-                className="mt-3 w-full border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
+                className="mt-3 w-full border border-white/10 bg-[#080d14] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#5fb996]"
               />
             </label>
           </div>
@@ -213,18 +213,18 @@ export default function Contact() {
                 name="projectType"
                 defaultValue=""
                 required
-                className="w-full appearance-none border border-white/10 bg-[#0A0A0A] px-4 py-4 pr-12 text-sm font-semibold text-white outline-none transition duration-300 hover:border-white/25 focus:border-[#00FF87] focus:shadow-[0_0_28px_rgba(0,255,135,0.14)]"
+                className="w-full appearance-none border border-white/10 bg-[#080d14] px-4 py-4 pr-12 text-sm font-semibold text-white outline-none transition duration-300 hover:border-white/25 focus:border-[#5fb996] focus:shadow-[0_0_28px_rgba(95,185,150,0.14)]"
               >
                 <option value="" disabled>
                   Select a project type
                 </option>
                 {projectTypes.map((type) => (
-                  <option key={type} value={type} className="bg-[#0A0A0A]">
+                  <option key={type} value={type} className="bg-[#080d14]">
                     {type}
                   </option>
                 ))}
               </select>
-              <span className="pointer-events-none absolute right-4 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center border border-white/10 bg-white/[0.04] text-[#00FF87] transition duration-300 group-hover:border-[#00FF87]/40 group-focus-within:border-[#00FF87]/70 group-focus-within:bg-[#00FF87]/10">
+              <span className="pointer-events-none absolute right-4 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center border border-white/10 bg-white/[0.04] text-[#5fb996] transition duration-300 group-hover:border-[#5fb996]/40 group-focus-within:border-[#5fb996]/70 group-focus-within:bg-[#5fb996]/10">
                 <span className="size-2 rotate-45 border-b-2 border-r-2 border-current" />
               </span>
             </div>
@@ -239,7 +239,7 @@ export default function Contact() {
               rows={5}
               placeholder="Tell me about your project..."
               required
-              className="mt-3 w-full resize-none border border-white/10 bg-[#0A0A0A] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#00FF87]"
+              className="mt-3 w-full resize-none border border-white/10 bg-[#080d14] px-3 py-3 text-sm text-white outline-none transition-colors placeholder:text-[#5d5d5d] focus:border-[#5fb996]"
             />
           </label>
 
@@ -248,7 +248,7 @@ export default function Contact() {
             disabled={isSubmitting}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#00FF87] px-6 py-3 text-sm font-black text-black transition duration-300 hover:bg-[#00e36d] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+            className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#5fb996] px-6 py-3 text-sm font-black text-black transition duration-300 hover:bg-[#00e36d] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>
@@ -257,7 +257,7 @@ export default function Contact() {
             <p
               className={`mt-5 text-sm font-semibold leading-6 ${
                 submitMessage.type === "success"
-                  ? "text-[#00FF87]"
+                  ? "text-[#5fb996]"
                   : "text-red-400"
               }`}
             >

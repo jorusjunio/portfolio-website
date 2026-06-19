@@ -25,7 +25,7 @@ export default function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#070c17_0%,#070c17_82%,#04080f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#05090f_0%,#05090f_82%,#03060b_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
       <Starfield />
       <AuraGlow variant="emerald" className="left-[-12rem] top-[8%] h-[28rem] w-[28rem]" />
@@ -38,7 +38,7 @@ export default function About() {
             viewport={{ once: false, amount: 0.4 }}
             transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               About me
             </p>
             <RevealHeading className="mt-5 max-w-xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
@@ -67,7 +67,7 @@ export default function About() {
                   key={stat.label}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="border-l border-[#00FF87] bg-[#0A0A0A] px-5 py-6"
+                  className="border-l border-[#5fb996] bg-[#080d14] px-5 py-6"
                 >
                   <p className="text-4xl font-black text-white">{stat.value}</p>
                   <p className="mt-3 text-sm uppercase tracking-[0.18em] text-[#888888]">
@@ -80,7 +80,7 @@ export default function About() {
             <div className="mt-10 grid gap-4 border-t border-white/10 pt-8 md:grid-cols-3">
               {highlights.map((item, index) => (
                 <div key={item} className="group">
-                  <span className="text-sm font-black text-[#00FF87]">
+                  <span className="text-sm font-black text-[#5fb996]">
                     0{index + 1}
                   </span>
                   <p className="mt-3 text-sm leading-6 text-[#888888] transition-colors duration-300 group-hover:text-white">

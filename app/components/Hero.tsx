@@ -42,11 +42,11 @@ export default function Hero() {
       initial="hidden"
       animate="show"
       variants={heroContainer}
-      className="relative isolate flex min-h-screen overflow-hidden bg-[#04080f] px-5 pt-28 text-white sm:px-8 lg:px-10"
+      className="relative isolate flex min-h-screen overflow-hidden bg-[#03060b] px-5 pt-28 text-white sm:px-8 lg:px-10"
     >
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(0,255,135,0.16),transparent_34%),radial-gradient(circle_at_20%_10%,rgba(0,190,255,0.12),transparent_30%),linear-gradient(180deg,#04080f_0%,#070c17_92%,#070c17_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(95,185,150,0.16),transparent_34%),radial-gradient(circle_at_20%_10%,rgba(0,190,255,0.12),transparent_30%),linear-gradient(180deg,#03060b_0%,#05090f_92%,#05090f_100%)]" />
       <Starfield className="-z-10" />
-      <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00FF87]/40 to-transparent" />
+      <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#5fb996]/40 to-transparent" />
 
       <div className="mx-auto grid w-full max-w-7xl items-end gap-14 pb-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-24 lg:pb-20 xl:gap-32">
         <motion.div
@@ -54,7 +54,7 @@ export default function Hero() {
         >
           <motion.p
             variants={heroItem}
-            className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]"
+            className="mb-5 text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]"
           >
             Hey! I&apos;m
           </motion.p>
@@ -63,7 +63,7 @@ export default function Hero() {
             variants={heroItem}
             whileHover={{
               scale: 1.015,
-              textShadow: "0 0 34px rgba(0,255,135,0.22)",
+              textShadow: "0 0 34px rgba(95,185,150,0.22)",
             }}
             whileTap={{ scale: 0.99 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
@@ -95,7 +95,7 @@ export default function Hero() {
                 href="#projects"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center rounded-full bg-[#00FF87] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(0,255,135,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(0,255,135,0.42)]"
+                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-bold text-black shadow-[0_0_34px_rgba(95,185,150,0.28)] transition-shadow hover:shadow-[0_0_46px_rgba(95,185,150,0.42)]"
               >
                 View Work
               </motion.a>
@@ -105,7 +105,7 @@ export default function Hero() {
                 href="#contact"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition-colors hover:border-[#00FF87] hover:text-[#00FF87]"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-bold text-white transition-colors hover:border-[#5fb996] hover:text-[#5fb996]"
               >
                 Let&apos;s Work
               </motion.a>
@@ -150,9 +150,9 @@ export default function Hero() {
             transition={{ duration: 0.24, ease: "easeOut" }}
             className="group relative z-10 mb-8 h-[390px] w-full max-w-[360px] cursor-pointer sm:h-[500px] sm:max-w-[440px] lg:h-[540px] lg:max-w-[500px]"
           >
-            <div className="absolute -inset-10 bg-[#00FF87]/10 blur-3xl" />
+            <div className="absolute -inset-10 bg-[#5fb996]/10 blur-3xl" />
             <motion.div
-              className="absolute -inset-7 rounded-full border border-[#00FF87]/18 transition-colors duration-300 group-hover:border-[#00FF87]/38"
+              className="absolute -inset-7 rounded-full border border-[#5fb996]/18 transition-colors duration-300 group-hover:border-[#5fb996]/38"
               animate={{ rotate: 360 }}
               transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
             />
@@ -162,14 +162,14 @@ export default function Hero() {
               transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="absolute -right-8 top-16 h-52 w-52 rounded-full bg-[#00FF87]/16 blur-3xl"
+              className="absolute -right-8 top-16 h-52 w-52 rounded-full bg-[#5fb996]/16 blur-3xl"
               animate={{ scale: [0.9, 1.15, 0.9], opacity: [0.52, 0.92, 0.52] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            <div className="absolute left-6 top-6 h-full w-full border border-[#00FF87]/16" />
+            <div className="absolute left-6 top-6 h-full w-full border border-[#5fb996]/16" />
 
-            <div className="relative h-full overflow-hidden border border-white/12 bg-[#080808] shadow-[0_36px_100px_rgba(0,0,0,0.58)] transition duration-300 group-hover:border-[#00FF87]/50 group-hover:shadow-[0_38px_120px_rgba(0,255,135,0.14)] [clip-path:polygon(0_0,88%_0,100%_12%,100%_100%,12%_100%,0_88%)]">
+            <div className="relative h-full overflow-hidden border border-white/12 bg-[#060a10] shadow-[0_36px_100px_rgba(0,0,0,0.58)] transition duration-300 group-hover:border-[#5fb996]/50 group-hover:shadow-[0_38px_120px_rgba(95,185,150,0.14)] [clip-path:polygon(0_0,88%_0,100%_12%,100%_100%,12%_100%,0_88%)]">
               <Image
                 src="/assets/pictures/Formal-me.jpg"
                 alt="Formal portrait of Jorus"
@@ -178,10 +178,10 @@ export default function Hero() {
                 sizes="(min-width: 1024px) 500px, (min-width: 640px) 440px, 90vw"
                 className="scale-[1.02] object-cover object-[50%_34%] saturate-[1.04] contrast-[1.04]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,255,135,0.08)_0%,transparent_24%,transparent_74%,rgba(0,0,0,0.24)_100%)]" />
-              <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.26)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,135,0.18)_1px,transparent_1px)] [background-size:40px_40px]" />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(95,185,150,0.08)_0%,transparent_24%,transparent_74%,rgba(0,0,0,0.24)_100%)]" />
+              <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.26)_1px,transparent_1px),linear-gradient(90deg,rgba(95,185,150,0.18)_1px,transparent_1px)] [background-size:40px_40px]" />
               <motion.div
-                className="absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-[#00FF87]/14 via-[#00FF87]/5 to-transparent"
+                className="absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-[#5fb996]/14 via-[#5fb996]/5 to-transparent"
                 animate={reduceMotion ? { top: "-6rem" } : { top: ["-6rem", "105%"] }}
                 transition={
                   reduceMotion
@@ -189,13 +189,13 @@ export default function Hero() {
                     : { duration: 4.2, repeat: Infinity, ease: [0.42, 0, 0.2, 1], delay: 0.45, repeatDelay: 0.45 }
                 }
               />
-              <div className="absolute left-0 top-0 h-16 w-16 border-l-2 border-t-2 border-[#00FF87]" />
+              <div className="absolute left-0 top-0 h-16 w-16 border-l-2 border-t-2 border-[#5fb996]" />
               <div className="absolute right-0 top-0 h-16 w-16 border-r-2 border-t-2 border-white/40" />
               <div className="absolute bottom-0 left-0 h-16 w-16 border-b-2 border-l-2 border-white/35" />
-              <div className="absolute bottom-0 right-0 h-16 w-16 border-b-2 border-r-2 border-[#00FF87]" />
-              <div className="absolute inset-x-8 bottom-8 h-px bg-gradient-to-r from-transparent via-[#00FF87]/80 to-transparent" />
+              <div className="absolute bottom-0 right-0 h-16 w-16 border-b-2 border-r-2 border-[#5fb996]" />
+              <div className="absolute inset-x-8 bottom-8 h-px bg-gradient-to-r from-transparent via-[#5fb996]/80 to-transparent" />
               <div className="absolute bottom-7 right-7 flex items-center gap-2 border border-white/10 bg-black/54 px-3 py-2 backdrop-blur">
-                <span className="size-2 bg-[#00FF87] shadow-[0_0_16px_rgba(0,255,135,0.8)]" />
+                <span className="size-2 bg-[#5fb996] shadow-[0_0_16px_rgba(95,185,150,0.8)]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/74">
                   Available
                 </span>

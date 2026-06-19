@@ -27,7 +27,7 @@ export default function ThreeHeroVisual() {
     mainGroup.scale.setScalar(0.86);
     scene.add(mainGroup);
 
-    const accent = new THREE.Color("#00ff87");
+    const accent = new THREE.Color("#5fb996");
     const softWhite = new THREE.Color("#ffffff");
 
     const coreGeometry = new THREE.IcosahedronGeometry(1.35, 1);
@@ -166,14 +166,14 @@ export default function ThreeHeroVisual() {
 
   return (
     <div className="relative h-full w-full">
-      <div className="absolute inset-10 rounded-full bg-[#00FF87]/12 blur-3xl" />
+      <div className="absolute inset-10 rounded-full bg-[#5fb996]/12 blur-3xl" />
       <div
         ref={mountRef}
         className="absolute inset-0"
         aria-hidden="true"
       />
-      <div className="absolute inset-x-12 bottom-12 h-px bg-gradient-to-r from-transparent via-[#00FF87]/70 to-transparent" />
-      <div className="absolute bottom-8 left-1/2 h-14 w-72 -translate-x-1/2 bg-[#00FF87]/12 blur-2xl" />
+      <div className="absolute inset-x-12 bottom-12 h-px bg-gradient-to-r from-transparent via-[#5fb996]/70 to-transparent" />
+      <div className="absolute bottom-8 left-1/2 h-14 w-72 -translate-x-1/2 bg-[#5fb996]/12 blur-2xl" />
     </div>
   );
 }

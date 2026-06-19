@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-[#04080f]">
+    <main className="min-h-screen overflow-x-clip bg-[#03060b]">
       <CustomCursor />
       <SmoothScroll />
       <IntroAnimation />

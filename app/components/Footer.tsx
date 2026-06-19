@@ -76,7 +76,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="overflow-hidden bg-[#020308] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
+      className="overflow-hidden bg-[#010205] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
@@ -90,7 +90,7 @@ export default function Footer() {
             <Link href="/#home" aria-label="Jorus portfolio home">
               <Logo />
             </Link>
-            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Ready when you are
             </p>
             <h2 className="mt-5 max-w-2xl text-3xl font-black leading-tight tracking-normal text-white sm:text-5xl">
@@ -108,7 +108,7 @@ export default function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-semibold text-white transition-colors duration-300 hover:text-[#00FF87]"
+                    className="text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
                   >
                     {link.label}
                   </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
                         key={social.label}
                         href={social.href}
                         onClick={handleEmailClick}
-                        className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#00FF87]"
+                        className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
                       >
                         {content}
                       </Link>
@@ -157,7 +157,7 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#00FF87]"
+                      className="group inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors duration-300 hover:text-[#5fb996]"
                     >
                       {content}
                     </a>
@@ -180,7 +180,7 @@ export default function Footer() {
             <motion.span
               animate={{ scale: [1, 1.12, 1] }}
               transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-block text-[#00FF87]"
+              className="inline-block text-[#5fb996]"
             >
               .
             </motion.span>

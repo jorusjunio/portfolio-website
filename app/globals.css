@@ -2,9 +2,9 @@
 
 :root {
   color-scheme: dark;
-  --background: #04080f;
+  --background: #03060b;
   --foreground: #ffffff;
-  --accent: #00ff87;
+  --accent: #5fb996;
   --muted: #888888;
 }
 
@@ -89,7 +89,7 @@ textarea {
 
   35%,
   72% {
-    box-shadow: 0 0 42px rgba(0, 255, 135, 0.34);
+    box-shadow: 0 0 42px rgba(95, 185, 150, 0.34);
   }
 }
 

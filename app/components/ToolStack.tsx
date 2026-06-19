@@ -77,7 +77,7 @@ export default function ToolStack() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#04080f_0%,#04080f_86%,#04080f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_86%,#03060b_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
       <Starfield />
       <AuraGlow variant="teal" className="right-[-14rem] top-[10%] h-[30rem] w-[30rem]" />
@@ -90,7 +90,7 @@ export default function ToolStack() {
             viewport={{ once: false, amount: 0.35 }}
             transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Skills & Tool Stack
             </p>
             <h2 className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
@@ -112,7 +112,7 @@ export default function ToolStack() {
         </div>
 
         <div className="relative mt-14">
-          <div className="absolute -inset-x-6 top-16 h-px bg-gradient-to-r from-transparent via-[#00FF87]/35 to-transparent" />
+          <div className="absolute -inset-x-6 top-16 h-px bg-gradient-to-r from-transparent via-[#5fb996]/35 to-transparent" />
           <div className="absolute -inset-x-6 bottom-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
           <div className="relative grid gap-3 md:grid-cols-2 xl:grid-cols-5">
@@ -130,21 +130,21 @@ export default function ToolStack() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 
-                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0f0f0f]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#00FF87]/50"
+                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0a1017]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition-colors duration-300 hover:border-[#5fb996]/50"
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,255,135,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#00FF87]/0 to-transparent transition-colors duration-500 group-hover:via-[#00FF87]/70" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(95,185,150,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5fb996]/0 to-transparent transition-colors duration-500 group-hover:via-[#5fb996]/70" />
 
                 <div className="flex min-h-[76px] items-start justify-between gap-3">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#00FF87]/70">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#5fb996]/70">
                       {stack.label}
                     </p>
                     <h3 className="mt-2 text-xl font-black text-white leading-snug">
                       {stack.title}
                     </h3>
                   </div>
-                  <span className="grid size-10 shrink-0 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#00FF87] transition-colors duration-300 group-hover:border-[#00FF87]/45 group-hover:bg-[#00FF87]/10">
+                  <span className="grid size-10 shrink-0 place-items-center border border-white/10 bg-black/30 text-sm font-black text-[#5fb996] transition-colors duration-300 group-hover:border-[#5fb996]/45 group-hover:bg-[#5fb996]/10">
                     0{index + 1}
                   </span>
                 </div>
@@ -156,10 +156,10 @@ export default function ToolStack() {
                       key={tool.name}
                       whileHover={{ y: -3, scale: 1.025 }}
                       whileTap={{ scale: 0.98 }}
-                      className="group/tool relative flex h-[76px] w-[65px] flex-col justify-between items-center overflow-hidden border border-white/10 bg-black/24 p-1.5 transition-colors duration-300 hover:border-[#00FF87]/50 hover:bg-[#00FF87]/[0.055]"
+                      className="group/tool relative flex h-[76px] w-[65px] flex-col justify-between items-center overflow-hidden border border-white/10 bg-black/24 p-1.5 transition-colors duration-300 hover:border-[#5fb996]/50 hover:bg-[#5fb996]/[0.055]"
                     >
-                      <span className="absolute inset-x-3 top-0 h-px scale-x-0 bg-[#00FF87]/75 transition-transform duration-300 group-hover/tool:scale-x-100" />
-                      <span className="grid size-9 place-items-center border border-white/10 bg-white/[0.03] text-xs font-black text-white/80 transition-colors duration-300 group-hover/tool:border-[#00FF87]/35 group-hover/tool:text-[#00FF87]">
+                      <span className="absolute inset-x-3 top-0 h-px scale-x-0 bg-[#5fb996]/75 transition-transform duration-300 group-hover/tool:scale-x-100" />
+                      <span className="grid size-9 place-items-center border border-white/10 bg-white/[0.03] text-xs font-black text-white/80 transition-colors duration-300 group-hover/tool:border-[#5fb996]/35 group-hover/tool:text-[#5fb996]">
                         {tool.logo ? (
                           <Image
                             src={tool.logo}
@@ -182,7 +182,7 @@ export default function ToolStack() {
 
                 <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-4 text-[11px] font-bold uppercase tracking-[0.16em] text-white/38">
                   <span>{stack.tools.length} tools</span>
-                  <span className="text-[#00FF87]/60">Ready</span>
+                  <span className="text-[#5fb996]/60">Ready</span>
                 </div>
               </motion.article>
             ))}

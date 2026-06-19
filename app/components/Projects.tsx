@@ -376,7 +376,7 @@ export default function Projects() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
-      className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#070c17_0%,#070c17_84%,#03060c_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
+      className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#05090f_0%,#05090f_84%,#020409_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
     >
       <Starfield />
       <AuraGlow variant="cyan" className="left-[-14rem] top-[14%] h-[30rem] w-[30rem]" delay={0.5} />
@@ -393,7 +393,7 @@ export default function Projects() {
           className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
         >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#00FF87]">
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Best Projects
             </p>
             <RevealHeading className="mt-5 max-w-3xl text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl">
@@ -419,17 +419,17 @@ export default function Projects() {
                 duration: 0.62,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group flex h-full flex-col overflow-hidden border border-white/10 bg-[#0A0A0A] transition-colors duration-300 hover:border-[#00FF87]/70"
+              className="group flex h-full flex-col overflow-hidden border border-white/10 bg-[#080d14] transition-colors duration-300 hover:border-[#5fb996]/70"
             >
-              <div className="relative overflow-hidden bg-[#090909] p-3">
+              <div className="relative overflow-hidden bg-[#070c12] p-3">
                 <div className="mb-2.5 flex items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">
                   <span className="border border-white/10 bg-white/[0.03] px-2.5 py-1 text-white/70">
                     {project.type}
                   </span>
-                  <span className="text-[#00FF87]">{project.number}</span>
+                  <span className="text-[#5fb996]">{project.number}</span>
                 </div>
 
-                <div className="relative aspect-[16/7.15] overflow-hidden border border-white/10 bg-[#111111] shadow-2xl">
+                <div className="relative aspect-[16/7.15] overflow-hidden border border-white/10 bg-[#0b1118] shadow-2xl">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -439,7 +439,7 @@ export default function Projects() {
                       className="object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-95"
                     />
                   ) : (
-                    <div className="h-full w-full bg-[linear-gradient(135deg,#101010_0%,#181818_55%,#0A0A0A_100%)]" />
+                    <div className="h-full w-full bg-[linear-gradient(135deg,#0a1017_0%,#181818_55%,#080d14_100%)]" />
                   )}
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.48)_48%,rgba(10,10,10,0.86)_100%)]" />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
@@ -472,14 +472,14 @@ export default function Projects() {
                   <button
                     type="button"
                     onClick={() => openProjectPreview(project)}
-                    className="inline-flex min-h-9 items-center justify-center border border-[#00FF87] bg-[#00FF87] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-black transition hover:bg-white"
+                    className="inline-flex min-h-9 items-center justify-center border border-[#5fb996] bg-[#5fb996] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-black transition hover:bg-white"
                   >
                     Preview
                   </button>
                   <a
                     href={project.liveUrl}
                     aria-disabled={project.liveUrl === "#"}
-                    className="inline-flex min-h-9 items-center justify-center border border-white/15 px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                    className="inline-flex min-h-9 items-center justify-center border border-white/15 px-4 py-2 text-xs font-black uppercase tracking-[0.1em] text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
                   >
                     Live Demo
                   </a>
@@ -507,7 +507,7 @@ export default function Projects() {
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="project-preview-title"
-                  className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-x-hidden overflow-y-auto border border-white/12 bg-[#0A0A0A] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
+                  className="relative max-h-[92vh] w-full max-w-6xl overscroll-contain overflow-x-hidden overflow-y-auto border border-white/12 bg-[#080d14] shadow-2xl lg:h-[min(92vh,720px)] lg:overflow-hidden"
                   initial={{ opacity: 0, y: 28, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -518,14 +518,14 @@ export default function Projects() {
                     type="button"
                     onClick={closeProjectPreview}
                     aria-label="Close project preview"
-                    className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/70 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                    className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/70 text-xl font-black text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
                   >
                     x
                   </button>
 
                   <div className="grid h-full min-w-0 gap-0 overflow-x-hidden lg:grid-cols-[1.48fr_0.82fr]">
-                    <div className="min-w-0 border-b border-white/10 bg-[#111111] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
-                      <div className="relative min-h-0 flex-1 overflow-hidden border border-[#00FF87]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#101010_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
+                    <div className="min-w-0 border-b border-white/10 bg-[#0b1118] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
+                      <div className="relative min-h-0 flex-1 overflow-hidden border border-[#5fb996]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#0a1017_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
                         <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/45 px-3 py-2">
                           <div className="flex items-center gap-1.5">
                             <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
@@ -558,7 +558,7 @@ export default function Projects() {
                               priority
                             />
                           ) : (
-                            <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#101010_0%,#181818_55%,#0A0A0A_100%)] px-10 text-center">
+                            <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#0a1017_0%,#181818_55%,#080d14_100%)] px-10 text-center">
                               <span className="max-w-sm text-2xl font-black uppercase tracking-[0.16em] text-white/72">
                                 {selectedProject.title}
                               </span>
@@ -568,7 +568,7 @@ export default function Projects() {
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00FF87]">
+                          <p className="text-xs font-black uppercase tracking-[0.22em] text-[#5fb996]">
                             {selectedProject.previewLabel}
                           </p>
                           <div className="mt-3 grid gap-2 sm:grid-cols-3">
@@ -599,7 +599,7 @@ export default function Projects() {
                       {previewItems.length > 0 && (
                         <div className="mt-2 border border-white/10 bg-black/35 p-2">
                           <div className="mb-2 flex items-center justify-between gap-3">
-                            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#00FF87]">
+                            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#5fb996]">
                               Screenshots
                             </p>
                             <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
@@ -618,7 +618,7 @@ export default function Projects() {
                                 key={item.src}
                                 onClick={() => setExpandedPreviewIndex(index)}
                                 aria-label={`Open ${item.label}`}
-                                className="group relative w-[160px] flex-shrink-0 overflow-hidden border border-white/10 bg-black transition hover:border-[#00FF87]"
+                                className="group relative w-[160px] flex-shrink-0 overflow-hidden border border-white/10 bg-black transition hover:border-[#5fb996]"
                               >
                                 <div className="aspect-video relative w-full">
                                   <Image
@@ -640,7 +640,7 @@ export default function Projects() {
                     </div>
 
                     <div className="flex min-h-full flex-col overflow-y-auto p-5 sm:p-6 lg:p-6">
-                      <p className="text-xs font-black uppercase tracking-[0.24em] text-[#00FF87]">
+                      <p className="text-xs font-black uppercase tracking-[0.24em] text-[#5fb996]">
                         {selectedProject.role}
                       </p>
                       <h3
@@ -678,7 +678,7 @@ export default function Projects() {
                             <span
                               key={item}
                               tabIndex={0}
-                              className="group relative overflow-hidden border border-white/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white/75 outline-none transition hover:border-[#00FF87]/70 hover:text-white focus-visible:border-[#00FF87]/70 focus-visible:text-white"
+                              className="group relative overflow-hidden border border-white/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white/75 outline-none transition hover:border-[#5fb996]/70 hover:text-white focus-visible:border-[#5fb996]/70 focus-visible:text-white"
                             >
                               <span className="pointer-events-none absolute inset-0 grid place-items-center opacity-0 transition duration-200 group-hover:opacity-20 group-focus-visible:opacity-20">
                                 {techLogos[item]?.src ? (
@@ -691,7 +691,7 @@ export default function Projects() {
                                     className="max-h-8 max-w-8 object-contain"
                                   />
                                 ) : (
-                                  <span className="text-sm font-black tracking-normal text-[#00FF87]">
+                                  <span className="text-sm font-black tracking-normal text-[#5fb996]">
                                     {techLogos[item]?.initials ?? item.slice(0, 2)}
                                   </span>
                                 )}
@@ -706,14 +706,14 @@ export default function Projects() {
                         <a
                           href={selectedProject.liveUrl}
                           aria-disabled={selectedProject.liveUrl === "#"}
-                          className="border border-[#00FF87] bg-[#00FF87] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-white"
+                          className="border border-[#5fb996] bg-[#5fb996] px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-white"
                         >
                           Live Demo
                         </a>
                         <a
                           href={selectedProject.githubUrl}
                           aria-disabled={selectedProject.githubUrl === "#"}
-                          className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                          className="border border-white/15 px-4 py-2.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
                         >
                           GitHub
                         </a>
@@ -736,13 +736,13 @@ export default function Projects() {
                           setExpandedPreviewIndex(null);
                         }}
                         aria-label="Close enlarged preview"
-                        className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/80 text-xl font-black text-white transition hover:border-[#00FF87] hover:text-[#00FF87]"
+                        className="absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center border border-white/15 bg-black/80 text-xl font-black text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
                       >
                         x
                       </button>
 
                       <div
-                        className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#00FF87]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(0,255,135,0.13),transparent_32%),linear-gradient(135deg,#050505_0%,#101010_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
+                        className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#5fb996]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_32%),linear-gradient(135deg,#050505_0%,#0a1017_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
                         onClick={(event) => event.stopPropagation()}
                       >
                         <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/60 px-3 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
@@ -752,7 +752,7 @@ export default function Projects() {
                             <span className="h-2 w-2 rounded-full bg-[#28c840]" />
                           </div>
                           <div className="min-w-0 text-right">
-                            <p className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-[#00FF87]">
+                            <p className="truncate text-[10px] font-black uppercase tracking-[0.16em] text-[#5fb996]">
                               {expandedPreview.label}
                             </p>
                             <p className="mt-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/42">
@@ -780,7 +780,7 @@ export default function Projects() {
                                   showPreviousPreview();
                                 }}
                                 aria-label="Show previous screenshot"
-                                className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
+                                className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#5fb996] hover:bg-[#5fb996] hover:text-black"
                               >
                                 &lt;
                               </button>
@@ -791,7 +791,7 @@ export default function Projects() {
                                   showNextPreview();
                                 }}
                                 aria-label="Show next screenshot"
-                                className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#00FF87] hover:bg-[#00FF87] hover:text-black"
+                                className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center border border-white/15 bg-black/72 text-2xl font-black text-white shadow-[0_16px_38px_rgba(0,0,0,0.42)] backdrop-blur transition hover:border-[#5fb996] hover:bg-[#5fb996] hover:text-black"
                               >
                                 &gt;
                               </button>

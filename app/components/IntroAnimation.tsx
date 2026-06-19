@@ -25,7 +25,7 @@ export default function IntroAnimation() {
           width={92}
           height={92}
           priority
-          className="h-20 w-20 object-contain invert drop-shadow-[0_0_28px_rgba(0,255,135,0.5)] sm:h-24 sm:w-24"
+          className="h-20 w-20 object-contain invert drop-shadow-[0_0_28px_rgba(95,185,150,0.5)] sm:h-24 sm:w-24"
         />
       </div>
     );
@@ -37,14 +37,14 @@ export default function IntroAnimation() {
       className="intro-shell pointer-events-none fixed inset-0 z-[100] overflow-hidden bg-[#050505] text-white"
     >
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,255,135,0.2),transparent_31%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_26%),linear-gradient(180deg,#020202_0%,#0A0A0A_58%,#020202_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(95,185,150,0.2),transparent_31%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_26%),linear-gradient(180deg,#020202_0%,#080d14_58%,#020202_100%)]"
         initial={{ scale: 1.08, opacity: 0.72 }}
         animate={{ scale: [1.08, 1, 1.03], opacity: [0.72, 1, 0.88] }}
         transition={{ duration: 2.6, ease: [0.16, 1, 0.3, 1] }}
       />
 
       <motion.div
-        className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,135,0.16)_1px,transparent_1px)] [background-size:58px_58px]"
+        className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(95,185,150,0.16)_1px,transparent_1px)] [background-size:58px_58px]"
         initial={{ opacity: 0, y: -28 }}
         animate={{ opacity: [0, 0.16, 0.08], y: [-28, 0, 16] }}
         transition={{ duration: 2.3, ease: "easeOut" }}
@@ -64,7 +64,7 @@ export default function IntroAnimation() {
       />
 
       <motion.div
-        className="absolute inset-y-0 -left-1/3 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),rgba(0,255,135,0.24),transparent)] blur-xl"
+        className="absolute inset-y-0 -left-1/3 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),rgba(95,185,150,0.24),transparent)] blur-xl"
         initial={{ x: "-25%", skewX: -18, opacity: 0 }}
         animate={{ x: ["-25%", "175%"], opacity: [0, 1, 0] }}
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.62 }}
@@ -78,7 +78,7 @@ export default function IntroAnimation() {
           transition={{ duration: 1.45, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
         >
           <motion.div
-            className="absolute inset-2 rounded-full border border-[#00FF87]/26 shadow-[0_0_80px_rgba(0,255,135,0.14)]"
+            className="absolute inset-2 rounded-full border border-[#5fb996]/26 shadow-[0_0_80px_rgba(95,185,150,0.14)]"
             initial={{ scale: 0.58, opacity: 0, rotate: -70 }}
             animate={{ scale: [0.58, 1.05, 1.18], opacity: [0, 0.88, 0], rotate: 135 }}
             transition={{ duration: 1.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -90,14 +90,14 @@ export default function IntroAnimation() {
             transition={{ duration: 2.05, ease: [0.16, 1, 0.3, 1], delay: 0.34 }}
           />
           <motion.div
-            className="absolute size-52 rounded-full bg-[conic-gradient(from_130deg,transparent,rgba(0,255,135,0.62),transparent_42%,rgba(255,255,255,0.28),transparent_72%)] blur-lg sm:size-72"
+            className="absolute size-52 rounded-full bg-[conic-gradient(from_130deg,transparent,rgba(95,185,150,0.62),transparent_42%,rgba(255,255,255,0.28),transparent_72%)] blur-lg sm:size-72"
             initial={{ scale: 0.45, rotate: -90, opacity: 0 }}
             animate={{ scale: [0.45, 1, 1.22], rotate: 250, opacity: [0, 0.74, 0] }}
             transition={{ duration: 2.12, ease: "easeInOut", delay: 0.18 }}
           />
 
           <motion.div
-            className="absolute h-px w-[72vw] max-w-[680px] bg-gradient-to-r from-transparent via-[#00FF87] to-transparent shadow-[0_0_32px_rgba(0,255,135,0.72)]"
+            className="absolute h-px w-[72vw] max-w-[680px] bg-gradient-to-r from-transparent via-[#5fb996] to-transparent shadow-[0_0_32px_rgba(95,185,150,0.72)]"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
             transition={{ duration: 1.18, ease: [0.22, 1, 0.36, 1], delay: 0.76 }}
@@ -115,12 +115,12 @@ export default function IntroAnimation() {
             transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1], delay: 0.62 }}
           >
             <motion.span
-              className="absolute inset-0 rounded-full bg-[#00FF87]/16 blur-3xl"
+              className="absolute inset-0 rounded-full bg-[#5fb996]/16 blur-3xl"
               animate={{ scale: [0.92, 1.18, 1.02], opacity: [0.44, 0.9, 0.64] }}
               transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.span
-              className="absolute inset-4 rounded-full border border-[#00FF87]/42"
+              className="absolute inset-4 rounded-full border border-[#5fb996]/42"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: [0, 0.78, 0], scale: [0.5, 1.4, 1.72] }}
               transition={{ duration: 1.42, ease: "easeOut", delay: 0.98 }}
@@ -131,7 +131,7 @@ export default function IntroAnimation() {
               width={104}
               height={104}
               priority
-              className="relative h-24 w-24 object-contain invert drop-shadow-[0_0_30px_rgba(0,255,135,0.48)] sm:h-32 sm:w-32"
+              className="relative h-24 w-24 object-contain invert drop-shadow-[0_0_30px_rgba(95,185,150,0.48)] sm:h-32 sm:w-32"
             />
           </motion.div>
         </motion.div>

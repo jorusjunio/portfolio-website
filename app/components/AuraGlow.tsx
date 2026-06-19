@@ -10,48 +10,62 @@ import {
 } from "framer-motion";
 
 type Variant = "emerald" | "teal" | "mint" | "cyan" | "violet" | "aqua";
+type Side = "left" | "right" | "top" | "bottom";
 
-// [primary, secondary] aurora colours per section (green + pink/violet etc.).
+// [primary, secondary] muted greenish aurora colours per section.
 const variants: Record<Variant, [string, string]> = {
-  emerald: ["rgba(60,255,150,0.28)", "rgba(255,110,190,0.16)"],
-  teal: ["rgba(0,235,210,0.26)", "rgba(150,110,255,0.16)"],
-  mint: ["rgba(150,255,130,0.24)", "rgba(255,120,200,0.16)"],
-  cyan: ["rgba(0,220,255,0.24)", "rgba(150,120,255,0.16)"],
-  violet: ["rgba(170,110,255,0.24)", "rgba(80,255,160,0.18)"],
-  aqua: ["rgba(0,255,200,0.26)", "rgba(255,120,200,0.15)"],
+  emerald: ["rgba(80,200,150,0.26)", "rgba(60,180,160,0.16)"],
+  teal: ["rgba(60,195,170,0.24)", "rgba(95,200,150,0.16)"],
+  mint: ["rgba(125,205,145,0.22)", "rgba(70,195,160,0.16)"],
+  cyan: ["rgba(70,195,175,0.24)", "rgba(100,200,155,0.16)"],
+  violet: ["rgba(75,200,160,0.22)", "rgba(110,205,150,0.16)"],
+  aqua: ["rgba(60,205,175,0.24)", "rgba(95,200,150,0.16)"],
 };
 
-// Curtain-free soft feather so the cloud blends seamlessly at every edge.
-const mask = "radial-gradient(closest-side at 50% 50%, #000 34%, transparent 100%)";
+const dirMap: Record<Side, string> = {
+  left: "to right",
+  right: "to left",
+  top: "to bottom",
+  bottom: "to top",
+};
+
+// Fade the band along its length so it never hard-clips at a section edge.
+const verticalMask =
+  "linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%)";
+const horizontalMask =
+  "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)";
 
 type AuraGlowProps = {
-  /** Position + size utility classes, e.g. "left-[-12rem] top-[10%] h-[28rem] w-[28rem]". */
+  /** Position + size utility classes, e.g. "left-[-8rem] top-[8%] h-[84%] w-[34rem]". */
   className: string;
   /** Aurora colour style (varies per section). */
   variant?: Variant;
+  /** Which edge the glow runs parallel to / fades away from. */
+  side?: Side;
   /** Animation start offset in seconds, for variety. */
   delay?: number;
-  /** Base billow cycle duration in seconds (cinematic = slow). */
+  /** Drift cycle duration in seconds (cinematic = slow). */
   duration?: number;
-  /** Vertical scroll-parallax travel in px. */
+  /** Scroll-parallax travel in px. */
   parallax?: number;
   /** Blur amount utility class. */
   blur?: string;
 };
 
 /**
- * A soft, spread-out aurora that drifts like slow smoke / clouds: a few
- * heavily-blurred colour blooms billow on different cycles (scale, drift,
- * slow rotation) for an organic cinematic feel, plus a scroll parallax.
- * Feathered on all sides so it stays seamless. Static for reduced-motion.
+ * A soft "parallel" aurora glow that runs along a section edge: a directional
+ * gradient band (brightest at the edge, fading inward) that gently drifts
+ * along the edge and breathes — cinematic, not a round blob. Static for
+ * reduced-motion users.
  */
 export default function AuraGlow({
   className,
   variant = "emerald",
+  side = "left",
   delay = 0,
-  duration = 26,
-  parallax = 60,
-  blur = "blur-[64px]",
+  duration = 18,
+  parallax = 50,
+  blur = "blur-[60px]",
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -66,12 +80,23 @@ export default function AuraGlow({
   const y = useSpring(yRaw, { stiffness: 80, damping: 30, mass: 0.5 });
 
   const [a, b] = variants[variant];
+  const isVertical = side === "left" || side === "right";
+  const dir = dirMap[side];
   const disabled = mounted && reduce;
+
   const baseStyle = {
     mixBlendMode: "screen" as const,
-    WebkitMaskImage: mask,
-    maskImage: mask,
+    WebkitMaskImage: isVertical ? verticalMask : horizontalMask,
+    maskImage: isVertical ? verticalMask : horizontalMask,
   };
+
+  // Drift along the edge (vertical sides drift up/down; horizontal drift left/right).
+  const driftA = isVertical
+    ? { y: ["-8%", "8%", "-8%"], opacity: [0.5, 0.9, 0.5] }
+    : { x: ["-8%", "8%", "-8%"], opacity: [0.5, 0.9, 0.5] };
+  const driftB = isVertical
+    ? { y: ["7%", "-7%", "7%"], opacity: [0.4, 0.8, 0.4] }
+    : { x: ["7%", "-7%", "7%"], opacity: [0.4, 0.8, 0.4] };
 
   return (
     <motion.div
@@ -84,66 +109,29 @@ export default function AuraGlow({
           : { ...baseStyle, y, opacity: 0.9 }
       }
     >
-      {/* Billowing cloud A (primary colour) */}
+      {/* Primary directional band */}
       <motion.div
-        className={`absolute inset-[-45%] ${blur}`}
+        className={`absolute inset-0 ${blur}`}
         style={{
-          background: `radial-gradient(58% 52% at 38% 42%, ${a} 0%, transparent 70%)`,
+          background: `linear-gradient(${dir}, ${a} 0%, ${b} 36%, transparent 74%)`,
         }}
-        animate={
-          reduce
-            ? undefined
-            : {
-                x: ["-10%", "9%", "-10%"],
-                y: ["-7%", "8%", "-7%"],
-                scale: [0.9, 1.16, 0.9],
-                rotate: [0, 9, 0],
-              }
-        }
+        animate={reduce ? undefined : driftA}
         transition={
           reduce ? undefined : { duration, repeat: Infinity, ease: "easeInOut", delay }
         }
       />
-
-      {/* Billowing cloud B (secondary colour, opposite drift) */}
+      {/* Secondary softer band, opposite drift, for organic depth */}
       <motion.div
-        className={`absolute inset-[-45%] ${blur}`}
+        className={`absolute inset-0 ${blur}`}
         style={{
-          background: `radial-gradient(56% 50% at 64% 62%, ${b} 0%, transparent 70%)`,
+          background: `linear-gradient(${dir}, ${b} 0%, transparent 60%)`,
+          opacity: 0.7,
         }}
-        animate={
-          reduce
-            ? undefined
-            : {
-                x: ["9%", "-9%", "9%"],
-                y: ["8%", "-7%", "8%"],
-                scale: [1.12, 0.9, 1.12],
-                rotate: [0, -11, 0],
-              }
-        }
+        animate={reduce ? undefined : driftB}
         transition={
           reduce
             ? undefined
             : { duration: duration * 1.25, repeat: Infinity, ease: "easeInOut", delay: delay + 1 }
-        }
-      />
-
-      {/* Soft drifting core (primary, dimmer) for extra depth */}
-      <motion.div
-        className={`absolute inset-[-35%] ${blur}`}
-        style={{
-          background: `radial-gradient(50% 48% at 52% 50%, ${a} 0%, transparent 72%)`,
-          opacity: 0.6,
-        }}
-        animate={
-          reduce
-            ? undefined
-            : { x: ["-5%", "6%", "-5%"], y: ["5%", "-6%", "5%"], scale: [1, 1.2, 1] }
-        }
-        transition={
-          reduce
-            ? undefined
-            : { duration: duration * 0.85, repeat: Infinity, ease: "easeInOut", delay: delay + 0.5 }
         }
       />
     </motion.div>
