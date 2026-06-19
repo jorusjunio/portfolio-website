@@ -140,7 +140,7 @@ export default function CreativePage() {
 
       <MotionSection
         id="creative-services"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#060a10_0%,#0b1118_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#060a10_0%,#0a1017_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
         <Starfield className="-z-10" />
         <AuraGlow variant="mint" className="left-[-14rem] top-[16%] h-[28rem] w-[28rem]" delay={1} />
@@ -162,7 +162,7 @@ export default function CreativePage() {
 
       <MotionSection
         id="creative-workflow"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-[#0b1118] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0a1017_0%,#0b1118_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
         <Starfield className="-z-10" />
         <AuraGlow variant="cyan" side="right" className="right-[-14rem] top-[12%] h-[30rem] w-[30rem]" delay={1.5} />
@@ -195,7 +195,7 @@ export default function CreativePage() {
 
       <MotionSection
         id="creative-tools"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#0a1017_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
         <Starfield className="-z-10" />
         <AuraGlow variant="teal" className="left-[-12rem] bottom-[10%] h-[28rem] w-[28rem]" delay={2} />
@@ -254,7 +254,7 @@ export default function CreativePage() {
 
       <MotionSection
         id="creative-formats"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0a1017_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
         <Starfield className="-z-10" />
         <AuraGlow variant="aqua" side="right" className="right-[-12rem] bottom-[8%] h-[28rem] w-[28rem]" delay={2.5} duration={19} />
