@@ -37,7 +37,7 @@ export default function IntroAnimation() {
       className="intro-shell pointer-events-none fixed inset-0 z-[100] overflow-hidden bg-[#050505] text-white"
     >
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(95,185,150,0.2),transparent_31%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_26%),linear-gradient(180deg,#020202_0%,#080d14_58%,#020202_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(95,185,150,0.18),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.06),transparent_36%),linear-gradient(180deg,#020202_0%,#080d14_58%,#020202_100%)]"
         initial={{ scale: 1.08, opacity: 0.72 }}
         animate={{ scale: [1.08, 1, 1.03], opacity: [0.72, 1, 0.88] }}
         transition={{ duration: 2.6, ease: [0.16, 1, 0.3, 1] }}

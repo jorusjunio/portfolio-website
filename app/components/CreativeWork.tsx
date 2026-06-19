@@ -39,7 +39,7 @@ export default function CreativeWork() {
       id="creative"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#020409_0%,#020409_84%,#03060b_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
@@ -85,7 +85,7 @@ export default function CreativeWork() {
         <div className="relative">
           <div className="absolute -inset-10 bg-[#5fb996]/8 blur-3xl" />
           <div className="relative overflow-hidden border border-white/10 bg-[#0a1017]/88 p-5 shadow-[0_36px_110px_rgba(0,0,0,0.45)] backdrop-blur sm:p-6">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(95,185,150,0.11),transparent_26%,transparent_72%,rgba(255,255,255,0.06))]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(95,185,150,0.08),transparent_32%,transparent_68%,rgba(255,255,255,0.04))]" />
             <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(95,185,150,0.18)_1px,transparent_1px)] [background-size:42px_42px]" />
 
             <div className="relative aspect-video overflow-hidden border border-white/10 bg-black">
@@ -97,7 +97,7 @@ export default function CreativeWork() {
                 className="object-cover"
                 priority={false}
               />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_35%,rgba(95,185,150,0.2),transparent_32%),linear-gradient(135deg,rgba(0,0,0,0.18),rgba(0,0,0,0.62))]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_35%,rgba(95,185,150,0.16),transparent_40%),linear-gradient(135deg,rgba(0,0,0,0.18),rgba(0,0,0,0.62))]" />
               <div className="absolute inset-x-0 top-0 h-[18%] bg-black/72" />
               <div className="absolute inset-x-0 bottom-0 h-[18%] bg-black/72" />
               <motion.div

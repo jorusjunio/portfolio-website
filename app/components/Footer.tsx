@@ -74,7 +74,7 @@ export default function Footer() {
     <motion.footer
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="overflow-hidden bg-[#010205] px-5 pb-8 pt-20 text-white sm:px-8 lg:px-10 lg:pt-28"
     >
@@ -82,7 +82,7 @@ export default function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
         >
@@ -172,7 +172,7 @@ export default function Footer() {
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.45 }}
+            viewport={{ once: true, amount: 0.45 }}
             transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
             className="select-none whitespace-nowrap text-[clamp(4.2rem,20vw,19rem)] font-black uppercase leading-[0.75] tracking-normal text-white"
           >

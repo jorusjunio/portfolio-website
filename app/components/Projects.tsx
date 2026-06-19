@@ -374,7 +374,7 @@ export default function Projects() {
       id="projects"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-[-3rem] overflow-hidden bg-[linear-gradient(180deg,#05090f_0%,#05090f_84%,#020409_100%)] px-5 py-24 text-white sm:scroll-mt-[-3.25rem] sm:px-8 lg:scroll-mt-[-3.5rem] lg:px-10 lg:py-32"
     >
@@ -388,7 +388,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.35 }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
         >
@@ -413,7 +413,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8 }}
-              viewport={{ once: false, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.25 }}
               transition={{
                 delay: index * 0.08,
                 duration: 0.62,
@@ -525,7 +525,7 @@ export default function Projects() {
 
                   <div className="grid h-full min-w-0 gap-0 overflow-x-hidden lg:grid-cols-[1.48fr_0.82fr]">
                     <div className="min-w-0 border-b border-white/10 bg-[#0b1118] p-4 sm:p-5 lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
-                      <div className="relative min-h-0 flex-1 overflow-hidden border border-[#5fb996]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_30%),linear-gradient(135deg,#050505_0%,#0a1017_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
+                      <div className="relative min-h-0 flex-1 overflow-hidden border border-[#5fb996]/20 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_42%),linear-gradient(135deg,#050505_0%,#0a1017_48%,#050505_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_80px_rgba(0,0,0,0.38)] sm:p-4">
                         <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/45 px-3 py-2">
                           <div className="flex items-center gap-1.5">
                             <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
@@ -742,7 +742,7 @@ export default function Projects() {
                       </button>
 
                       <div
-                        className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#5fb996]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_32%),linear-gradient(135deg,#050505_0%,#0a1017_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
+                        className="relative h-full max-h-[calc(92vh-3rem)] w-full max-w-5xl overflow-hidden border border-[#5fb996]/28 bg-[radial-gradient(circle_at_18%_0%,rgba(95,185,150,0.13),transparent_42%),linear-gradient(135deg,#050505_0%,#0a1017_52%,#050505_100%)] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.08)] sm:p-4"
                         onClick={(event) => event.stopPropagation()}
                       >
                         <div className="mb-3 flex items-center justify-between gap-3 border border-white/10 bg-black/60 px-3 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">

@@ -44,7 +44,7 @@ export default function Hero() {
       variants={heroContainer}
       className="relative isolate flex min-h-screen overflow-hidden bg-[#03060b] px-5 pt-28 text-white sm:px-8 lg:px-10"
     >
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(95,185,150,0.16),transparent_34%),radial-gradient(circle_at_20%_10%,rgba(0,190,255,0.12),transparent_30%),linear-gradient(180deg,#03060b_0%,#05090f_92%,#05090f_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_70%_30%,rgba(95,185,150,0.12),transparent_44%),radial-gradient(circle_at_20%_10%,rgba(0,190,255,0.08),transparent_40%),linear-gradient(180deg,#03060b_0%,#05090f_92%,#05090f_100%)]" />
       <Starfield className="-z-10" />
       <div className="absolute left-0 top-24 -z-10 h-px w-full bg-gradient-to-r from-transparent via-[#5fb996]/40 to-transparent" />
 

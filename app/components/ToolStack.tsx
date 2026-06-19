@@ -75,7 +75,7 @@ export default function ToolStack() {
       id="tools"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_86%,#03060b_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
@@ -87,7 +87,7 @@ export default function ToolStack() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.35 }}
+            viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
@@ -101,7 +101,7 @@ export default function ToolStack() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.35 }}
+            viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
             className="max-w-2xl text-base leading-7 text-[#888888] lg:justify-self-end"
           >
@@ -123,7 +123,7 @@ export default function ToolStack() {
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8, scale: 1.01 }}
                 whileTap={{ scale: 0.985 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   delay: index * 0.07,
                   duration: 0.62,

@@ -33,29 +33,6 @@ body.project-preview-open {
   overscroll-behavior: none;
 }
 
-/* Custom Figma-style arrow cursor (fine-pointer devices only) */
-.cursor-arrow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 120;
-  pointer-events: none;
-  transform-origin: 0 0;
-  will-change: transform;
-  /* Thin white edge so the dark arrow stays visible on the dark site
-     (the reference was shown on a white background). */
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 0 1px rgba(255, 255, 255, 0.8))
-    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
-}
-
-@media (pointer: fine) {
-  body.custom-cursor-active,
-  body.custom-cursor-active * {
-    cursor: none !important;
-  }
-}
-
 a {
   text-decoration: none;
 }

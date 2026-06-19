@@ -29,29 +29,22 @@ export default function Contact() {
   } | null>(null);
 
   useEffect(() => {
-    let previousHash = "";
     let highlightTimeoutId = 0;
 
     const checkContactEmailHash = () => {
-      const currentHash = window.location.hash;
-
-      if (currentHash === "#contact-email" && currentHash !== previousHash) {
+      if (window.location.hash === "#contact-email") {
         window.clearTimeout(highlightTimeoutId);
         setIsEmailHighlighted(true);
         highlightTimeoutId = window.setTimeout(() => {
           setIsEmailHighlighted(false);
         }, 2000);
       }
-
-      previousHash = currentHash;
     };
 
     checkContactEmailHash();
-    const intervalId = window.setInterval(checkContactEmailHash, 120);
     window.addEventListener("hashchange", checkContactEmailHash);
 
     return () => {
-      window.clearInterval(intervalId);
       window.clearTimeout(highlightTimeoutId);
       window.removeEventListener("hashchange", checkContactEmailHash);
     };
@@ -102,7 +95,7 @@ export default function Contact() {
       id="contact"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_84%,#010205_100%)] px-5 py-20 text-white sm:px-6 lg:px-8 lg:py-24"
     >
@@ -113,7 +106,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.35 }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
@@ -172,7 +165,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           className="border border-white/10 bg-[#0a1118] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.16)] transition duration-500 sm:p-6"
         >

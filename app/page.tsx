@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
 import IntroAnimation from "./components/IntroAnimation";
 import Hero from "./components/Hero";
@@ -14,7 +13,6 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-clip bg-[#03060b]">
-      <CustomCursor />
       <SmoothScroll />
       <IntroAnimation />
       <Navbar />

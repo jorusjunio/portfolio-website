@@ -14,12 +14,12 @@ type Side = "left" | "right" | "top" | "bottom";
 
 // [primary, secondary] muted greenish aurora colours per section.
 const variants: Record<Variant, [string, string]> = {
-  emerald: ["rgba(80,200,150,0.26)", "rgba(60,180,160,0.16)"],
-  teal: ["rgba(60,195,170,0.24)", "rgba(95,200,150,0.16)"],
-  mint: ["rgba(125,205,145,0.22)", "rgba(70,195,160,0.16)"],
-  cyan: ["rgba(70,195,175,0.24)", "rgba(100,200,155,0.16)"],
-  violet: ["rgba(75,200,160,0.22)", "rgba(110,205,150,0.16)"],
-  aqua: ["rgba(60,205,175,0.24)", "rgba(95,200,150,0.16)"],
+  emerald: ["rgba(80,200,150,0.20)", "rgba(60,180,160,0.12)"],
+  teal: ["rgba(60,195,170,0.18)", "rgba(95,200,150,0.12)"],
+  mint: ["rgba(125,205,145,0.16)", "rgba(70,195,160,0.12)"],
+  cyan: ["rgba(70,195,175,0.18)", "rgba(100,200,155,0.12)"],
+  violet: ["rgba(75,200,160,0.16)", "rgba(110,205,150,0.12)"],
+  aqua: ["rgba(60,205,175,0.18)", "rgba(95,200,150,0.12)"],
 };
 
 const dirMap: Record<Side, string> = {
@@ -31,9 +31,9 @@ const dirMap: Record<Side, string> = {
 
 // Fade the band along its length so it never hard-clips at a section edge.
 const verticalMask =
-  "linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%)";
+  "linear-gradient(to bottom, transparent 0%, #000 25%, #000 75%, transparent 100%)";
 const horizontalMask =
-  "linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%)";
+  "linear-gradient(to right, transparent 0%, #000 25%, #000 75%, transparent 100%)";
 
 type AuraGlowProps = {
   /** Position + size utility classes, e.g. "left-[-8rem] top-[8%] h-[84%] w-[34rem]". */
@@ -65,7 +65,7 @@ export default function AuraGlow({
   delay = 0,
   duration = 18,
   parallax = 50,
-  blur = "blur-[60px]",
+  blur = "blur-[80px]",
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -113,7 +113,7 @@ export default function AuraGlow({
       <motion.div
         className={`absolute inset-0 ${blur}`}
         style={{
-          background: `linear-gradient(${dir}, ${a} 0%, ${b} 36%, transparent 74%)`,
+          background: `linear-gradient(${dir}, ${a} 0%, ${b} 30%, transparent 68%)`,
         }}
         animate={reduce ? undefined : driftA}
         transition={
@@ -124,8 +124,8 @@ export default function AuraGlow({
       <motion.div
         className={`absolute inset-0 ${blur}`}
         style={{
-          background: `linear-gradient(${dir}, ${b} 0%, transparent 60%)`,
-          opacity: 0.7,
+          background: `linear-gradient(${dir}, ${b} 0%, transparent 52%)`,
+          opacity: 0.6,
         }}
         animate={reduce ? undefined : driftB}
         transition={

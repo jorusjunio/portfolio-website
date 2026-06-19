@@ -35,7 +35,7 @@ export default function Services() {
       id="services"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.18 }}
+      viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
       className="relative isolate scroll-mt-20 overflow-hidden bg-[linear-gradient(180deg,#03060b_0%,#03060b_84%,#05090f_100%)] px-5 py-24 text-white sm:px-8 lg:px-10 lg:py-32"
     >
@@ -46,7 +46,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.35 }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.64, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col justify-between gap-8 border-b border-white/10 pb-12 lg:flex-row lg:items-end"
         >
@@ -73,7 +73,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8 }}
-              viewport={{ once: false, amount: 0.35 }}
+              viewport={{ once: true, amount: 0.35 }}
               transition={{ delay: index * 0.08, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
               className="group border border-white/10 bg-[#0b1118] p-6 transition-colors duration-300 hover:border-[#5fb996]/70 sm:p-8"
             >
