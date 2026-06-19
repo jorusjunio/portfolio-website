@@ -138,6 +138,11 @@ export default function CreativePage() {
         </div>
       </MotionSection>
 
+      {/* Glowing accent divider between the hero and the services grid. */}
+      <div aria-hidden className="relative z-20 -my-px flex justify-center">
+        <div className="h-px w-full max-w-6xl bg-gradient-to-r from-transparent via-[#2ee6a0] to-transparent opacity-80 shadow-[0_0_22px_2px_rgba(46,230,160,0.55)]" />
+      </div>
+
       <MotionSection
         id="creative-services"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#060a10_0%,#0a1017_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
