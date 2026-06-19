@@ -195,7 +195,7 @@ export default function CreativePage() {
 
       <MotionSection
         id="creative-tools"
-        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#0B0B0B_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
         <Starfield className="-z-10" />
         <AuraGlow variant="teal" className="left-[-12rem] bottom-[10%] h-[28rem] w-[28rem]" delay={2} />

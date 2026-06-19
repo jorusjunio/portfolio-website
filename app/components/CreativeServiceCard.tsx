@@ -29,7 +29,7 @@ export default function CreativeServiceCard({
       whileHover={{ y: -8 }}
       viewport={{ once: true, amount: 0.35 }}
       transition={{ delay: index * 0.08, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
-      className="group border border-white/10 bg-[#0D0D0D] p-6 transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
+      className="group border border-white/10 bg-[#0a1017] p-6 transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
     >
       <div className="flex items-center justify-between gap-6">
         <span className="text-sm font-black text-[#5fb996]">{number}</span>
