@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import AuraGlow from "../components/AuraGlow";
 import CreativeNavbar from "../components/CreativeNavbar";
 import Footer from "../components/Footer";
 import IntroAnimation from "../components/IntroAnimation";
 import Reveal from "../components/Reveal";
 import SmoothScroll from "../components/SmoothScroll";
+import Starfield from "../components/Starfield";
 
 export const metadata: Metadata = {
   title: "Creative Work | Jorus",
@@ -91,8 +93,11 @@ export default function CreativePage() {
       <CreativeNavbar />
 
       <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#080d14_0%,#0a1017_76%,#060a10_100%)] px-5 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-28 lg:pt-40">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_24%,rgba(95,185,150,0.16),transparent_30%),radial-gradient(circle_at_12%_70%,rgba(255,255,255,0.055),transparent_24%)]" />
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_24%,rgba(95,185,150,0.16),transparent_30%),radial-gradient(circle_at_12%_70%,rgba(255,255,255,0.055),transparent_24%)]" />
+        <Starfield className="-z-10" />
+        <AuraGlow variant="violet" className="left-[-12rem] top-[14%] h-[28rem] w-[28rem]" />
+        <AuraGlow variant="violet" side="right" className="right-[-14rem] bottom-[8%] h-[30rem] w-[30rem]" delay={2.5} duration={18} />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Creative Work
@@ -111,13 +116,13 @@ export default function CreativePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-black text-black shadow-[0_0_34px_rgba(95,185,150,0.24)] transition hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full bg-[#5fb996] px-7 py-3 text-sm font-black text-black shadow-[0_0_34px_rgba(95,185,150,0.24)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_52px_rgba(46,230,160,0.55)] active:bg-[#13d98f]"
               >
                 Start a Creative Project
               </Link>
               <Link
                 href="/#creative"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-black text-white transition hover:border-[#5fb996] hover:text-[#5fb996]"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-black text-white transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0]/10 hover:text-[#2ee6a0] hover:shadow-[0_0_28px_rgba(46,230,160,0.28)] active:bg-[#2ee6a0]/20"
               >
                 Back to Portfolio
               </Link>
@@ -128,15 +133,17 @@ export default function CreativePage() {
 
       <section
         id="creative-services"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#060a10_0%,#0b1118_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#060a10_0%,#0b1118_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
-        <div className="mx-auto max-w-7xl">
+        <Starfield className="-z-10" />
+        <AuraGlow variant="mint" className="left-[-14rem] top-[16%] h-[28rem] w-[28rem]" delay={1} />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid gap-4 lg:grid-cols-3">
             {creativeServices.map((item, index) => (
               <Reveal
                 key={item.title}
                 delay={index * 0.08}
-                className="group border border-white/10 bg-[#0D0D0D] p-6 transition-colors duration-300 hover:border-[#5fb996]/60 sm:p-8"
+                className="group border border-white/10 bg-[#0D0D0D] p-6 transition duration-300 hover:border-[#2ee6a0]/70 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
               >
                 <p className="text-sm font-black text-[#5fb996]">
                   0{index + 1}
@@ -165,9 +172,11 @@ export default function CreativePage() {
 
       <section
         id="creative-workflow"
-        className="scroll-mt-24 bg-[#0b1118] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[#0b1118] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <Starfield className="-z-10" />
+        <AuraGlow variant="cyan" side="right" className="right-[-14rem] top-[12%] h-[30rem] w-[30rem]" delay={1.5} />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
               Workflow
@@ -182,7 +191,7 @@ export default function CreativePage() {
               <Reveal
                 key={step}
                 delay={index * 0.06}
-                className="grid gap-4 border border-white/10 bg-[#080d14] p-5 sm:grid-cols-[4rem_1fr] sm:items-center sm:p-6"
+                className="grid gap-4 border border-white/10 bg-[#080d14] p-5 transition duration-300 hover:border-[#2ee6a0]/60 hover:shadow-[0_18px_50px_rgba(46,230,160,0.1)] sm:grid-cols-[4rem_1fr] sm:items-center sm:p-6"
               >
                 <span className="text-3xl font-black text-[#5fb996]">
                   0{index + 1}
@@ -196,9 +205,11 @@ export default function CreativePage() {
 
       <section
         id="creative-tools"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#0b1118_0%,#0B0B0B_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#0B0B0B_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
-        <div className="mx-auto max-w-7xl">
+        <Starfield className="-z-10" />
+        <AuraGlow variant="teal" className="left-[-12rem] bottom-[10%] h-[28rem] w-[28rem]" delay={2} />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <Reveal className="flex flex-col justify-between gap-8 border-b border-white/10 pb-10 lg:flex-row lg:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
@@ -219,11 +230,11 @@ export default function CreativePage() {
               <Reveal
                 key={tool.name}
                 delay={index * 0.08}
-                className="group relative overflow-hidden border border-white/10 bg-[#0a1017] p-6 transition-colors duration-300 hover:border-[#5fb996]/55 sm:p-8"
+                className="group relative overflow-hidden border border-white/10 bg-[#0a1017] p-6 transition duration-300 hover:border-[#2ee6a0]/65 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)] sm:p-8"
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(95,185,150,0.12),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(46,230,160,0.16),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative flex items-start justify-between gap-5">
-                  <div className="grid size-16 place-items-center border border-white/10 bg-black/35 transition-colors duration-300 group-hover:border-[#5fb996]/45 group-hover:bg-[#5fb996]/10">
+                  <div className="grid size-16 place-items-center border border-white/10 bg-black/35 transition-colors duration-300 group-hover:border-[#2ee6a0]/60 group-hover:bg-[#2ee6a0]/15">
                     <Image
                       src={tool.logo}
                       alt={`${tool.name} logo`}
@@ -253,9 +264,11 @@ export default function CreativePage() {
 
       <section
         id="creative-formats"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        className="relative isolate scroll-mt-24 overflow-hidden bg-[linear-gradient(180deg,#0b1118_0%,#060a10_100%)] px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
       >
-        <div className="mx-auto max-w-7xl">
+        <Starfield className="-z-10" />
+        <AuraGlow variant="aqua" side="right" className="right-[-12rem] bottom-[8%] h-[28rem] w-[28rem]" delay={2.5} duration={19} />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <Reveal className="flex flex-col justify-between gap-8 border-b border-white/10 pb-10 lg:flex-row lg:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.32em] text-[#5fb996]">
@@ -292,7 +305,7 @@ export default function CreativePage() {
                 <Reveal
                   key={format.label}
                   delay={index * 0.08}
-                  className="border border-white/10 bg-[#0a1017] p-6 transition-colors duration-300 hover:border-[#5fb996]/50"
+                  className="border border-white/10 bg-[#0a1017] p-6 transition duration-300 hover:border-[#2ee6a0]/65 hover:shadow-[0_18px_50px_rgba(46,230,160,0.12)]"
                 >
                   <p className="text-xs font-black uppercase tracking-[0.22em] text-[#5fb996]">
                     {format.label}

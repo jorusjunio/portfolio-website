@@ -151,7 +151,7 @@ export default function CreativeNavbar() {
                 className="group relative inline-flex items-center overflow-hidden rounded-full font-semibold text-white/56 transition-colors duration-300 ease-out hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5fb996]/70"
               >
                 <span className="absolute inset-0 rounded-full bg-white/0 transition duration-300 ease-out group-hover:bg-white/[0.075]" />
-                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#5fb996]/90 to-transparent transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                <span className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-[#2ee6a0] to-transparent shadow-[0_0_10px_rgba(46,230,160,0.7)] transition-transform duration-300 ease-out group-hover:scale-x-100" />
                 <span className="relative">{link.label}</span>
               </MotionAnchor>
             </li>
@@ -161,13 +161,13 @@ export default function CreativeNavbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/#home"
-            className="hidden rounded-full border border-white/12 px-4 py-2 text-sm font-black text-white/72 transition duration-300 hover:border-[#5fb996]/55 hover:text-[#5fb996] sm:inline-flex"
+            className="hidden rounded-full border border-white/12 px-4 py-2 text-sm font-black text-white/72 transition duration-300 hover:border-[#2ee6a0] hover:bg-[#2ee6a0]/10 hover:text-[#2ee6a0] hover:shadow-[0_0_20px_rgba(46,230,160,0.25)] sm:inline-flex"
           >
             Portfolio
           </Link>
           <Link
             href="/#contact"
-            className="inline-flex rounded-full bg-[#5fb996] px-4 py-2 text-xs font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24)] transition duration-300 hover:bg-white sm:px-5 sm:text-sm"
+            className="inline-flex rounded-full bg-[#5fb996] px-4 py-2 text-xs font-black text-black shadow-[0_0_24px_rgba(95,185,150,0.24)] transition duration-300 hover:bg-[#2ee6a0] hover:shadow-[0_0_38px_rgba(46,230,160,0.5)] active:bg-[#13d98f] sm:px-5 sm:text-sm"
           >
             Start Project
           </Link>
