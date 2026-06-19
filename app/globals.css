@@ -74,47 +74,54 @@ textarea {
   }
 }
 
-/* A full-width accent line whose own glow gently flows along its length,
-   softly faded at both ends. */
-.glow-line-flow {
-  background-image: linear-gradient(
-    90deg,
-    rgba(46, 230, 160, 0.22) 0%,
-    rgba(46, 230, 160, 0.85) 25%,
-    rgba(46, 230, 160, 0.22) 50%,
-    rgba(46, 230, 160, 0.85) 75%,
-    rgba(46, 230, 160, 0.22) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 16%,
-    #000 84%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 16%,
-    #000 84%,
-    transparent 100%
-  );
-  filter: drop-shadow(0 0 7px rgba(46, 230, 160, 0.5));
-  animation: glow-line-flow 6s linear infinite;
+/* An accent line that glows brightest on the left and fades out to the right.
+   A brighter pulse travels rightward and dissolves, so the line stays alive
+   without ever fully disappearing. */
+.glow-line-left {
+  background-image:
+    /* travelling pulse */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(200, 255, 230, 0.95) 6%,
+      transparent 16%
+    ),
+    /* base: bright left, fading right */
+    linear-gradient(
+      90deg,
+      rgba(46, 230, 160, 0.9) 0%,
+      rgba(46, 230, 160, 0.45) 30%,
+      rgba(46, 230, 160, 0.12) 55%,
+      transparent 78%
+    );
+  background-size:
+    220% 100%,
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position:
+    0% 0,
+    0 0;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 88%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 88%);
+  filter: drop-shadow(0 0 6px rgba(46, 230, 160, 0.4));
+  animation: glow-line-left 5.5s ease-in-out infinite;
 }
 
-@keyframes glow-line-flow {
+@keyframes glow-line-left {
   0% {
-    background-position: 0% 0;
+    background-position:
+      -40% 0,
+      0 0;
   }
   100% {
-    background-position: -200% 0;
+    background-position:
+      140% 0,
+      0 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .glow-line-flow {
+  .glow-line-left {
     animation: none;
   }
 }

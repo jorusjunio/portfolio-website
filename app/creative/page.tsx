@@ -138,9 +138,10 @@ export default function CreativePage() {
         </div>
       </MotionSection>
 
-      {/* Full-width accent divider whose own glow flows along it, faded at the ends. */}
+      {/* Accent divider: glowing on the left, fading out to the right, with a
+          travelling pulse for subtle life. */}
       <div aria-hidden className="relative z-20 -my-px h-px w-full">
-        <div className="glow-line-flow h-px w-full" />
+        <div className="glow-line-left h-px w-full" />
       </div>
 
       <MotionSection
