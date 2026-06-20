@@ -116,7 +116,10 @@ export default function Starfield({ className = "" }: { className?: string }) {
 
     const build = () => {
       const area = width * height;
-      const count = Math.max(24, Math.min(170, Math.round(area / 12000)));
+      // Lower density + cap: up to 6 Starfields run on the homepage, each with
+      // its own rAF loop, so trimming particle count per field is the cheapest
+      // way to claw back frame budget without losing the galaxy feel.
+      const count = Math.max(18, Math.min(90, Math.round(area / 20000)));
       particles = Array.from({ length: count }, () => {
         const depth = Math.random();
         const glow = Math.random() < 0.05;

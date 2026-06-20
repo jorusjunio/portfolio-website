@@ -62,7 +62,7 @@ export default function AuraGlow({
   delay = 0,
   duration = 18,
   parallax = 50,
-  blur = "blur-[120px]",
+  blur = "blur-[90px]",
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -86,7 +86,10 @@ export default function AuraGlow({
 
   // Very gentle breathe only — no positional drift — so the glow reads as a
   // soft, faded gradient bleeding off the edge rather than a moving band.
-  const breatheA = { opacity: [0.34, 0.52, 0.34], scale: [1, 1.06, 1] };
+  // Opacity-only (no scale): animating `scale` on a 120px-blurred layer forces
+  // the GPU to re-rasterise the huge blurred surface every frame; opacity is a
+  // cheap compositor-only change, so the breathe runs essentially free.
+  const breatheA = { opacity: [0.34, 0.52, 0.34] };
   const breatheB = isVertical
     ? { y: ["-4%", "4%", "-4%"], opacity: [0.22, 0.36, 0.22] }
     : { x: ["-4%", "4%", "-4%"], opacity: [0.22, 0.36, 0.22] };
