@@ -412,7 +412,7 @@ export default function Projects() {
             <motion.article
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -8, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{
                 delay: index * 0.08,

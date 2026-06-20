@@ -121,16 +121,16 @@ export default function ToolStack() {
                 key={stack.title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -8, scale: 1.01 }}
-                whileTap={{ scale: 0.985 }}
+                whileHover={{ y: -8, scale: 1.01, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
+                whileTap={{ scale: 0.985, transition: { duration: 0.12 } }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   delay: index * 0.07,
                   duration: 0.62,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                
-                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0a1017]/86 p-5 shadow-2xl shadow-black/20 backdrop-blur transition duration-300 hover:border-[#2ee6a0]/60 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)]"
+
+                className="group relative flex h-full flex-col justify-between overflow-hidden border border-white/10 bg-[#0a1017]/95 p-5 shadow-2xl shadow-black/20 transition duration-300 hover:border-[#2ee6a0]/60 hover:shadow-[0_22px_60px_rgba(46,230,160,0.12)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(95,185,150,0.11),transparent_38%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5fb996]/0 to-transparent transition-colors duration-500 group-hover:via-[#5fb996]/70" />
