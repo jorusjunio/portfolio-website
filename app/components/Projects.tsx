@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import RevealHeading from "./RevealHeading";
-import Parallax from "./Parallax";
 import AuraGlow from "./AuraGlow";
 import Starfield from "./Starfield";
 
@@ -404,12 +403,8 @@ export default function Projects() {
 
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
-            <Parallax
-              key={project.title}
-              offset={index % 2 === 0 ? 20 : 34}
-              className="h-full"
-            >
             <motion.article
+              key={project.title}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -8, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
@@ -486,7 +481,6 @@ export default function Projects() {
                 </div>
               </div>
             </motion.article>
-            </Parallax>
           ))}
         </div>
       </div>

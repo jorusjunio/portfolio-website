@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Magnetic from "./Magnetic";
-import Parallax from "./Parallax";
 import Starfield from "./Starfield";
 
 const stats = [
@@ -133,7 +132,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <Parallax offset={34}>
         <motion.div
           initial={{ opacity: 1, y: 0, scale: 1 }}
           animate={{ opacity: 1, y: [0, -8, 0], scale: 1 }}
@@ -203,7 +201,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </motion.div>
-        </Parallax>
       </div>
     </motion.section>
   );

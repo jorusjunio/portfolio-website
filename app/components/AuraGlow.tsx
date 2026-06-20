@@ -1,13 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useIsClient } from "./useIsClient";
 
 type Variant = "emerald" | "teal" | "mint" | "cyan" | "violet" | "aqua";
@@ -43,8 +36,6 @@ type AuraGlowProps = {
   delay?: number;
   /** Drift cycle duration in seconds (cinematic = slow). */
   duration?: number;
-  /** Scroll-parallax travel in px. */
-  parallax?: number;
   /** Blur amount utility class. */
   blur?: string;
 };
@@ -61,19 +52,10 @@ export default function AuraGlow({
   side = "left",
   delay = 0,
   duration = 18,
-  parallax = 50,
   blur = "blur-[90px]",
 }: AuraGlowProps) {
   const reduce = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
   const mounted = useIsClient();
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const yRaw = useTransform(scrollYProgress, [0, 1], [parallax, -parallax]);
-  const y = useSpring(yRaw, { stiffness: 80, damping: 30, mass: 0.5 });
 
   const [a, b] = variants[variant];
   const isVertical = side === "left" || side === "right";
@@ -96,13 +78,12 @@ export default function AuraGlow({
 
   return (
     <motion.div
-      ref={ref}
       aria-hidden="true"
       className={`pointer-events-none absolute z-0 ${className}`}
       style={
         disabled
           ? { ...baseStyle, opacity: 0.45 }
-          : { ...baseStyle, y, opacity: 1 }
+          : { ...baseStyle, opacity: 1 }
       }
     >
       {/* Primary soft radial glow — wide, feathered falloff to transparent. */}
